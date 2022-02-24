@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/floor-rocks/rocks-2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/floor-rocks/rocks-3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/floor-rocks/rocks-1.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Rocks-1" type="Sprite" parent="."]
+position = Vector2( 240, 630 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -384 )
+
+[node name="Rocks-2" type="Sprite" parent="."]
+position = Vector2( 766, 694 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -400 )
+
+[node name="Rocks-3" type="Sprite" parent="."]
+position = Vector2( 495, 696 )
+texture = ExtResource( 2 )
+offset = Vector2( 22, -400.06 )
