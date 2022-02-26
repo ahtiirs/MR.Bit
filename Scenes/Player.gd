@@ -29,7 +29,7 @@ func _process(delta):
 	
 
 func update_animation(moveVec):
-	print(moveVec)
+
 	if (moveVec.x == 1 && moveVec.y == 1):
 		$AnimatedSprite.play("vpa")
 	if (moveVec.x == -1 && moveVec.y == 1):
@@ -38,4 +38,6 @@ func update_animation(moveVec):
 		$AnimatedSprite.play("pvy")
 	if (moveVec.x == -1 && moveVec.y == -1):
 		$AnimatedSprite.play("vpy")
+	if (moveVec.x == 0 && moveVec.y == 0):
+		$AnimatedSprite.play("default")
 

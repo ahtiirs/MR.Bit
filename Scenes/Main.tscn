@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameCam.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,14 +27,15 @@ tile_data = PoolIntArray( -589819, 0, 0, -524287, 2, 0, -524284, 0, 0, -458747, 
 mode = 1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 256, 128 )
+cell_y_sort = true
+show_collision = true
 format = 1
-tile_data = PoolIntArray( -131063, 4, 0, -131062, 3, 0, -131061, 3, 0, -65533, 5, 0, -65531, 6, 0, -65530, 1, 0, -65525, 6, 0, 3, 7, 0, 4, 4, 0, 5, 6, 0, 11, 7, 0, 65539, 1, 0, 65541, 5, 0, 65547, 6, 0, 131077, 5, 0, 131083, 5, 0, 196613, 7, 0, 196619, 5, 0, 327685, 7, 0, 327686, 4, 0, 327687, 4, 0, 327688, 2, 0, 327689, 2, 0, 327690, 3, 0, 327691, 1, 0 )
+tile_data = PoolIntArray( -131063, 4, 0, -131062, 3, 0, -131061, 3, 0, -65533, 5, 0, -65531, 6, 0, -65530, 1, 0, -65525, 6, 0, 3, 7, 0, 4, 4, 0, 5, 6, 0, 8, 0, 0, 11, 7, 0, 65539, 1, 0, 65541, 5, 0, 65547, 6, 0, 131077, 5, 0, 131083, 5, 0, 196613, 7, 0, 196619, 5, 0, 327685, 7, 0, 327686, 4, 0, 327687, 4, 0, 327688, 2, 0, 327689, 2, 0, 327690, 3, 0, 327691, 1, 0 )
 
-[node name="OldQuard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 766, 534 )
+[node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1021, 622 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 227, 387 )
+[node name="Player" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 658, 470 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 706, 613 )
+[node name="GameCam" parent="." instance=ExtResource( 6 )]
