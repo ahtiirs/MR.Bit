@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 240
+const maxSpeed = 8
 const friction = 20
 var acceleration = 2000
 var motion = Vector2.ZERO
@@ -30,7 +30,12 @@ func _process(delta):
 
 	#motion = motion.abs() * motion.normalized() 
 #	print(motion)
-	motion = move_and_slide(motion, Vector2.UP)
+#	motion = move_and_slide(motion, Vector2.UP)
+#	if collision:
+#	   print("kokkupõrge")
+	var collision = move_and_collide(motion )
+	if collision:
+		$collision.play()
 	
 	update_animation(moveVector)
 	
