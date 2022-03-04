@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 160
+const maxSpeed = 240
 const friction = 20
 var acceleration = 2000
 var motion = Vector2.ZERO
@@ -19,25 +19,37 @@ func _process(delta):
 	if (moveVector.x == 0):
 		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))	
 
-	#motion = motion.normalized() * MOTION_SPEED
+
 	if (moveVector.y == 0):
-		motion.y = lerp(0,motion.y, pow(2,  -10 * delta))
+		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
+
+
+	#motion = motion.abs() * motion.normalized() 
+	print(motion)
 	motion = move_and_slide(motion, Vector2.UP)
+	
 	update_animation(moveVector)
 	
 
 func update_animation(moveVec):
 
-	if (moveVec.x == 1 && moveVec.y == 1):
-		$AnimatedSprite.play("vpa")
-	if (moveVec.x == -1 && moveVec.y == 1):
-		$AnimatedSprite.play("pva")
-	if (moveVec.x == 1 && moveVec.y == -1):
-		$AnimatedSprite.play("pvy")
-	if (moveVec.x == -1 && moveVec.y == -1):
-		$AnimatedSprite.play("vpy")
+	if (moveVec.x < 0 && moveVec.y > 0):
+		$AnimatedSprite.play("1")
+	if (moveVec.x == 0 && moveVec.y > 0 ):
+		$AnimatedSprite.play("2")
+	if (moveVec.x > 0 && moveVec.y  > 0):
+		$AnimatedSprite.play("3")		
+	if (moveVec.x > 0 && moveVec.y == 0):
+		$AnimatedSprite.play("4")			
+	if (moveVec.x  > 0&& moveVec.y < 0):
+		$AnimatedSprite.play("5")
+	if (moveVec.x == 0 && moveVec.y < 0):
+		$AnimatedSprite.play("6")		
+	if (moveVec.x < 0 && moveVec.y < 0):
+		$AnimatedSprite.play("7")
+	if (moveVec.x < 0 && moveVec.y == 0):
+		$AnimatedSprite.play("8")		
 	if (moveVec.x == 0 && moveVec.y == 0):
-		$AnimatedSprite.play("default")
-
+		$AnimatedSprite.play("idle")
