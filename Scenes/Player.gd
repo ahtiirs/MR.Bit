@@ -6,6 +6,9 @@ const friction = 20
 var acceleration = 2000
 var motion = Vector2.ZERO
 var screencount = 0
+var soundCheck = 0;
+var checkPosX = round(int(global_transform.origin[0]))
+var checkPosY = round(int(global_transform.origin[1]))
 
 func _process(delta):
 	var moveVector = Vector2.ZERO
@@ -28,15 +31,25 @@ func _process(delta):
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 
 
-	#motion = motion.abs() * motion.normalized() 
-#	print(motion)
-#	motion = move_and_slide(motion, Vector2.UP)
-#	if collision:
-#	   print("kokkupõrge")
+
 	var collision = move_and_collide(motion )
-	if collision:
-		$collision.play()
+	if (soundCheck != 1):
+		if (collision && !$collision.playing && soundCheck != 1 && checkPosX != round(int(global_transform.origin[0]))&& checkPosX != round(int(global_transform.origin[1]))):
+			$collision.play()
+			checkPosX = round(int(global_transform.origin[0]))
+			checkPosY = round(int(global_transform.origin[1]))
+			soundCheck += 1
+		
+	if (soundCheck > 1 ):
+		$collision.stop()
 	
+	if ((abs(int(motion.x)) != 0 || abs(int(motion.y)) != -0) ):
+		soundCheck = 0
+
+
+		
+	
+		
 	update_animation(moveVector)
 	
 
