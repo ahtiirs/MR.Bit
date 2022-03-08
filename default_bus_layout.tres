@@ -1,4 +1,15 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectChorus" id=2]
+resource_name = "Chorus"
+voice_count = 3
+voice/2/delay_ms = 23.78
+voice/3/delay_ms = 8.69
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = -0.29
 
 [resource]
 bus/0/volume_db = 3.44248
@@ -14,6 +25,8 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 5.02899
 bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 2 )
+bus/2/effect/0/enabled = true
 bus/3/name = "Back"
 bus/3/solo = false
 bus/3/mute = false
