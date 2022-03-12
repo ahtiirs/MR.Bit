@@ -2,10 +2,26 @@ extends KinematicBody2D
 
 const MOTION_SPEED = 260# Pixels/second.
 const maxSpeed = 8
-const friction = 20
-var acceleration = 2000
-var motion = Vector2.ZERO
-var collided = false
+const friction = 20 
+var acceleration = 2000 # mängija kiirendus ja pidurdus
+var motion = Vector2.ZERO 
+var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
+var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
+var  FOV = 90 # vaenlase vaatenurk
+
+onready var EnemyToPlayer = global_position
+
+onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
+
+
+
+
+
+
+
+
+
+
 
 
 func _ready():
@@ -13,6 +29,10 @@ func _ready():
 
 
 func _process(delta):
+	EnemyToPlayer = global_position - get_parent().get_node("OldQuard").get_position()
+
+
+	
 	var moveVector = Vector2.ZERO
 	moveVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
@@ -24,7 +44,7 @@ func _process(delta):
 	#motion.x += moveVector.x * acceleration * delta 
 	motion += moveVector * acceleration * delta 
 	if (moveVector.x == 0):
-		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))	
+		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
 
 
 	if (moveVector.y == 0):
@@ -33,6 +53,12 @@ func _process(delta):
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 
 
+	if EnemyToPlayer.length() < MaxDistance:
+			print (EnemyToPlayer)
+			print (EnemyToPlayer.dot(motion))
+			print("appi ta nägi mind")
+	
+	
 
 	var collision = move_and_collide(motion )
 
