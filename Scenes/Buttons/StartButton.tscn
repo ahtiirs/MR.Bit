@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="StartButton" type="Button"]
+margin_right = 41.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Start"
+__meta__ = {
+"_edit_group_": true
+}

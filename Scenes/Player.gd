@@ -8,7 +8,8 @@ var motion = Vector2.ZERO
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
 var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
-
+var moveVector = Vector2.ZERO
+	
 onready var EnemyToPlayer = global_position
 
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
@@ -33,7 +34,7 @@ func _process(delta):
 
 
 	
-	var moveVector = Vector2.ZERO
+
 	moveVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	moveVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -53,10 +54,10 @@ func _process(delta):
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 
 
-	if EnemyToPlayer.length() < MaxDistance:
-			print (EnemyToPlayer)
-			print (EnemyToPlayer.dot(motion))
-			print("appi ta nägi mind")
+#	if EnemyToPlayer.length() < MaxDistance:
+#			print (EnemyToPlayer)
+#			print (EnemyToPlayer.dot(motion))
+#			print("Mind nähti, jookseni!!!")
 	
 	
 
