@@ -1,5 +1,20 @@
 extends KinematicBody2D
 
+const MOTION_SPEED = 260# Pixels/second.
+const maxSpeed = 8
+const friction = 20 
+var acceleration = 2000 # mängija kiirendus ja pidurdus
+var motion = Vector2.ZERO 
+var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
+var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
+var  FOV = 90 # vaenlase vaatenurk
+var moveVector = Vector2.ZERO
+	
+onready var EnemyToPlayer = global_position
+
+onready var EnemyPosition = get_parent().get_node("Player").get_position()
+var timer = 0
+var tryTime = 0
 
 enum {
 	IDLE,
@@ -7,76 +22,67 @@ enum {
 	CHASE
 }
 
-var velocity = Vector2.ZERO
-var state = WANDER
-var MaxDistance = 700
 
 
-const ACCELERATION = 500
-const MAX_SPEED = 450
-const TOLERANCE = 40.0
-
-onready var start_position = global_position
-onready var target_position = global_position
+func _ready():
+	pass
 
 func update_target_position():
-	var target_vector = Vector2(rand_range(-400, 400), rand_range(-400, 400))
-	target_position = global_position + target_vector
-	print ("Uus suvaline target", target_position )
-	state = WANDER
-	
-#	print(target_position)
+	if timer <= 0 || collided == true && tryTime <= 0:
+		timer = (randi() % 3) 
+		moveVector = Vector2((randi() % 4) - 2, (randi() % 4) - 2)
+		collided = false
 
-func is_at_target_position(): 
-	# Stop moving when at target +/- tolerance
-	return (target_position - global_position).length() < TOLERANCE
 
-func _physics_process(delta):
-	print("state->", state)
-	
-	var	EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
-	if EnemyToPlayer.length() < MaxDistance:
-#		print (EnemyToPlayer)
-		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position())
-		if !result.has("collider"):
-			print(result, " Näen SIND!!! Nu Pogodi!")
-			target_position = get_parent().get_node("Player").get_position()
-			state = CHASE 
-		else:
-			state = WANDER
+
+
+func _process(delta):
+	if timer > 0:
+		timer -= delta	
+	if tryTime > 0:
+		tryTime -= delta	
 		
-#	print("staatus: ",state)
-	match state:
-		IDLE:
-			# Maybe wait for X seconds with a timer before moving on
-			print ("Olen IDLE", target_position )
-			update_target_position()
-
-		WANDER:
-			accelerate_to_point(target_position, ACCELERATION * delta)
-			if is_at_target_position():
-				print ("Lähen IDLE", target_position )
-				state = IDLE
-				
-		CHASE:
-			print ("Ajan taga", target_position )
-			accelerate_to_point(target_position, ACCELERATION * delta)
-
-
-	velocity = move_and_slide(velocity)
-	update_animation(velocity)
-
-func accelerate_to_point(point, acceleration_scalar):
-	var direction = (point - global_position).normalized()
-	var acceleration_vector = direction * acceleration_scalar
-	accelerate(acceleration_vector)
-
-func accelerate(acceleration_vector):
-	velocity += acceleration_vector
-	velocity = velocity.clamped(MAX_SPEED)
+		
 	
+	EnemyToPlayer = global_position - EnemyPosition
+
+	motion += moveVector * acceleration * delta 
+
+	if (moveVector.x == 0):
+		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
+	if (moveVector.y == 0):
+		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
+	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
+	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
+
+
+	var collision = move_and_collide(motion)
+
+
+	print(collision)
+	print(collided)
+	
+	
+	if collision :
+#		if collision.Object != null :
+#			if collided == false:
+			print("vastu seina")
+			update_target_position()
+			collided = true
+			tryTime=0.1
+#	else:
+#		collided = false
+				
+	
+	update_target_position()		
+	update_animation(moveVector)
+	
+
+	
+
+
 func update_animation(moveVec):
+
 	print ("valvur ",moveVec)
 	if (moveVec.x < 0 && moveVec.y > 0):
 		$AnimatedSprite.play("1")
@@ -96,4 +102,4 @@ func update_animation(moveVec):
 		$AnimatedSprite.play("8")		
 	if (moveVec.x == 0 && moveVec.y == 0):
 		$AnimatedSprite.play("idle")
-
+		
