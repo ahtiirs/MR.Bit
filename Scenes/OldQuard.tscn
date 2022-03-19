@@ -47,6 +47,21 @@ animations = [ {
 "name": "4",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "7",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "6",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "1",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "5",
@@ -57,24 +72,9 @@ animations = [ {
 "name": "3",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "1",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "2",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "7",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "6",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
@@ -106,3 +106,10 @@ autoplay = true
 max_distance = 1500.0
 attenuation = 1.46409
 bus = "Back"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -3, -2 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 500, 0 )
+collide_with_areas = true

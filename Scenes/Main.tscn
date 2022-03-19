@@ -34,11 +34,11 @@ tile_data = PoolIntArray( -2949147, 4, 0, -2949146, 4, 0, -2949145, 4, 0, -29491
 script = ExtResource( 7 )
 
 [node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1502, -41 )
+position = Vector2( 2919, -914 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 2344, -333 )
+position = Vector2( 1545, -1240 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="walls/Player"]

@@ -29,18 +29,29 @@ func _ready():
 
 func update_target_position():
 	if timer <= 0 || collided == true && tryTime <= 0:
-		timer = (randi() % 3) 
+		timer = (randi() % 8) 
 		moveVector = Vector2((randi() % 4) - 2, (randi() % 4) - 2)
+#		checkForCollision(moveVector*250)
+		while checkForCollision(moveVector*250):
+			moveVector = Vector2((randi() % 4) - 2, (randi() % 4) - 2)
+			print("vaatevektor ",moveVector*500)
 		collided = false
 
 
-
+func checkForCollision(position):
+	get_node("RayCast2D").position = Vector2(0,0)
+	get_node("RayCast2D").cast_to = position# sets the length of the ray to 0
+	get_node("RayCast2D").force_raycast_update()
+	print("Raycast...",$RayCast2D.is_colliding())
+	print("Raycast...", $RayCast2D.get_collider ())
+	return $RayCast2D.is_colliding()
+	
 
 func _process(delta):
 	if timer > 0:
-		timer -= delta	
+		timer -= delta
 	if tryTime > 0:
-		tryTime -= delta	
+		tryTime -= delta
 		
 		
 	
@@ -59,23 +70,24 @@ func _process(delta):
 	var collision = move_and_collide(motion)
 
 
-	print(collision)
-	print(collided)
+#	print(collision)
+#	print(collided)
 	
 	
 	if collision :
 #		if collision.Object != null :
 #			if collided == false:
-			print("vastu seina")
+#			print("vastu seina")
 			update_target_position()
 			collided = true
-			tryTime=0.1
+			tryTime=0.0
 #	else:
 #		collided = false
 				
 	
 	update_target_position()		
 	update_animation(moveVector)
+
 	
 
 	
@@ -83,7 +95,7 @@ func _process(delta):
 
 func update_animation(moveVec):
 
-	print ("valvur ",moveVec)
+#	print ("valvur ",moveVec)
 	if (moveVec.x < 0 && moveVec.y > 0):
 		$AnimatedSprite.play("1")
 	if (moveVec.x == 0 && moveVec.y > 0 ):

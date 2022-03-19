@@ -10,28 +10,28 @@
 [ext_resource path="res://Assets/walls/to-right.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 82.5, 223.5, 125.5, 190.5, 158.5, 217.5, 124.5, 247.5 )
+points = PoolVector2Array( 88.5, 237.5, 125.5, 217.5, 159.5, 228.5, 124.5, 247.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 31.5, 255.5, 131.5, 305.5, 213.5, 261.5, 255.5, 307.5, 123.5, 376.5, 0, 307.5 )
+points = PoolVector2Array( 39.5, 290.5, 125.5, 336.5, 213.5, 285.5, 255.5, 307.5, 123.5, 376.5, 0, 307.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 58.5, 251.5, 215.5, 347.5, 152.5, 377.5, 22.5, 303.5 )
+points = PoolVector2Array( 70.5, 301.5, 205.5, 367.5, 149.5, 384, 21.5, 316.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 33.5, 254.5, 172.5, 345.5, 136.5, 375.5, 6.5, 309.5 )
+points = PoolVector2Array( 46.5, 293.5, 167.5, 350.5, 126.5, 371.5, 3.5, 314.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0.5, 300.5, 39.5, 254.5, 170.5, 346.5, 128.5, 374.5 )
+points = PoolVector2Array( 0.5, 300.5, 42.5, 274.5, 170.5, 346.5, 128.5, 374.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 203.5, 277.5, 236.5, 319.5, 133.5, 370.5, 76.5, 381.5, 17.5, 361.5 )
+points = PoolVector2Array( 181.5, 305.5, 224.5, 325.5, 133.5, 370.5, 66.5, 384, 39.5, 365.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 205.5, 135.5, 256, 180.5, 119.5, 244.5, 72.5, 223.5 )
+points = PoolVector2Array( 217.5, 168.5, 256, 180.5, 119.5, 244.5, 83.5, 232.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 209.5, 265.5, 256, 307.5, 120.5, 377.5, 72.5, 354.5 )
+points = PoolVector2Array( 214.5, 294.5, 256, 307.5, 120.5, 377.5, 76.5, 365.5 )
 
 [resource]
 0/name = "corner-back.png 0"
