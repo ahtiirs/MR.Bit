@@ -9,6 +9,9 @@ var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus o
 var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
 var moveVector = Vector2.ZERO
+var newVector = 0
+
+
 	
 onready var EnemyToPlayer = global_position
 
@@ -30,7 +33,9 @@ func _ready():
 func update_target_position():
 	if timer <= 0 || collided == true && tryTime <= 0:
 		timer = (randi() % 8) 
-		moveVector = Vector2((randi() % 4) - 2, (randi() % 4) - 2)
+		newVector = randi() % 8
+		moveVector = Vector2((randi() % 100) - 100, (randi() % 100) - 100)
+	
 #		checkForCollision(moveVector*250)
 		while checkForCollision(moveVector*250):
 			moveVector = Vector2((randi() % 4) - 2, (randi() % 4) - 2)
