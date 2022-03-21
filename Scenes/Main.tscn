@@ -1,14 +1,40 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TitileScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 1, 0 )
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_left = 247.0
+margin_top = -352.0
+margin_right = 547.0
+margin_bottom = -247.0
+rect_min_size = Vector2( 300, 105 )
+
+[node name="Label2" type="Label" parent="ConfirmationDialog"]
+anchor_right = 0.862
+anchor_bottom = 1.531
+margin_left = 102.0
+margin_top = 135.0
+margin_right = 448.086
+margin_bottom = 168.094
+size_flags_horizontal = 13
+text = "See on teade!"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="." instance=ExtResource( 6 )]
+margin_right = 51.0
+margin_bottom = 35.0
 
 [node name="floor" type="TileMap" parent="."]
 mode = 1
@@ -38,7 +64,7 @@ position = Vector2( 2919, -914 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 1545, -1240 )
+position = Vector2( 558, 142 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="walls/Player"]

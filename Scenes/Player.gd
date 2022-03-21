@@ -44,6 +44,8 @@ func _process(delta):
 			if collided == false:
 				$collision.play()
 				collided = true
+				PopupDialog
+				ConfirmationDialog
 	else:
 		collided = false
 
