@@ -31,7 +31,6 @@ TitileScreen="*res://Scenes/TitileScreen.tscn"
 [display]
 
 window/size/height=768
-window/size/resizable=false
 
 [gdnative]
 
