@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 5
+const MOTION_SPEED = 360# Pixels/second.
+const maxSpeed = 4
 const friction = 20 
-var acceleration = 2000 # mängija kiirendus ja pidurdus
+var acceleration = 100 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
 var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
@@ -121,6 +121,7 @@ func _process(delta):
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 #	motion = Vector2(0,0)
+#	motion = motion.normalized()
 
 	var collision = move_and_collide(motion)
 

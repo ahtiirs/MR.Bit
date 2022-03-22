@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 8
+const maxSpeed = 7
 const friction = 20 
 var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
@@ -23,6 +23,8 @@ func _process(delta):
 	moveVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	motion += moveVector * acceleration * delta 
+#	motion = motion.normalized()
+
 	if (moveVector.x == 0):
 		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
 
@@ -31,12 +33,12 @@ func _process(delta):
 
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
-
+	
 #	if EnemyToPlayer.length() < MaxDistance:
 #			print (EnemyToPlayer)
 #			print (EnemyToPlayer.dot(motion))
 #			print("Mind nähti, jookseni!!!")
-
+	
 	var collision = move_and_collide(motion )
 
 	if collision :
@@ -48,7 +50,8 @@ func _process(delta):
 				ConfirmationDialog
 	else:
 		collided = false
-
+#	moveVector.y = moveVector.y * 1.3
+#	moveVector.x = moveVector.x / 1.3
 	update_animation(moveVector)
 
 func update_animation(moveVec):
