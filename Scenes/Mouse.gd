@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 8
+const MOTION_SPEED = 360# Pixels/second.
+const maxSpeed = 10
 const friction = 20 
 var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 

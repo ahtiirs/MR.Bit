@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -7,6 +7,91 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/TitileScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
+[ext_resource path="res://Assets/mouse/rott-1-0002.png" type="Texture" id=8]
+[ext_resource path="res://Assets/mouse/rott-2-0000.png" type="Texture" id=9]
+[ext_resource path="res://Assets/mouse/rott-2-0001.png" type="Texture" id=10]
+[ext_resource path="res://Assets/mouse/rott-2-0002.png" type="Texture" id=11]
+[ext_resource path="res://Assets/mouse/rott-1-0000.png" type="Texture" id=12]
+[ext_resource path="res://Assets/mouse/rott-2-0003.png" type="Texture" id=13]
+[ext_resource path="res://Assets/mouse/rott-3-0000.png" type="Texture" id=14]
+[ext_resource path="res://Assets/mouse/rott-3-0002.png" type="Texture" id=15]
+[ext_resource path="res://Assets/mouse/rott-3-0003.png" type="Texture" id=16]
+[ext_resource path="res://Assets/mouse/rott-1-0001.png" type="Texture" id=17]
+[ext_resource path="res://Assets/mouse/rott-4-0001.png" type="Texture" id=18]
+[ext_resource path="res://Assets/mouse/rott-3-0001.png" type="Texture" id=19]
+[ext_resource path="res://Assets/mouse/rott-4-0000.png" type="Texture" id=20]
+[ext_resource path="res://Assets/mouse/rott-1-0003.png" type="Texture" id=21]
+[ext_resource path="res://Assets/mouse/rott-4-0002.png" type="Texture" id=22]
+[ext_resource path="res://Assets/mouse/rott-6-0003.png" type="Texture" id=23]
+[ext_resource path="res://Assets/mouse/rott-7-0000.png" type="Texture" id=24]
+[ext_resource path="res://Assets/mouse/rott-6-0001.png" type="Texture" id=25]
+[ext_resource path="res://Assets/mouse/rott-7-0003.png" type="Texture" id=26]
+[ext_resource path="res://Assets/mouse/rott-8-0002.png" type="Texture" id=27]
+[ext_resource path="res://Assets/mouse/rott-7-0001.png" type="Texture" id=28]
+[ext_resource path="res://Assets/mouse/rott-8-0001.png" type="Texture" id=29]
+[ext_resource path="res://Assets/mouse/rott-6-0002.png" type="Texture" id=30]
+[ext_resource path="res://Assets/mouse/rott-8-0003.png" type="Texture" id=31]
+[ext_resource path="res://Assets/mouse/rott-8-0000.png" type="Texture" id=32]
+[ext_resource path="res://Assets/mouse/rott-7-0002.png" type="Texture" id=33]
+[ext_resource path="res://Assets/mouse/rott-5-0001.png" type="Texture" id=34]
+[ext_resource path="res://Assets/mouse/rott-5-0002.png" type="Texture" id=35]
+[ext_resource path="res://Assets/mouse/rott-5-0003.png" type="Texture" id=36]
+[ext_resource path="res://Assets/mouse/rott-6-0000.png" type="Texture" id=37]
+[ext_resource path="res://Assets/mouse/rott-4-0003.png" type="Texture" id=38]
+[ext_resource path="res://Assets/mouse/rott-5-0000.png" type="Texture" id=39]
+[ext_resource path="res://Scenes/Mouse.gd" type="Script" id=40]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "8",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "3",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "6",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "5",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "2",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "7",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "4",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 29.0
+height = 12.0
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -21,10 +106,10 @@ rect_min_size = Vector2( 300, 105 )
 [node name="Label2" type="Label" parent="ConfirmationDialog"]
 anchor_right = 0.862
 anchor_bottom = 1.531
-margin_left = 102.0
-margin_top = 135.0
-margin_right = 448.086
-margin_bottom = 168.094
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 33.4
+margin_bottom = -91.755
 size_flags_horizontal = 13
 text = "See on teade!"
 uppercase = true
@@ -76,3 +161,18 @@ zoom = Vector2( 2, 2 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+
+[node name="Mouse" type="KinematicBody2D" parent="walls"]
+script = ExtResource( 40 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="walls/Mouse"]
+position = Vector2( -156, 138 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 1 )
+animation = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/Mouse"]
+position = Vector2( -188, 162 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="walls/Mouse"]
