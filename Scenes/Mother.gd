@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 460# Pixels/second.
-const maxSpeed = 8
+const MOTION_SPEED = 560# Pixels/second.
+const maxSpeed = 12
 const friction = 20 
-var acceleration = 100 # mängija kiirendus ja pidurdus
+var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
 var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
+var time_start = 0
+var time_now = 0
 
 var moves = {
 	1 : Vector2(-1,1),
@@ -58,11 +60,11 @@ func update_target_position():
 		moveVector = moves[newVector]
 	
 		for i in range(1, 9):
-			print("Accessing item at index " + str(i))
-			print(moves[i])
+#			print("Accessing item at index " + str(i))
+#			print(moves[i])
 			var freeWay = checkForCollision(moves[i]*500) - global_position
 			freeDistance.append(freeWay)
-			print("kaugus ",freeWay)
+#			print("kaugus ",freeWay)
 #			print(checkForCollision(moves[i]*500))
 			i+=1
 	
@@ -96,8 +98,8 @@ func checkForCollision(position):
 	get_node("RayCast2D").cast_to = position# sets the length of the ray to 0
 	get_node("RayCast2D").add_exception(self)
 	get_node("RayCast2D").force_raycast_update()
-	print("Raycast...",$RayCast2D.is_colliding())
-	print("Raycast...", $RayCast2D.get_collider ())
+#	print("Raycast...",$RayCast2D.is_colliding())
+#	print("Raycast...", $RayCast2D.get_collider ())
 	$RayCast2D.get_collision_point()
 	return $RayCast2D.get_collision_point ()
 	
@@ -108,6 +110,9 @@ func _process(delta):
 	if tryTime > 0:
 		tryTime -= delta
 		
+	time_now = OS.get_unix_time()
+	var time_elapsed = time_now - time_start
+#	print(time_elapsed)
 		
 	
 	EnemyToPlayer = global_position - EnemyPosition
@@ -121,7 +126,6 @@ func _process(delta):
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 #	motion = Vector2(0,0)
-#	motion = motion.normalized()
 
 	var collision = move_and_collide(motion)
 

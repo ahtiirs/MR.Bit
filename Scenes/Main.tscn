@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mouse.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/mixing-desk/music/mixing_desk_music.gd" type="Script" id=11]
+[ext_resource path="res://addons/mixing-desk/music/song.gd" type="Script" id=12]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -90,3 +92,10 @@ position = Vector2( 2732, -3155 )
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 position = Vector2( 432, -159 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="MixingDeskMusic" type="Node" parent="walls"]
+script = ExtResource( 11 )
+play_mode = 4
+
+[node name="Song" type="Node" parent="walls/MixingDeskMusic"]
+script = ExtResource( 12 )
