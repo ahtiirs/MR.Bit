@@ -29,10 +29,10 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -369.0
-margin_top = 252.0
-margin_right = -113.0
-margin_bottom = 764.0
+margin_left = -257.0
+margin_top = 264.0
+margin_right = -1.00006
+margin_bottom = 776.0
 rect_rotation = -4.4
 texture = ExtResource( 4 )
 __meta__ = {
@@ -51,18 +51,29 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 63.0
-margin_bottom = 68.0
+margin_right = 150.0
+margin_bottom = 128.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 150.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 40 )
 script = ExtResource( 6 )
 
 [node name="OptionsButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 44.0
+margin_right = 150.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 150, 40 )
 
 [node name="QuitButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 88.0
+margin_right = 150.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 150, 40 )
 script = ExtResource( 7 )
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/StartButton" to="HBoxContainer/VBoxContainer/StartButton" method="_on_StartButton_pressed"]
