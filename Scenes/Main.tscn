@@ -1,45 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/TitileScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
 [ext_resource path="res://Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mouse.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=10]
-[ext_resource path="res://addons/mixing-desk/music/mixing_desk_music.gd" type="Script" id=11]
-[ext_resource path="res://addons/mixing-desk/music/song.gd" type="Script" id=12]
+[ext_resource path="res://Assets/muusika/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3" type="AudioStream" id=11]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 1, 0 )
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-margin_left = 247.0
-margin_top = -352.0
-margin_right = 547.0
-margin_bottom = -247.0
-rect_min_size = Vector2( 300, 105 )
-
-[node name="Label2" type="Label" parent="ConfirmationDialog"]
-anchor_right = 0.862
-anchor_bottom = 1.531
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 33.4
-margin_bottom = -91.755
-size_flags_horizontal = 13
-text = "See on teade!"
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" parent="." instance=ExtResource( 6 )]
-margin_right = 51.0
-margin_bottom = 35.0
 
 [node name="floor" type="TileMap" parent="."]
 mode = 1
@@ -70,7 +43,7 @@ position = Vector2( 2919, -914 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 558, 142 )
+position = Vector2( 797, 125 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="walls/Player"]
@@ -85,17 +58,18 @@ smoothing_enabled = true
 
 [node name="Mouse" parent="walls" instance=ExtResource( 9 )]
 visible = true
+position = Vector2( 1492, 387 )
 
 [node name="Brain" parent="walls" instance=ExtResource( 10 )]
 position = Vector2( 2732, -3155 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
-position = Vector2( 432, -159 )
+position = Vector2( 1102, 183 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="MixingDeskMusic" type="Node" parent="walls"]
-script = ExtResource( 11 )
-play_mode = 4
-
-[node name="Song" type="Node" parent="walls/MixingDeskMusic"]
-script = ExtResource( 12 )
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1710, -2295 )
+stream = ExtResource( 11 )
+autoplay = true
+max_distance = 4000.0
+attenuation = 2.82843

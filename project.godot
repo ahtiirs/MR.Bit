@@ -21,12 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="MrBit"
-run/main_scene="res://Scenes/TitileScreen.tscn"
+run/main_scene="res://Scenes/Start_menu.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-TitileScreen="*res://Scenes/TitileScreen.tscn"
 
 [display]
 

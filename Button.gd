@@ -14,6 +14,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _on_QuitButton_pressed():
-	print("väljume")
+
+
+func _on_Button_pressed():
+	print("peaks hakkama mänguga pihta")
+	get_tree().change_scene("res://Scenes/Main.tscn")
+	pass # Replace with function body.
+
+
+func _on_Button3_pressed():
 	get_tree().quit()
+	pass # Replace with function body.

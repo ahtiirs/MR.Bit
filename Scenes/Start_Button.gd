@@ -10,16 +10,13 @@ extends Button
 func _ready():
 	pass # Replace with function body.
 
-func _on_Button_pressed():
-	TitileScreen.goto_scene("res://Scenes/Main.tscn")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
-func _on_StartButton_pressed():
-	print("peaks hakkama mänguga pihta")
-	get_tree().change_scene("res://Scenes/Main.tscn")
+
+func _on_Start_Button_pressed():
+	print("asxasoxkpsaok")
 	pass # Replace with function body.
-
-
