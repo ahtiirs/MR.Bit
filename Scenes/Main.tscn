@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/muusika/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/NorthBrige.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "aju-purgis.png 0"
@@ -50,7 +51,6 @@ tile_data = PoolIntArray( -2752515, 0, 0, -2818048, 0, 0, -2686986, 0, 0, -25559
 scale = Vector2( 0.2, 0.2 )
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( 1114089, 0, 0 )
 
 [node name="walls" type="TileMap" parent="."]
 position = Vector2( -16, 39 )
@@ -99,3 +99,5 @@ max_distance = 4000.0
 attenuation = 2.82843
 
 [node name="GUI" parent="." instance=ExtResource( 12 )]
+
+[node name="NorthBrige" parent="." instance=ExtResource( 13 )]
