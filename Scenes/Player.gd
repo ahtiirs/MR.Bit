@@ -42,12 +42,14 @@ func _process(delta):
 	var collision = move_and_collide(motion )
 
 	if collision :
+		print(collision.collider.name)
+
+			
 		if collision.collider.name == "walls":
 			if collided == false:
 				$collision.play()
 				collided = true
-				PopupDialog
-				ConfirmationDialog
+
 	else:
 		collided = false
 #	moveVector.y = moveVector.y * 1.3
