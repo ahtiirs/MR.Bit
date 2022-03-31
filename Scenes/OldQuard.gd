@@ -1,16 +1,18 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 260# Pixels/second.
-const maxSpeed = 4
+const MOTION_SPEED = 200# Pixels/second.
+const maxSpeed = 2
 const friction = 20 
 var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
+var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
-var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
+var MaxDistance = 900 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
 var time_now = 0
+var quick = 1.0
 
 var moves = {
 	1 : Vector2(-1,1),
@@ -24,6 +26,8 @@ var moves = {
 	9 : Vector2(0,0)
 }
 var moveVector = Vector2(1,1)
+var target_vector = Vector2.ZERO 
+
 var newVector = 0
 var rng = RandomNumberGenerator.new()
 
@@ -43,6 +47,9 @@ enum {
 	CHASE
 }
 
+var state = WANDER
+
+# --------------------------------------------------------------------------------------------------
 
 
 func _ready():
@@ -50,10 +57,7 @@ func _ready():
 	pass
 
 func update_target_position():
-
-	if timer <= 0 || collided == true && tryTime <= 0:
-
-
+	if timer <= 0 || collided == true && tryTime <= 0 && state:
 		randMouse = int(get_viewport().get_mouse_position().x + get_viewport().get_mouse_position().y)
 		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
 		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
@@ -67,22 +71,16 @@ func update_target_position():
 #			print("kaugus ",freeWay)
 #			print(checkForCollision(moves[i]*500))
 			i+=1
-	
-		
 		timer = (randi() % 5) +4
 		collided = false
 		pass
 		
 
 
-
-
 #		newVector = randi() % 8
 #		var randomAngle =  newVector * PI / 8
 #		print("random: ", randomAngle)
 #		timer = (randi() % 8) 
-#
-#
 #		moveVector = moveVector.rotated(randomAngle)
 ##		moveVector = Vector2((randi() % 100) - 100, (randi() % 100) - 100)
 #
@@ -110,12 +108,30 @@ func _process(delta):
 	if tryTime > 0:
 		tryTime -= delta
 		
-	time_now = OS.get_unix_time()
-	var time_elapsed = time_now - time_start
+#	time_now = OS.get_unix_time()
+#	var time_elapsed = time_now - time_start
 #	print(time_elapsed)
-		
-	
-	EnemyToPlayer = global_position - EnemyPosition
+
+# ----------- mängija kauguse kontroll, reziimi muutmine 
+
+	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
+	if EnemyToPlayer.length() < MaxDistance:
+#		print (EnemyToPlayer)
+		var space_state = get_world_2d().direct_space_state
+		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position())
+		if !result.has("collider"):
+			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
+			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
+			state = CHASE 
+			timer = 15
+			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
+			quick = 2
+			
+		else:
+			state = WANDER
+			quick = 1.0
+# ------------------------------------------------------------			
+
 
 	motion += moveVector * acceleration * delta 
 
@@ -123,29 +139,27 @@ func _process(delta):
 		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
 	if (moveVector.y == 0):
 		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
-	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
-	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
-#	motion = Vector2(0,0)
 
-	var collision = move_and_collide(motion)
+	motion.x = clamp(motion.x, -maxSpeed * quick, maxSpeed * quick)
+	motion.y = clamp(motion.y, -maxSpeed * quick, maxSpeed * quick)
 
-
-#	print(collision)
-#	print(collided)
-	
+#	if state != CHASE:
+	collision = move_and_collide(motion)
+#	else:
+#		collision = move_and_collide(target_vector * MOTION_SPEED * delta)
 	
 	if collision :
 #		if collision.Object != null :
 #			if collided == false:
 #			print("vastu seina")
-			update_target_position()
-			collided = true
-			tryTime= 0
-#	else:
-#		collided = false
+
+		collided = true
+		tryTime= 0
+	else:
+		collided = false
 				
 	
-	update_target_position()		
+	update_target_position()	
 	update_animation(moveVector)
 
 	
