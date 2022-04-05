@@ -27,6 +27,10 @@ var moveVector = Vector2(1,1)
 var newVector = 0
 var rng = RandomNumberGenerator.new()
 
+signal on_dialog
+signal on_muted
+
+
 
 	
 onready var EnemyToPlayer = global_position
@@ -129,6 +133,12 @@ func _process(delta):
 
 	var collision = move_and_collide(motion)
 
+	if collision :
+		if collision.collider.name == "Player" && collided == false:
+			emit_signal("on_dialog")
+			collided = true
+	else:
+		collided = false		
 
 #	print(collision)
 #	print(collided)

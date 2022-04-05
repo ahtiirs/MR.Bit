@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/muusika/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Dialogarea.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/NortBridgeUks.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Dialog.gd" type="Script" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "aju-purgis.png 0"
@@ -93,14 +95,35 @@ position = Vector2( 2732, -3155 )
 position = Vector2( 1785, -1556 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="GUI" parent="walls" instance=ExtResource( 12 )]
+
+[node name="Dialogarea" type="Polygon2D" parent="walls/GUI"]
+visible = false
+position = Vector2( 70, 496 )
+color = Color( 0.207843, 0.027451, 0.027451, 0.443137 )
+polygon = PoolVector2Array( -1, 0, 1151, 0, 1151, 208, -1, 208 )
+script = ExtResource( 13 )
+
+[node name="Dialog" type="RichTextLabel" parent="walls/GUI/Dialogarea"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 1130.0
+margin_bottom = 192.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="walls/GUI/Dialogarea"]
+wait_time = 0.05
+autostart = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 1710, -2295 )
 stream = ExtResource( 11 )
 autoplay = true
 max_distance = 4000.0
 attenuation = 2.82843
-
-[node name="GUI" parent="." instance=ExtResource( 12 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -1, 0 )
@@ -110,4 +133,7 @@ position = Vector2( 1476, -2109 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
+[connection signal="on_dialog" from="walls/Mother" to="walls/GUI/Dialogarea" method="_on_Mother_on_dialog"]
+[connection signal="dialog_start" from="walls/GUI/Dialogarea" to="walls/GUI/Dialogarea/Dialog" method="_on_Dialogarea_dialog_start"]
+[connection signal="timeout" from="walls/GUI/Dialogarea/Timer" to="walls/GUI/Dialogarea/Dialog" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D/NortBridgeUks" method="_on_Area2D_body_entered"]
