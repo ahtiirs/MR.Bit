@@ -10,11 +10,22 @@ var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
 var FOV = 90 # vaenlase vaatenurk
 var moveVector = Vector2.ZERO
 
+enum YesIds {
+	Yes,
+	No,
+	}
+
 onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
+onready var YesPopup = get_node("YesNo")
+
+
+
 
 func _ready():
-	pass
+	YesPopup.add_item("Räägin emaga",YesIds.Yes)
+	YesPopup.add_item("Räägin emaga",YesIds.No)	
+	
 
 func _process(delta):
 	EnemyToPlayer = global_position - get_parent().get_node("OldQuard").get_position()
@@ -49,6 +60,11 @@ func _process(delta):
 			if collided == false:
 				$collision.play()
 				collided = true
+		if collision.collider.name == "Mother":
+			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
+			print("alustan dialoogi emaga")
+
+
 
 	else:
 		collided = false

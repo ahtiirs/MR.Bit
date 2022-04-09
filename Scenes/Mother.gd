@@ -12,6 +12,7 @@ var freeDistance = []
 var time_start = 0
 var time_now = 0
 
+
 var moves = {
 	1 : Vector2(-1,1),
 	2 : Vector2(0,1),
@@ -34,6 +35,7 @@ signal on_muted
 
 	
 onready var EnemyToPlayer = global_position
+
 
 onready var EnemyPosition = get_parent().get_node("Player").get_position()
 var timer = 0

@@ -9,7 +9,8 @@ var dialog = [
 	"Viiies dialood, öoisajcdö oisajdöoiajvf a",
 	"Kuues oij öcoisajdöoj afdoijvösoifdjövsoi öboijetröbweotij!"]
 var page = 0
-var paragraph = false
+var paragraph = true
+var kontroll = 0
 
 onready var timer = $Timer
 
@@ -23,23 +24,20 @@ func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters()+1)
 	if get_visible_characters() > get_total_character_count():
 		paragraph = true
+		set_visible_characters(get_total_character_count())
+
 #	print(get_visible_characters())
 
 
 func _on_Dialogarea_dialog_start():
-	print("Alustame dialoogi nr: ",page)
-	set_bbcode(dialog[page])
-	set_visible_characters(0)
-
-	
-	print(get_visible_characters(),get_total_character_count())
-	
-#	if get_visible_characters() > get_total_character_count():
-	if page < dialog.size()-1 && paragraph == true:
-		set_visible_characters(0)
+		
+	if page < dialog.size() && paragraph == true:
 		set_bbcode(dialog[page])
-		print(dialog[page])
+		set_visible_characters(0)
 		page += 1
 		paragraph = false
 	else:
 		set_visible_characters(get_total_character_count())
+
+	print("kontroll ",page)
+	kontroll+=1

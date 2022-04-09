@@ -115,21 +115,21 @@ func _process(delta):
 # ----------- mängija kauguse kontroll, reziimi muutmine 
 
 	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
-	if EnemyToPlayer.length() < MaxDistance:
-#		print (EnemyToPlayer)
-		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position())
-		if !result.has("collider"):
-			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
-			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
-			state = CHASE 
-			timer = 15
-			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-			quick = 2
-			
-		else:
-			state = WANDER
-			quick = 1.0
+#	if EnemyToPlayer.length() < MaxDistance:
+##		print (EnemyToPlayer)
+#		var space_state = get_world_2d().direct_space_state
+#		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position())
+#		if !result.has("collider"):
+#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
+#			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
+#			state = CHASE 
+#			timer = 15
+#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
+#			quick = 2
+#
+#		else:
+#			state = WANDER
+#			quick = 1.0
 # ------------------------------------------------------------			
 
 
