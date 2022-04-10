@@ -17,18 +17,20 @@ enum YesIds {
 
 onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
-onready var YesPopup = get_node("YesNo")
+onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
 
 
 
 
 func _ready():
+	
 	YesPopup.add_item("Räägin emaga",YesIds.Yes)
-	YesPopup.add_item("Räägin emaga",YesIds.No)	
+	YesPopup.add_item("Longin edasi",YesIds.No)	
 	
 
 func _process(delta):
 	EnemyToPlayer = global_position - get_parent().get_node("OldQuard").get_position()
+
 
 	moveVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	moveVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -55,14 +57,23 @@ func _process(delta):
 	if collision :
 		print(collision.collider.name)
 
-			
+		print(to_local(global_position))
+
 		if collision.collider.name == "walls":
 			if collided == false:
 				$collision.play()
 				collided = true
 		if collision.collider.name == "Mother":
-			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
+#			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
+#			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
+#			YesPopup.popup(Rect2(-500,-500,YesPopup.rect_size.x,YesPopup.rect_size.y))
+			var MotherPosition = get_node("Mother").get_position()
+			YesPopup.popup()
+			YesPopup.rect_position = MotherPosition
+						
 			print("alustan dialoogi emaga")
+			print(MotherPosition)
+			
 
 
 
