@@ -137,14 +137,11 @@ func _process(delta):
 
 	if collision :
 		if collision.collider.name == "Player" && collided == false:
-			emit_signal("on_dialog")
+#			emit_signal("on_dialog")
 			collided = true
 	else:
 		collided = false		
 
-#	print(collision)
-#	print(collided)
-	
 	
 	if collision :
 #		if collision.Object != null :

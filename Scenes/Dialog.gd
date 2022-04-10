@@ -13,6 +13,7 @@ var paragraph = true
 var kontroll = 0
 
 onready var timer = $Timer
+onready var DialogArea = get_parent()
 
 # Functions
 func _ready():
@@ -26,11 +27,8 @@ func _on_Timer_timeout():
 		paragraph = true
 		set_visible_characters(get_total_character_count())
 
-#	print(get_visible_characters())
-
-
-func _on_Dialogarea_dialog_start():
-		
+func _on_QuestionArea_on_dialog():
+	DialogArea.visible = true
 	if page < dialog.size() && paragraph == true:
 		set_bbcode(dialog[page])
 		set_visible_characters(0)
@@ -41,3 +39,9 @@ func _on_Dialogarea_dialog_start():
 
 	print("kontroll ",page)
 	kontroll+=1
+
+
+func _on_Button_pressed():
+	DialogArea.visible = false
+	get_tree().paused = false
+	pass # Replace with function body.

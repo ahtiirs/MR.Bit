@@ -17,16 +17,18 @@ enum YesIds {
 
 onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
-onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
+#onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
+onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
+
 
 
 
 
 func _ready():
 	
-	YesPopup.add_item("Räägin emaga",YesIds.Yes)
-	YesPopup.add_item("Longin edasi",YesIds.No)	
-	
+#	YesPopup.add_item("Räägin emaga",YesIds.Yes)
+#	YesPopup.add_item("Longin edasi",YesIds.No)	
+	pass
 
 func _process(delta):
 	EnemyToPlayer = global_position - get_parent().get_node("OldQuard").get_position()
@@ -67,13 +69,14 @@ func _process(delta):
 #			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
 #			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
 #			YesPopup.popup(Rect2(-500,-500,YesPopup.rect_size.x,YesPopup.rect_size.y))
-			var MotherPosition = get_node("Mother").get_position()
-			YesPopup.popup()
-			YesPopup.rect_position = MotherPosition
+#			var MotherPosition = get_node("Mother").get_position()
+#			YesPopup.popup()
+#			YesPopup.rect_position = MotherPosition
 						
 			print("alustan dialoogi emaga")
-			print(MotherPosition)
-			
+			YesPopup.visible = true
+			get_tree().paused = true
+
 
 
 
