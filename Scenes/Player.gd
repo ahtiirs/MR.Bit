@@ -10,6 +10,8 @@ var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
 var FOV = 90 # vaenlase vaatenurk
 var moveVector = Vector2.ZERO
 
+
+
 enum YesIds {
 	Yes,
 	No,
@@ -73,12 +75,10 @@ func _process(delta):
 #			YesPopup.popup()
 #			YesPopup.rect_position = MotherPosition
 						
-			print("alustan dialoogi emaga")
-			YesPopup.visible = true
-			get_tree().paused = true
-
-
-
+#			print("alustan dialoogi emaga")
+#			YesPopup.visible = true
+#			get_tree().paused = true
+			pass
 
 	else:
 		collided = false

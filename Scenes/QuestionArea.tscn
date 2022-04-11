@@ -3,12 +3,11 @@
 [ext_resource path="res://Scenes/QuestionArea.gd" type="Script" id=1]
 
 [node name="QuestionArea" type="ColorRect"]
-visible = false
 margin_left = 591.0
 margin_top = 193.0
 margin_right = 763.0
 margin_bottom = 270.0
-color = Color( 0.839216, 0.666667, 0.666667, 0.752941 )
+color = Color( 0.588235, 0.0745098, 0.0745098, 0.752941 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
