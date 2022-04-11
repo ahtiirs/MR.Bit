@@ -25,5 +25,7 @@ func _on_Yes_pressed():
 
 func _on_No_pressed():
 	self.visible = false
+	var player =  get_parent().get_parent().get_node("Player")
+	player.set_position(player.get_position() + Vector2(-50, -50))
 	get_tree().paused = false
 	pass # Replace with function body.

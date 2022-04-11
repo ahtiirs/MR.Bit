@@ -25,4 +25,5 @@ func hide():
 
 func _on_Mother_on_dialog():
 	visible = true
+	
 	emit_signal(("dialog_start"))
