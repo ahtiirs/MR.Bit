@@ -62,6 +62,8 @@ func update_target_position():
 		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
 		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
 		moveVector = moves[newVector]
+
+
 	
 		for i in range(1, 9):
 #			print("Accessing item at index " + str(i))
@@ -101,6 +103,14 @@ func checkForCollision(position):
 	$RayCast2D.get_collision_point()
 	return $RayCast2D.get_collision_point ()
 	
+func round_dir(vector):
+	if vector <= -0.5:
+		return -1
+	if vector < 0.5:
+		return 0
+	if vector <= 1:
+		return 1
+		
 
 func _process(delta):
 	if timer > 0:
@@ -115,21 +125,22 @@ func _process(delta):
 # ----------- mängija kauguse kontroll, reziimi muutmine 
 
 	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
-#	if EnemyToPlayer.length() < MaxDistance:
-##		print (EnemyToPlayer)
-#		var space_state = get_world_2d().direct_space_state
-#		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position())
-#		if !result.has("collider"):
-#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
-#			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
-#			state = CHASE 
-#			timer = 15
-#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-#			quick = 2
-#
-#		else:
-#			state = WANDER
-#			quick = 1.0
+	if EnemyToPlayer.length() < MaxDistance:
+#		print (EnemyToPlayer)
+		var space_state = get_world_2d().direct_space_state
+		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
+		if !result.has("collider"):
+			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
+			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
+			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
+			state = CHASE 
+			timer = 8
+			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
+			quick = 2
+
+		else:
+			state = WANDER
+			quick = 1.0
 # ------------------------------------------------------------			
 
 

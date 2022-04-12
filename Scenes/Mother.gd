@@ -53,31 +53,114 @@ enum {
 
 var state = WANDER
 
-# --------------------------------------------------------------------------------------------------
 
+# --------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 
 func _ready():
 	rng.randomize()
-	pass
 
+
+
+
+
+func _process(delta):
+	if timer > 0:
+		timer -= delta
+	if tryTime > 0:
+		tryTime -= delta
+
+#	time_now = OS.get_unix_time()
+#	var time_elapsed = time_now - time_start
+#	print(time_elapsed)
+
+	# ----------- mängija kauguse kontroll, reziimi muutmine 
+
+	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
+
+	if EnemyToPlayer.length() < MaxDistance: # Kas mängija on lähemal kui määratud distants
+		#--- KAs mängija ja iseenda vahele jääb objekte?
+		var space_state = get_world_2d().direct_space_state
+		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
+		#--
+		if !result.has("collider"): #--- Kui ei jäänud objekte 
+
+			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position()) #-- pöörame näo mängija poole
+			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
+			print("round suund: ",round_dir(moveVector.x),round_dir(moveVector.y))
+			state = CHASE 
+			timer = 5
+			quick = 0
+
+			$AnimatedSprite.play("idle")	#--- peatame mängija animatsiooni
+			
+			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked: #-- KAs mängija on vestlusläheduses
+				YesPopup.visible = true 	#--- avan vestluse küsimise dialoogi
+				get_tree().paused = true	#--- tasutamäng pausile
+				is_dialog_asked = true		#--- dialoogi treiger üles et ei kordaks kohe 
+	else:
+		state = WANDER				#--- node olek suvaline kolamine
+		quick = 1.0 				#--- liikumiskiirus tavaline
+		is_dialog_asked = false		#--- node väljus huvipiirkonnast ja seab dialoogi trigeri algasendisse
+	# ------------------------------------------------------------			
+
+
+	motion += moveVector * acceleration * delta 
+	print ("motion: ",motion)
+
+	if (moveVector.x == 0):
+		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
+	if (moveVector.y == 0):
+		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
+
+	motion.x = clamp(motion.x, -maxSpeed * quick, maxSpeed * quick)
+	motion.y = clamp(motion.y, -maxSpeed * quick, maxSpeed * quick)
+
+	print("läksime")
+	collision = move_and_collide(motion)
+	if collision and collision.collider.name != "Player" :
+#		if collision.Object != null :
+#			if collided == false:
+#			print("vastu seina")
+		print("põrge")
+		update_target_position()
+		collided = true
+		tryTime= 0
+	else:
+		collided = false
+		
+#	update_target_position()
+	update_animation(moveVector)
+	
+	
+	
+	
+func round_dir(vector):
+	if vector <= -0.5:
+		return -1
+	if vector < 0.5:
+		return 0
+	if vector <= 1:
+		return 1
+	
 func update_target_position():
 	if timer <= 0 || collided == true && tryTime <= 0 && state:
 		randMouse = int(get_viewport().get_mouse_position().x + get_viewport().get_mouse_position().y)
 		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
 		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
 		moveVector = moves[newVector]
+		print("ema suund", moveVector)
+#		update_animation(moveVector)
 	
-		for i in range(1, 9):
-#			print("Accessing item at index " + str(i))
-#			print(moves[i])
-			var freeWay = checkForCollision(moves[i]*500) - global_position
-			freeDistance.append(freeWay)
-#			print("kaugus ",freeWay)
-#			print(checkForCollision(moves[i]*500))
-			i+=1
-		timer = (randi() % 5) +4
-		collided = false
-		pass
+#		for i in range(1, 9):
+#
+#			var freeWay = checkForCollision(moves[i]*500) - global_position
+#			freeDistance.append(freeWay)
+#
+#			i+=1
+#		timer = (randi() % 5) +4
+#		collided = false
+#		pass
 		
 
 
@@ -95,6 +178,8 @@ func update_target_position():
 #		collided = false
 #		print(moveVector*250)
 
+
+
 func checkForCollision(position):
 	get_node("RayCast2D").position = Vector2(0,0)
 	get_node("RayCast2D").cast_to = position# sets the length of the ray to 0
@@ -105,81 +190,7 @@ func checkForCollision(position):
 	$RayCast2D.get_collision_point()
 	return $RayCast2D.get_collision_point ()
 	
-
-func _process(delta):
-	if timer > 0:
-		timer -= delta
-	if tryTime > 0:
-		tryTime -= delta
-		
-#	time_now = OS.get_unix_time()
-#	var time_elapsed = time_now - time_start
-#	print(time_elapsed)
-
-# ----------- mängija kauguse kontroll, reziimi muutmine 
-
-	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
-	if EnemyToPlayer.length() < MaxDistance:
-		print (EnemyToPlayer)
-		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
-		print(result)
-		if !result.has("collider"):
-			print(result, " EMA näeb SIND!!! ", OS.get_unix_time(),state)
-			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
-			state = CHASE 
-			timer = 15
-			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-			quick = 0
-			$AnimatedSprite.play("idle")
-			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked:
-				print("alustan dialoogi emaga")
-				YesPopup.visible = true
-				get_tree().paused = true
-				is_dialog_asked = true
-
-				
-
-	else:
-		state = WANDER
-		quick = 1.0
-		is_dialog_asked = false
-# ------------------------------------------------------------			
-
-
-	motion += moveVector * acceleration * delta 
-
-	if (moveVector.x == 0):
-		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
-	if (moveVector.y == 0):
-		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
-
-	motion.x = clamp(motion.x, -maxSpeed * quick, maxSpeed * quick)
-	motion.y = clamp(motion.y, -maxSpeed * quick, maxSpeed * quick)
-
-#	if state != CHASE:
-	collision = move_and_collide(motion)
-#	else:
-#		collision = move_and_collide(target_vector * MOTION_SPEED * delta)
 	
-	if collision :
-#		if collision.Object != null :
-#			if collided == false:
-#			print("vastu seina")
-
-		collided = true
-		tryTime= 0
-	else:
-		collided = false
-				
-	
-	update_target_position()	
-	update_animation(moveVector)
-
-	
-
-	
-
 
 func update_animation(moveVec):
 

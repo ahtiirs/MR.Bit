@@ -102,7 +102,14 @@ func checkForCollision(position):
 #	print("Raycast...", $RayCast2D.get_collider ())
 	$RayCast2D.get_collision_point()
 	return $RayCast2D.get_collision_point ()
-	
+
+func round_dir(vector):
+	if vector <= -0.5:
+		return -1
+	if vector < 0.5:
+		return 0
+	if vector <= 1:
+		return 1
 
 func _process(delta):
 	if timer > 0:
