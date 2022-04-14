@@ -72,7 +72,7 @@ smoothing_enabled = true
 position = Vector2( 2198, -1991 )
 
 [node name="Brain" parent="walls" instance=ExtResource( 10 )]
-position = Vector2( 3160, -2668 )
+position = Vector2( 2711, -3383 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 position = Vector2( 1785, -1556 )
@@ -82,13 +82,12 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="QuestionArea" parent="walls/GUI" instance=ExtResource( 16 )]
 pause_mode = 2
-visible = false
 margin_left = 576.0
 margin_top = 232.0
 margin_right = 748.0
 margin_bottom = 309.0
 input_pass_on_modal_close_click = false
-color = Color( 0.215686, 0.0431373, 0.0980392, 0.376471 )
+color = Color( 0.254902, 0.152941, 0.0705882, 0.862745 )
 
 [node name="Dialogarea" type="Polygon2D" parent="walls/GUI"]
 pause_mode = 2
@@ -144,7 +143,7 @@ attenuation = 2.82843
 position = Vector2( -1, 0 )
 
 [node name="NortBridgeUks" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1476, -2109 )
+position = Vector2( 1408, -2016 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
