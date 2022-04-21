@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var lives = 5 # mängijal elusid
 const MOTION_SPEED = 240# Pixels/second.
 const maxSpeed = 10
 const friction = 20 
@@ -11,6 +12,7 @@ var FOV = 90 # vaenlase vaatenurk
 var moveVector = Vector2.ZERO
 
 
+signal lives
 
 enum YesIds {
 	Yes,
@@ -21,7 +23,8 @@ onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
 #onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
 onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
-
+onready var OldGuard = get_parent().get_node("OldQuard")
+onready var LivesBar = get_node("GUI").get_children()
 
 
 
@@ -78,8 +81,20 @@ func _process(delta):
 #			print("alustan dialoogi emaga")
 #			YesPopup.visible = true
 #			get_tree().paused = true
-			pass
 
+			pass
+		if collision.collider.name == "OldQuard":
+			lives = lives -1
+			emit_signal("lives",lives)
+#			print("Elusid: ",lives)
+			
+			OldGuard.set_position(Vector2(175,-1920))
+
+			
+			if lives <= 0:
+				print("stop")
+				get_tree().quit()
+			
 	else:
 		collided = false
 #	moveVector.y = moveVector.y * 1.3

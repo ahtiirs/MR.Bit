@@ -51,7 +51,7 @@ script = ExtResource( 7 )
 [node name="Staap" parent="walls" instance=ExtResource( 6 )]
 
 [node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 122, -1798 )
+position = Vector2( 175, -1927 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
@@ -82,7 +82,6 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="QuestionArea" parent="walls/GUI" instance=ExtResource( 16 )]
 pause_mode = 2
-margin_left = 576.0
 margin_top = 232.0
 margin_right = 748.0
 margin_bottom = 309.0

@@ -87,7 +87,7 @@ func _process(delta):
 
 			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position()) #-- pöörame näo mängija poole
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
-			print("round suund: ",round_dir(moveVector.x),round_dir(moveVector.y))
+#			print("round suund: ",round_dir(moveVector.x),round_dir(moveVector.y))
 			state = CHASE 
 			timer = 5
 			quick = 0
@@ -106,7 +106,7 @@ func _process(delta):
 
 
 	motion += moveVector * acceleration * delta 
-	print ("motion: ",motion)
+#	print ("motion: ",motion)
 
 	if (moveVector.x == 0):
 		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
@@ -116,13 +116,13 @@ func _process(delta):
 	motion.x = clamp(motion.x, -maxSpeed * quick, maxSpeed * quick)
 	motion.y = clamp(motion.y, -maxSpeed * quick, maxSpeed * quick)
 
-	print("läksime")
+#	print("läksime")
 	collision = move_and_collide(motion)
 	if collision and collision.collider.name != "Player" :
 #		if collision.Object != null :
 #			if collided == false:
 #			print("vastu seina")
-		print("põrge")
+#		print("põrge")
 		update_target_position()
 		collided = true
 		tryTime= 0
@@ -149,7 +149,7 @@ func update_target_position():
 		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
 		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
 		moveVector = moves[newVector]
-		print("ema suund", moveVector)
+#		print("ema suund", moveVector)
 #		update_animation(moveVector)
 	
 #		for i in range(1, 9):
