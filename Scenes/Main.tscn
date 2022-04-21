@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -10,12 +10,33 @@
 [ext_resource path="res://Scenes/Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/muusika/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/muusika/game-music-7408.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Dialogarea.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/NortBridgeUks.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Dialog.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/QuestionArea.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/muusika/action-workout-trap-fashion-99524.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Scenes/Lives.gd" type="Script" id=18]
+[ext_resource path="res://Assets/GUI/syda.png" type="Texture" id=19]
+[ext_resource path="res://Assets/muusika/sport-fashion-rock-95426.mp3" type="AudioStream" id=20]
+[ext_resource path="res://Assets/muusika/dead-by-daylight-10243.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Assets/sounds/Hiire1_01.mp3" type="AudioStream" id=22]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.329412, 0.721569, 0.960784, 0.360784 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.0980392, 0.101961, 0.537255, 0.215686 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color( 0, 0, 0, 0.168627 )
+shadow_size = 3
+shadow_offset = Vector2( -3, -3 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31, 33.1563 )
@@ -55,11 +76,11 @@ position = Vector2( 175, -1927 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 1340, -1828 )
+position = Vector2( 2479, -1711 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="walls/Player"]
-position = Vector2( 6, 9 )
+position = Vector2( -88, 73 )
 offset = Vector2( 0, -200 )
 rotating = true
 current = true
@@ -69,16 +90,91 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 
 [node name="Mouse" parent="walls" instance=ExtResource( 9 )]
-position = Vector2( 2198, -1991 )
+position = Vector2( 2967, -1871 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
+position = Vector2( 537, 576 )
+stream = ExtResource( 22 )
+pitch_scale = 0.84
+autoplay = true
+max_distance = 800.0
+attenuation = 0.659754
 
 [node name="Brain" parent="walls" instance=ExtResource( 10 )]
 position = Vector2( 2711, -3383 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
-position = Vector2( 1785, -1556 )
+position = Vector2( 2119, -1687 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="GUI" parent="walls" instance=ExtResource( 12 )]
+[node name="GUI" type="CanvasLayer" parent="walls"]
+
+[node name="PauseMenu" parent="walls/GUI" instance=ExtResource( 12 )]
+
+[node name="Panel_V" type="Panel" parent="walls/GUI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 224.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="walls/GUI/Panel_V"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 16.0
+margin_bottom = 24.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Syda1" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
+position = Vector2( 15.75, -1.25 )
+scale = Vector2( 0.609589, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Syda2" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
+position = Vector2( 50, -1 )
+scale = Vector2( 0.609589, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Syda3" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
+position = Vector2( 84, -1 )
+scale = Vector2( 0.609589, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Syda4" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
+position = Vector2( 119, -1 )
+scale = Vector2( 0.609589, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Syda5" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
+position = Vector2( 154, -1 )
+scale = Vector2( 0.609589, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Panel_P" type="Panel" parent="walls/GUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -256.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="walls/GUI/Panel_P"]
+margin_left = 744.0
+margin_right = 984.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="QuestionArea" parent="walls/GUI" instance=ExtResource( 16 )]
 pause_mode = 2
@@ -124,28 +220,48 @@ __meta__ = {
 margin_left = -96.5385
 margin_top = -153.365
 margin_right = 3.46155
-margin_bottom = -53.3651
+margin_bottom = -53.365
 rect_min_size = Vector2( 100, 100 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 1719, -2399 )
-stream = ExtResource( 11 )
-autoplay = true
-max_distance = 4000.0
-attenuation = 2.82843
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -1, 0 )
 
 [node name="NortBridgeUks" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1408, -2016 )
+position = Vector2( 1392, -2000 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1113, -440 )
+stream = ExtResource( 17 )
+autoplay = true
+bus = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+position = Vector2( 1719, -2399 )
+stream = ExtResource( 11 )
+autoplay = true
+max_distance = 2500.0
+bus = "Back"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 6015, -2200 )
+stream = ExtResource( 20 )
+autoplay = true
+bus = "Back"
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1455, 888 )
+stream = ExtResource( 21 )
+autoplay = true
+bus = "Back"
+
+[connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]
 [connection signal="on_dialog" from="walls/GUI/QuestionArea" to="walls/GUI/Dialogarea/Dialog" method="_on_QuestionArea_on_dialog"]
 [connection signal="dialog_start" from="walls/GUI/Dialogarea" to="walls/GUI/Dialogarea/Dialog" method="_on_Dialogarea_dialog_start"]
 [connection signal="timeout" from="walls/GUI/Dialogarea/Timer" to="walls/GUI/Dialogarea/Dialog" method="_on_Timer_timeout"]

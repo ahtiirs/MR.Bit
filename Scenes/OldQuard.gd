@@ -133,6 +133,9 @@ func _process(delta):
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
 			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
+			$OldManSound.stop()
+			$OldManAttentionSound.play()
+			
 			state = CHASE 
 			timer = 8
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
@@ -199,4 +202,7 @@ func update_animation(moveVec):
 		$AnimatedSprite.play("8")		
 	if (moveVec.x == 0 && moveVec.y == 0):
 		$AnimatedSprite.play("idle")
+		$OldManSound.stop()
+		$OldManPauseSound.play()
+		
 		

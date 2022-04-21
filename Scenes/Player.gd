@@ -24,7 +24,8 @@ onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
 #onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
 onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
 onready var OldGuard = get_parent().get_node("OldQuard")
-onready var LivesBar = get_node("GUI").get_children()
+onready var LivesBar = get_node("GUI")
+
 
 
 
@@ -81,19 +82,17 @@ func _process(delta):
 #			print("alustan dialoogi emaga")
 #			YesPopup.visible = true
 #			get_tree().paused = true
-
 			pass
+
 		if collision.collider.name == "OldQuard":
 			lives = lives -1
 			emit_signal("lives",lives)
-#			print("Elusid: ",lives)
 			
 			OldGuard.set_position(Vector2(175,-1920))
-
-			
+			self.set_position(Vector2(1543,-1635))
 			if lives <= 0:
 				print("stop")
-				get_tree().quit()
+				get_tree().quit() # Mängu lõpp
 			
 	else:
 		collided = false
