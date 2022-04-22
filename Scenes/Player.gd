@@ -86,10 +86,14 @@ func _process(delta):
 
 		if collision.collider.name == "OldQuard":
 			lives = lives -1
+			
+
+
+
 			emit_signal("lives",lives)
 			
 			OldGuard.set_position(Vector2(175,-1920))
-			self.set_position(Vector2(1543,-1635))
+#			self.set_position(Vector2(1543,-1635))
 			if lives <= 0:
 				print("stop")
 				get_tree().quit() # Mängu lõpp

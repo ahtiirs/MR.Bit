@@ -6,16 +6,28 @@ onready var live2 = get_node("GUI/Panel_V/VBoxContainer/Syda2")
 onready var live3 = get_node("GUI/Panel_V/VBoxContainer/Syda3")
 onready var live4 = get_node("GUI/Panel_V/VBoxContainer/Syda4")
 onready var live5 = get_node("GUI/Panel_V/VBoxContainer/Syda5")
+onready var mist = get_node("GUI/Uduekraan")
+onready var timer = get_node("GUI/Uduekraan/Timer")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
+func _process(delta):
+	
+	print(timer.get_time_left())
+	mist.modulate.a = 1 - abs(timer.get_time_left()-2)/2
+	
 
 func _on_Player_lives(lives):
 	pass # Replace with function body.
+	
 
+
+
+	mist.visible=true
+	timer.start()
 	print(lives)
 	if lives >= 1:
 		live1.visible=true
@@ -38,3 +50,7 @@ func _on_Player_lives(lives):
 	else:
 		live5.visible=false
 
+
+
+func _on_Timer_timeout():
+	mist.visible=false

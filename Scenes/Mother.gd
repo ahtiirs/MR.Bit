@@ -8,7 +8,7 @@ var motion = Vector2.ZERO
 var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
 var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
-var DialogDist = 250
+var DialogDist = 270
 var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
@@ -93,8 +93,9 @@ func _process(delta):
 			quick = 0
 
 			$AnimatedSprite.play("idle")	#--- peatame mängija animatsiooni
-			
+			print("kaugus",EnemyToPlayer.length())
 			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked: #-- KAs mängija on vestlusläheduses
+				
 				YesPopup.visible = true 	#--- avan vestluse küsimise dialoogi
 				get_tree().paused = true	#--- tasutamäng pausile
 				is_dialog_asked = true		#--- dialoogi treiger üles et ei kordaks kohe 
