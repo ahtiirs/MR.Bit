@@ -95,6 +95,7 @@ position = Vector2( 2967, -1871 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )
 stream = ExtResource( 22 )
+volume_db = -4.637
 pitch_scale = 0.84
 autoplay = true
 max_distance = 800.0
