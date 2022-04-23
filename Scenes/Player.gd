@@ -89,11 +89,12 @@ func _process(delta):
 			
 
 
-
+			self.set_position(Vector2(1543,-1635))
 			emit_signal("lives",lives)
+			get_tree().paused = true
 			
 			OldGuard.set_position(Vector2(175,-1920))
-#			self.set_position(Vector2(1543,-1635))
+
 			if lives <= 0:
 				print("stop")
 				get_tree().quit() # Mängu lõpp

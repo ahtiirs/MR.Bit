@@ -1,5 +1,21 @@
 extends TileMap
-
+var gameStatus = 0
+var gameLevel= 1
+var Bag = 0
+enum {
+	Brain,
+	Notes,
+	Books,
+	Battery,
+	Piano,
+	Mother,
+	Ruupor,
+	Mouse,
+	Projecor,
+	Recorder,
+	Mic
+	Cooler
+}
 
 onready var live1 = get_node("GUI/Panel_V/VBoxContainer/Syda1")
 onready var live2 = get_node("GUI/Panel_V/VBoxContainer/Syda2")
@@ -14,11 +30,7 @@ onready var timer = get_node("GUI/Uduekraan/Timer")
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
-	
-	print(timer.get_time_left())
-	mist.modulate.a = 1 - abs(timer.get_time_left()-2)/2
-	
+
 
 func _on_Player_lives(lives):
 	pass # Replace with function body.
@@ -28,6 +40,8 @@ func _on_Player_lives(lives):
 
 	mist.visible=true
 	timer.start()
+#	get_tree().paused = true
+	
 	print(lives)
 	if lives >= 1:
 		live1.visible=true
@@ -54,3 +68,4 @@ func _on_Player_lives(lives):
 
 func _on_Timer_timeout():
 	mist.visible=false
+	get_tree().paused = false

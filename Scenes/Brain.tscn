@@ -1,18 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/brain/aju-purgis.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Brain.gd" type="Script" id=2]
 [ext_resource path="res://Assets/jupid/aju.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 164.003
+radius = 103.586
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 116.4
+radius = 80.3057
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -25,15 +24,15 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 2, -100 )
+position = Vector2( -11, -75 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -100 )
+position = Vector2( -7, -75 )
 shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 2, -210 )
+position = Vector2( -10, -105 )
 scale = Vector2( 0.41375, 0.41375 )
 frames = SubResource( 3 )
 
