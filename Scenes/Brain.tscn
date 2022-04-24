@@ -36,4 +36,4 @@ position = Vector2( -10, -105 )
 scale = Vector2( 0.41375, 0.41375 )
 frames = SubResource( 3 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

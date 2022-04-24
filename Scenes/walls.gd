@@ -1,7 +1,7 @@
 extends TileMap
 var gameStatus = 0
 var gameLevel= 1
-var Bag = 0
+var bag = 0
 enum {
 	Brain,
 	Notes,
@@ -36,7 +36,7 @@ func _on_Player_lives(lives):
 	pass # Replace with function body.
 	
 
-
+	print("kotis", bag)
 
 	mist.visible=true
 	timer.start()

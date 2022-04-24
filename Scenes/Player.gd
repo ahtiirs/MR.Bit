@@ -25,6 +25,7 @@ onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
 onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
 onready var OldGuard = get_parent().get_node("OldQuard")
 onready var LivesBar = get_node("GUI")
+onready var animation = get_parent().get_node("GUI/Animations")
 
 
 
@@ -98,6 +99,34 @@ func _process(delta):
 			if lives <= 0:
 				print("stop")
 				get_tree().quit() # Mängu lõpp
+				
+				
+				
+		if collision.collider.name == "YellowNotes" && collided != true:
+			collided = true
+			var game = get_parent()
+			var dispBagall = get_parent().get_children()
+			var dispBag = get_parent().get_node("GUI/inTheBag/RAM")
+			
+#			dispBagall.visible = false
+			dispBag.visible = true
+			animation.play("toTheBag")
+			
+			game.bag = "Memory"
+			pass # Replace with function body.
+			
+		if collision.collider.name == "Piano" && collided != true:
+			collided = true
+			var game = get_parent()
+			var dispBagall = get_parent().get_children()
+			var dispBag = get_parent().get_node("GUI/inTheBag/Piano")
+
+			dispBag.visible = true
+			animation.play("toTheBag")
+			
+			game.bag = "Memory"
+			pass # Replace with function body.	
+
 			
 	else:
 		collided = false

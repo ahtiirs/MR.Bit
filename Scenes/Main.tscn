@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -24,6 +24,40 @@
 [ext_resource path="res://Assets/sounds/Hiire1_01.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Scenes/Uduekraan.gd" type="Script" id=23]
 [ext_resource path="res://Scenes/YellowNotes.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/jupid/ram-2.png" type="Texture" id=25]
+[ext_resource path="res://Assets/jupid/hiir-1.png" type="Texture" id=26]
+[ext_resource path="res://Assets/jupid/aju.png" type="Texture" id=27]
+[ext_resource path="res://Assets/jupid/hdd-2.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Piano.tres" type="Animation" id=30]
+[ext_resource path="res://stumble.tres" type="Animation" id=31]
+[ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=32]
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "corner-front.png 0"
+0/texture = ExtResource( 32 )
+0/tex_offset = Vector2( 0, -256 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 128, 256, 384 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, -256 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, -256 )
+0/shape = SubResource( 7 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -256 )
+} ]
+0/z_index = 0
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.329412, 0.721569, 0.960784, 0.360784 )
@@ -44,6 +78,21 @@ shadow_offset = Vector2( -3, -3 )
 
 [sub_resource type="NoiseTexture" id=4]
 noise = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.313726, 0.168627, 0.254902, 0.364706 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.0980392, 0.101961, 0.537255, 0.215686 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color( 0, 0, 0, 0.168627 )
+shadow_size = 3
+shadow_offset = Vector2( -3, -3 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31, 33.1563 )
@@ -76,44 +125,17 @@ format = 1
 tile_data = PoolIntArray( -2949147, 4, 0, -2949146, 4, 0, -2949145, 4, 0, -2949144, 4, 0, -2949143, 4, 0, -2949142, 4, 0, -2949141, 4, 0, -2949140, 4, 0, -2949139, 4, 0, -2949138, 4, 0, -2949137, 4, 0, -2949136, 4, 0, -2949135, 4, 0, -2949134, 4, 0, -2949133, 4, 0, -2949132, 4, 0, -2949131, 4, 0, -2949130, 4, 0, -2949129, 4, 0, -2949128, 4, 0, -2949127, 4, 0, -2949126, 4, 0, -2949125, 4, 0, -2949124, 4, 0, -2949123, 4, 0, -2949122, 4, 0, -2949121, 4, 0, -3014656, 4, 0, -3014655, 4, 0, -3014654, 4, 0, -3014653, 4, 0, -3014652, 4, 0, -3014651, 4, 0, -3014650, 4, 0, -3014649, 4, 0, -3014648, 4, 0, -3014647, 4, 0, -3014646, 4, 0, -3014645, 4, 0, -3014644, 4, 0, -3014643, 4, 0, -3014642, 4, 0, -3014641, 4, 0, -3014640, 4, 0, -2883612, 7, 0, -2949104, 7, 0, -2818076, 7, 0, -2818059, 0, 0, -2818056, 0, 0, -2818055, 0, 0, -2818054, 0, 0, -2818053, 0, 0, -2883568, 7, 0, -2752540, 7, 0, -2752523, 0, 0, -2818032, 7, 0, -2687004, 7, 0, -2752496, 7, 0, -2621468, 7, 0, -2686960, 7, 0, -2555932, 7, 0, -2555926, 0, 0, -2555925, 0, 0, -2621424, 7, 0, -2490396, 7, 0, -2490390, 0, 0, -2490389, 0, 0, -2490386, 0, 0, -2490385, 2, 0, -2490384, 2, 0, -2490383, 2, 0, -2490382, 4, 0, -2490381, 3, 0, -2490380, 3, 0, -2490378, 0, 0, -2490377, 0, 0, -2490376, 0, 0, -2555888, 7, 0, -2424860, 7, 0, -2424854, 0, 0, -2424853, 0, 0, -2424850, 6, 0, -2424844, 7, 0, -2490364, 6, 0, -2490361, 6, 0, -2490352, 7, 0, -2359324, 7, 0, -2359318, 0, 0, -2359317, 0, 0, -2359314, 7, 0, -2359308, 7, 0, -2424828, 6, 0, -2424825, 6, 0, -2424816, 7, 0, -2293788, 7, 0, -2293782, 0, 0, -2293781, 0, 0, -2293778, 6, 0, -2293772, 7, 0, -2359292, 6, 0, -2359289, 6, 0, -2359280, 7, 0, -2228252, 7, 0, -2228246, 0, 0, -2228245, 0, 0, -2228242, 7, 0, -2228236, 7, 0, -2228232, 0, 0, -2228231, 0, 0, -2228230, 0, 0, -2228229, 0, 0, -2293756, 6, 0, -2293753, 6, 0, -2293744, 7, 0, -2162716, 7, 0, -2162710, 0, 0, -2162709, 0, 0, -2162706, 5, 0, -2162700, 7, 0, -2162693, 0, 0, -2228220, 6, 0, -2228217, 6, 0, -2228208, 7, 0, -2097180, 7, 0, -2097169, 4, 0, -2097168, 4, 0, -2097166, 4, 0, -2097165, 4, 0, -2097164, 1, 0, -2162684, 6, 0, -2162681, 6, 0, -2162672, 7, 0, -2031644, 7, 0, -2031621, 2, 0, -2097152, 0, 0, -2097148, 6, 0, -2097145, 6, 0, -2097136, 7, 0, -1966108, 7, 0, -1966104, 0, 0, -1966087, 7, 0, -1966086, 3, 0, -2031616, 0, 0, -2031612, 6, 0, -2031609, 6, 0, -2031600, 7, 0, -1900572, 7, 0, -1900568, 0, 0, -1900552, 0, 0, -1900551, 7, 0, -1900547, 3, 0, -1966080, 0, 0, -1966076, 6, 0, -1966073, 6, 0, -1966064, 7, 0, -1835036, 7, 0, -1835032, 0, 0, -1900544, 0, 0, -1900540, 6, 0, -1900537, 6, 0, -1900528, 7, 0, -1769500, 7, 0, -1769496, 0, 0, -1769479, 0, 0, -1769478, 3, 0, -1769477, 2, 0, -1835008, 0, 0, -1835004, 6, 0, -1835001, 6, 0, -1834992, 7, 0, -1703964, 7, 0, -1703960, 0, 0, -1703943, 6, 0, -1703938, 4, 0, -1703937, 2, 0, -1769472, 3, 0, -1769468, 6, 0, -1769465, 6, 0, -1769456, 7, 0, -1638428, 7, 0, -1638424, 0, 0, -1638402, 6, 0, -1703932, 6, 0, -1703929, 6, 0, -1703920, 7, 0, -1572892, 7, 0, -1572888, 0, 0, -1572866, 7, 0, -1638396, 6, 0, -1638393, 6, 0, -1638384, 7, 0, -1507356, 7, 0, -1507330, 6, 0, -1572860, 6, 0, -1572857, 6, 0, -1572848, 7, 0, -1441820, 7, 0, -1441794, 4, 0, -1441793, 4, 0, -1507328, 4, 0, -1507327, 4, 0, -1507312, 7, 0, -1376284, 7, 0, -1441776, 7, 0, -1310748, 7, 0, -1376240, 7, 0, -1245212, 7, 0, -1310704, 7, 0, -1179676, 7, 0, -1245168, 7, 0, -1114140, 7, 0, -1114131, 4, 0, -1114130, 4, 0, -1114129, 4, 0, -1114114, 0, 0, -1114113, 3, 0, -1179648, 4, 0, -1179647, 2, 0, -1179646, 3, 0, -1179632, 7, 0, -1048604, 7, 0, -1048578, 6, 0, -1114110, 6, 0, -1114096, 7, 0, -983068, 7, 0, -983042, 7, 0, -1048574, 7, 0, -1048560, 7, 0, -917532, 7, 0, -917506, 7, 0, -983038, 1, 0, -983024, 7, 0, -851996, 7, 0, -851970, 6, 0, -851969, 4, 0, -917488, 7, 0, -786460, 7, 0, -786456, 4, 0, -786455, 4, 0, -786454, 4, 0, -786453, 4, 0, -786452, 4, 0, -786451, 4, 0, -786450, 4, 0, -786449, 4, 0, -786448, 4, 0, -786447, 4, 0, -786446, 4, 0, -786445, 4, 0, -786444, 4, 0, -786443, 4, 0, -786442, 4, 0, -786433, 6, 0, -851968, 4, 0, -851967, 4, 0, -851966, 4, 0, -851952, 7, 0, -720924, 7, 0, -720901, 9, 0, -786416, 7, 0, -655388, 7, 0, -655365, 9, 0, -655364, 9, 0, -720880, 7, 0, -589852, 7, 0, -589848, 4, 0, -589847, 4, 0, -589846, 4, 0, -589845, 4, 0, -589844, 4, 0, -589843, 4, 0, -589842, 4, 0, -589841, 4, 0, -589840, 4, 0, -589839, 4, 0, -589838, 4, 0, -589837, 4, 0, -589836, 4, 0, -589835, 4, 0, -589834, 4, 0, -589828, 9, 0, -655356, 12, 0, -655355, 12, 0, -655344, 7, 0, -524316, 7, 0, -524292, 9, 0, -524291, 9, 0, -589808, 7, 0, -458780, 7, 0, -458756, 9, 0, -458755, 9, 0, -524272, 7, 0, -393244, 7, 0, -393240, 4, 0, -393239, 4, 0, -393238, 4, 0, -393237, 4, 0, -393236, 4, 0, -393235, 4, 0, -458746, 9, 0, -458745, 9, 0, -458736, 7, 0, -327708, 7, 0, -393209, 9, 0, -393208, 9, 0, -393200, 7, 0, -262172, 7, 0, -327672, 9, 0, -327664, 7, 0, -196636, 7, 0, -196632, 4, 0, -196631, 4, 0, -196630, 4, 0, -196629, 4, 0, -196628, 4, 0, -196627, 4, 0, -196626, 4, 0, -196625, 4, 0, -196624, 4, 0, -196623, 4, 0, -196622, 4, 0, -196621, 4, 0, -196620, 4, 0, -196619, 4, 0, -196618, 4, 0, -262128, 7, 0, -131100, 7, 0, -196592, 7, 0, -65564, 7, 0, -131056, 7, 0, -28, 7, 0, -65520, 7, 0, 65508, 7, 0, 16, 7, 0, 131044, 7, 0, 65552, 7, 0, 196580, 7, 0, 131088, 7, 0, 262116, 7, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196624, 7, 0, 327652, 7, 0, 327657, 0, 0, 327658, 0, 0, 327659, 0, 0, 327660, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262160, 7, 0, 393188, 7, 0, 327696, 7, 0, 458724, 7, 0, 458725, 4, 0, 458726, 4, 0, 458727, 4, 0, 458728, 4, 0, 458729, 4, 0, 458730, 4, 0, 458731, 4, 0, 458732, 4, 0, 458733, 4, 0, 458734, 4, 0, 458735, 4, 0, 458736, 4, 0, 458737, 4, 0, 458738, 4, 0, 458739, 4, 0, 458740, 4, 0, 458741, 4, 0, 458742, 4, 0, 458743, 4, 0, 458744, 4, 0, 458745, 4, 0, 458746, 4, 0, 458747, 4, 0, 458748, 4, 0, 458749, 4, 0, 458750, 4, 0, 458751, 4, 0, 393216, 4, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 1, 0 )
 script = ExtResource( 7 )
 
+[node name="TileMap" type="TileMap" parent="walls"]
+visible = false
+mode = 1
+tile_set = SubResource( 6 )
+collision_layer = 2
+collision_mask = 2
+format = 1
+tile_data = PoolIntArray( -3145690, 0, 0, -2359258, 0, 0 )
+
 [node name="Components" type="Node2D" parent="walls"]
 position = Vector2( 15, 321 )
-
-[node name="Staap" parent="walls" instance=ExtResource( 6 )]
-
-[node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 175, -1927 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 2479, -1711 )
-scale = Vector2( 1, 1 )
-
-[node name="Camera" type="Camera2D" parent="walls/Player"]
-position = Vector2( -88, 73 )
-offset = Vector2( 0, -200 )
-rotating = true
-current = true
-zoom = Vector2( 1.5, 1.5 )
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-
-[node name="Mouse" parent="walls" instance=ExtResource( 9 )]
-position = Vector2( 2908, -1855 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
-position = Vector2( 537, 576 )
-stream = ExtResource( 22 )
-volume_db = -27.822
-pitch_scale = 1.19
-autoplay = true
-max_distance = 800.0
-attenuation = 0.659754
-
-[node name="Mother" parent="walls" instance=ExtResource( 8 )]
-position = Vector2( 2074, -1607 )
-scale = Vector2( 0.7, 0.7 )
 
 [node name="GUI" type="CanvasLayer" parent="walls"]
 
@@ -160,8 +182,8 @@ scale = Vector2( 0.609589, 0.5 )
 texture = ExtResource( 19 )
 
 [node name="Syda5" type="Sprite" parent="walls/GUI/Panel_V/VBoxContainer"]
-position = Vector2( 154, -1 )
-scale = Vector2( 0.609589, 0.5 )
+position = Vector2( 153.875, -1 )
+scale = Vector2( 0.606164, 0.5 )
 texture = ExtResource( 19 )
 
 [node name="Panel_P" type="Panel" parent="walls/GUI"]
@@ -255,6 +277,75 @@ __meta__ = {
 wait_time = 4.0
 one_shot = true
 
+[node name="inTheBag" type="Panel" parent="walls/GUI"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1084.0
+margin_top = 82.0
+margin_right = 1094.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPU" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 60, 46 )
+scale = Vector2( 0.13711, 0.122273 )
+texture = ExtResource( 27 )
+
+[node name="RAM" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( -464.438, 257.813 )
+scale = Vector2( 0.0510937, 0.0429688 )
+texture = ExtResource( 25 )
+
+[node name="HDD" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( -111, 295 )
+scale = Vector2( 0.105365, 0.114261 )
+texture = ExtResource( 28 )
+
+[node name="PSU" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Keyboard" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Mouse" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 64, 56 )
+scale = Vector2( 0.242331, 0.172273 )
+texture = ExtResource( 26 )
+
+[node name="Cooler" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="GPU" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Soundcard" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Speaker" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Mic" type="Sprite" parent="walls/GUI/inTheBag"]
+visible = false
+position = Vector2( 15, 0 )
+
+[node name="Animations" type="AnimationPlayer" parent="walls/GUI"]
+anims/stumble = ExtResource( 31 )
+anims/toTheBag = ExtResource( 30 )
+
+[node name="Staap" parent="walls" instance=ExtResource( 6 )]
+
 [node name="StaapEntrance" type="Area2D" parent="walls"]
 position = Vector2( 18, -47 )
 
@@ -263,11 +354,91 @@ position = Vector2( 1392, -2000 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
+[node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 175, -1927 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Player" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 2709, -2010 )
+scale = Vector2( 1, 1 )
+
+[node name="Camera" type="Camera2D" parent="walls/Player"]
+position = Vector2( -88, 73 )
+offset = Vector2( 0, -200 )
+rotating = true
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="Mother" parent="walls" instance=ExtResource( 8 )]
+self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
+position = Vector2( 2074, -1607 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Brain" parent="walls" instance=ExtResource( 10 )]
+position = Vector2( 2718, -3265 )
+
 [node name="YellowNotes" parent="walls" instance=ExtResource( 24 )]
 position = Vector2( 3060, -1687 )
 
-[node name="Brain" parent="walls" instance=ExtResource( 10 )]
-position = Vector2( 2692, -3183 )
+[node name="Bookshelf" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Bookshelf"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Bookshelf"]
+
+[node name="Battery" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Battery"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Battery"]
+
+[node name="Piano" parent="walls" instance=ExtResource( 29 )]
+position = Vector2( 1967, -1003 )
+
+[node name="Horn" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Horn"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Horn"]
+
+[node name="Mouse" parent="walls" instance=ExtResource( 9 )]
+position = Vector2( 1233, -1699 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
+position = Vector2( 537, 576 )
+stream = ExtResource( 22 )
+volume_db = -27.822
+pitch_scale = 1.19
+autoplay = true
+max_distance = 800.0
+attenuation = 0.659754
+
+[node name="Projector" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Projector"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Projector"]
+
+[node name="Taperecorder" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Taperecorder"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Taperecorder"]
+
+[node name="Cooler" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Cooler"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Cooler"]
+
+[node name="Mic" type="StaticBody2D" parent="walls"]
+
+[node name="Sprite" type="Sprite" parent="walls/Mic"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Mic"]
 
 [node name="Music" type="Node2D" parent="."]
 position = Vector2( -57, 8 )
@@ -298,10 +469,10 @@ stream = ExtResource( 21 )
 autoplay = true
 bus = "Back"
 
-[connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]
 [connection signal="on_dialog" from="walls/GUI/QuestionArea" to="walls/GUI/Dialogarea/Dialog" method="_on_QuestionArea_on_dialog"]
 [connection signal="dialog_start" from="walls/GUI/Dialogarea" to="walls/GUI/Dialogarea/Dialog" method="_on_Dialogarea_dialog_start"]
 [connection signal="timeout" from="walls/GUI/Dialogarea/Timer" to="walls/GUI/Dialogarea/Dialog" method="_on_Timer_timeout"]
 [connection signal="pressed" from="walls/GUI/Dialogarea/Button" to="walls/GUI/Dialogarea/Dialog" method="_on_Button_pressed"]
 [connection signal="timeout" from="walls/GUI/Uduekraan/Timer" to="walls" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/StaapEntrance/NortBridgeUks" method="_on_Area2D_body_entered"]
+[connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]

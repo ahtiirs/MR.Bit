@@ -19,6 +19,16 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	print("Keegi somebody astus ajju ")
-	active = false
-	pass # Replace with function body.
+	pass
+
+
+func _on_Area2D_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print("Keegi somebody astus ajju ", body)
+	
+	if body.name == "Player":
+		active = false
+		var game = get_parent()
+		var dispBag = get_parent().get_node("GUI/inTheBag/CPU")
+		dispBag.visible = true
+		game.bag = "Brain"
+		pass # Replace with function body.

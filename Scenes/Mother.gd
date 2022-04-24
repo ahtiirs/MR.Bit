@@ -93,7 +93,7 @@ func _process(delta):
 			quick = 0
 
 			$AnimatedSprite.play("idle")	#--- peatame mängija animatsiooni
-			print("kaugus",EnemyToPlayer.length())
+#			print("kaugus",EnemyToPlayer.length())
 			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked: #-- KAs mängija on vestlusläheduses
 				
 				YesPopup.visible = true 	#--- avan vestluse küsimise dialoogi

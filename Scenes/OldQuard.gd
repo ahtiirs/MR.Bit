@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 200# Pixels/second.
+const MOTION_SPEED = 100# Pixels/second.
 const maxSpeed = 4
 const friction = 20 
 var acceleration = 2000 # mängija kiirendus ja pidurdus
@@ -36,6 +36,7 @@ var rng = RandomNumberGenerator.new()
 onready var EnemyToPlayer = global_position
 
 onready var EnemyPosition = get_parent().get_node("Player").get_position()
+onready var animation = get_parent().get_node("GUI/Animations")
 var timer = 0
 var tryTime = 0
 var randMouse = 0
@@ -135,13 +136,14 @@ func _process(delta):
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
 			$OldManSound.stop()
 			$OldManAttentionSound.play()
-			
+			animation.play("stumble")
 			state = CHASE 
-			timer = 8
+			timer = 5
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-			quick = 2
+			quick = 1.5
 
 		else:
+			animation.stop()
 			state = WANDER
 			quick = 1.0
 # ------------------------------------------------------------			
