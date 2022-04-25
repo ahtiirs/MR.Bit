@@ -100,12 +100,31 @@ func _process(delta):
 				print("stop")
 				get_tree().quit() # Mängu lõpp
 				
-				
+		if collision.collider.name == "Brain" && collided != true:
+			collided = true
+			var game = get_parent()
+			
+			var dispBagall = get_parent().get_node("GUI/inTheBag")
+			for _i in dispBagall.get_children ():
+				_i.visible = false
+		
+			var dispBag = get_parent().get_node("GUI/inTheBag/CPU")
+	
+#			dispBagall.visible = false
+			dispBag.visible = true
+			animation.play("toTheBag")
+			
+			game.bag = "CPU"
+			pass # Replace with function body.				
 				
 		if collision.collider.name == "YellowNotes" && collided != true:
 			collided = true
 			var game = get_parent()
-			var dispBagall = get_parent().get_children()
+			var dispBagall = get_parent().get_node("GUI/inTheBag")
+			for _i in dispBagall.get_children ():
+				_i.visible = false
+
+
 			var dispBag = get_parent().get_node("GUI/inTheBag/RAM")
 			
 #			dispBagall.visible = false
@@ -115,16 +134,34 @@ func _process(delta):
 			game.bag = "Memory"
 			pass # Replace with function body.
 			
-		if collision.collider.name == "Piano" && collided != true:
+		if collision.collider.name == "Bookshelf" && collided != true:
 			collided = true
 			var game = get_parent()
-			var dispBagall = get_parent().get_children()
-			var dispBag = get_parent().get_node("GUI/inTheBag/Piano")
+			var dispBagall = get_parent().get_node("GUI/inTheBag")
+			for _i in dispBagall.get_children ():
+				_i.visible = false
+
+			var dispBag = get_parent().get_node("GUI/inTheBag/HDD")
 
 			dispBag.visible = true
 			animation.play("toTheBag")
 			
-			game.bag = "Memory"
+			game.bag = "HDD"
+			pass # Replace with function body.	
+			
+		if collision.collider.name == "Piano" && collided != true:
+			collided = true
+			var game = get_parent()
+			var dispBagall = get_parent().get_node("GUI/inTheBag")
+			for _i in dispBagall.get_children ():
+				_i.visible = false
+
+			var dispBag = get_parent().get_node("GUI/inTheBag/Keyboard")
+
+			dispBag.visible = true
+			animation.play("toTheBag")
+			
+			game.bag = "Keyboard"
 			pass # Replace with function body.	
 
 			
