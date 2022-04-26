@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -34,6 +34,14 @@
 [ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=32]
 [ext_resource path="res://Assets/jupid/toiteplokk.png" type="Texture" id=33]
 [ext_resource path="res://Assets/jupid/klaviatuur.png" type="Texture" id=34]
+[ext_resource path="res://Assets/infovaade/sisenemine_01.webm" type="VideoStream" id=35]
+[ext_resource path="res://Assets/infovaade/sisenemine_02.webm" type="VideoStream" id=36]
+[ext_resource path="res://Assets/infovaade/prose.png" type="Texture" id=37]
+[ext_resource path="res://Assets/infovaade/klaviatuur.png" type="Texture" id=38]
+[ext_resource path="res://Assets/infovaade/hdd.png" type="Texture" id=39]
+[ext_resource path="res://Assets/infovaade/toide.png" type="Texture" id=40]
+[ext_resource path="res://Assets/infovaade/ram.png" type="Texture" id=41]
+[ext_resource path="res://Scenes/StaapStart.gd" type="Script" id=42]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
@@ -228,6 +236,54 @@ tile_data = PoolIntArray( -3145690, 0, 0, -2359258, 0, 0 )
 position = Vector2( 15, 321 )
 
 [node name="GUI" type="CanvasLayer" parent="walls"]
+
+[node name="Staap" type="Node2D" parent="walls/GUI"]
+pause_mode = 2
+
+[node name="StaapStart" type="VideoPlayer" parent="walls/GUI/Staap"]
+visible = false
+margin_right = 1283.0
+margin_bottom = 723.0
+stream = ExtResource( 35 )
+script = ExtResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPU" type="Sprite" parent="walls/GUI/Staap"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 37 )
+
+[node name="RAM" type="Sprite" parent="walls/GUI/Staap"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 41 )
+
+[node name="HDD" type="Sprite" parent="walls/GUI/Staap"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 39 )
+
+[node name="PSU" type="Sprite" parent="walls/GUI/Staap"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 40 )
+
+[node name="Keyboard" type="Sprite" parent="walls/GUI/Staap"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 38 )
+
+[node name="StaapStart_Keyb" type="VideoPlayer" parent="walls/GUI"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 36 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PauseMenu" parent="walls/GUI" instance=ExtResource( 12 )]
 
@@ -573,6 +629,7 @@ stream = ExtResource( 21 )
 autoplay = true
 bus = "Back"
 
+[connection signal="finished" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap/StaapStart" method="_on_StaapStart_finished"]
 [connection signal="on_dialog" from="walls/GUI/QuestionArea" to="walls/GUI/Dialogarea/Dialog" method="_on_QuestionArea_on_dialog"]
 [connection signal="dialog_start" from="walls/GUI/Dialogarea" to="walls/GUI/Dialogarea/Dialog" method="_on_Dialogarea_dialog_start"]
 [connection signal="timeout" from="walls/GUI/Dialogarea/Timer" to="walls/GUI/Dialogarea/Dialog" method="_on_Timer_timeout"]
