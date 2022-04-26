@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 var lives = 5 # mängijal elusid
-const MOTION_SPEED = 240# Pixels/second.
-const maxSpeed = 10
+#const MOTION_SPEED = 180# Pixels/second.
+const maxSpeed = 8
 const friction = 20 
 var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
@@ -55,13 +55,14 @@ func _process(delta):
 
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
-	
+#	var movePerSec = motion.normalized()
 #	if EnemyToPlayer.length() < MaxDistance:
 #			print (EnemyToPlayer)
 #			print (EnemyToPlayer.dot(motion))
 #			print("Mind nähti, jookseni!!!")
+
 	
-	var collision = move_and_collide(motion )
+	var collision = move_and_collide(motion)
 
 	if collision :
 		print(collision.collider.name)

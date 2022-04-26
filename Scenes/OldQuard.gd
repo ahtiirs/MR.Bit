@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 100# Pixels/second.
-const maxSpeed = 4
+#const MOTION_SPEED = 100# Pixels/second.
+const maxSpeed = 3
 const friction = 20 
-var acceleration = 2000 # mängija kiirendus ja pidurdus
+var acceleration = 200 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
@@ -140,7 +140,7 @@ func _process(delta):
 			state = CHASE 
 			timer = 5
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-			quick = 1.5
+			quick = 2
 
 		else:
 			animation.stop()
