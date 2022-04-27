@@ -136,7 +136,7 @@ func _process(delta):
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
 			$OldManSound.stop()
 			$OldManAttentionSound.play()
-			animation.play("stumble")
+#			animation.play("stumble")
 			state = CHASE 
 			timer = 5
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
@@ -170,7 +170,7 @@ func _process(delta):
 #			print("vastu seina")
 
 		collided = true
-		tryTime= 0
+		tryTime= 1
 	else:
 		collided = false
 				

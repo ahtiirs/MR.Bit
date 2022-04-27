@@ -132,7 +132,7 @@ func _process(delta):
 			dispBag.visible = true
 			animation.play("toTheBag")
 			
-			game.bag = "Memory"
+			game.bag = "RAM"
 			pass # Replace with function body.
 			
 		if collision.collider.name == "Bookshelf" && collided != true:

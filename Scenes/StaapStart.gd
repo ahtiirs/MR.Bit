@@ -5,6 +5,9 @@ extends VideoPlayer
 # var a = 2
 # var b = "text"
 onready var cpu = get_parent().get_node("CPU")
+onready var game = get_parent().get_parent().get_parent()
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +20,9 @@ func _ready():
 
 
 func _on_StaapStart_finished():
-	cpu.visible = true
+	
 	self.visible = false
+	var component = get_parent().get_node(game.bag)
+	print(game.bag)
+	component.visible = true
 	
