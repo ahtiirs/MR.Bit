@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/takeIt.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 0.498039 )
+
+[node name="takeIt" type="ColorRect"]
+anchor_right = 0.3
+anchor_bottom = 0.356
+margin_bottom = -0.320007
+color = Color( 1, 1, 1, 0.47451 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 376.0
+margin_bottom = 176.0
+text = "proovitext liuh liuh liuh uhl u,h gvhmtf jtf yg ,kjg,jhg ,yg ,jf,jyf ,uyf, y f,jyf,uyf ,uf ,u.h .ih"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Take" type="Button" parent="."]
+margin_left = 48.0
+margin_top = 192.0
+margin_right = 168.0
+margin_bottom = 232.0
+text = "Võta"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Leave" type="Button" parent="."]
+margin_left = 216.0
+margin_top = 192.0
+margin_right = 336.0
+margin_bottom = 232.0
+text = "Jäta"
+
+[connection signal="pressed" from="Take" to="." method="_on_Take_pressed"]
+[connection signal="pressed" from="Leave" to="." method="_on_Leave_pressed"]
