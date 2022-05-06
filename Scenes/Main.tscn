@@ -530,7 +530,7 @@ visible = false
 position = Vector2( 15, 0 )
 
 [node name="Animations" type="AnimationPlayer" parent="walls/GUI"]
-autoplay = "yellowlabels"
+autoplay = "startScreen"
 anims/startScreen = SubResource( 8 )
 anims/stumble = ExtResource( 31 )
 anims/toTheBag = ExtResource( 30 )
