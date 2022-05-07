@@ -2,6 +2,7 @@ extends TileMap
 var gameStatus = 0
 var gameLevel= 1
 var bag = 0
+var pc = []
 enum {
 	Brain,
 	Notes,
@@ -71,3 +72,6 @@ func _on_Timer_timeout():
 	get_tree().paused = false
 	
 	
+
+
+

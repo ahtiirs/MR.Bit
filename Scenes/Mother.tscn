@@ -41,11 +41,6 @@ animations = [ {
 "name": "idle",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "2",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 20 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "8",
@@ -61,14 +56,14 @@ animations = [ {
 "name": "5",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "7",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 25 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 31 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "6",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 19 ) ],
@@ -76,9 +71,14 @@ animations = [ {
 "name": "3",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 31 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "6",
+"name": "7",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "2",
 "speed": 8.0
 } ]
 
@@ -87,11 +87,11 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 33 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -10, 46 )
+position = Vector2( 48, 32 )
 polygon = PoolVector2Array( -112, 144, -48, 160, 74, 146, 170, 50, 170, -78, 10, -174, -150, -78, -176, 96 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -160 )
+position = Vector2( 32, -144 )
 frames = SubResource( 4 )
 animation = "idle"
 

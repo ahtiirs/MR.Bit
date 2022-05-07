@@ -1,11 +1,13 @@
-extends VideoPlayer
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var cpu = get_parent().get_node("CPU")
-onready var game = get_parent().get_parent().get_parent()
+onready var game = get_parent().get_parent()
+onready var staapvideo = get_node("StaapStart")
+onready var staapvideoKeyb = get_node("StaapStart_Keyb")
+
 
 
 
@@ -19,16 +21,13 @@ func _ready():
 #	pass
 
 
-func _on_StaapStart_finished():
-	
-	self.visible = false
-	var component = get_parent().get_node(game.bag)
-	print(game.bag)
-	component.visible = true
-	
-
-
 func _on_StaapEntrance_body_entered(body):
+	if body.name == "Player":
 		get_tree().paused = true
-#		.visible = true
-#		staapvideo.play()
+		if game.pc.has("Keyboard"):
+			staapvideoKeyb.visible = true
+			staapvideoKeyb.play()
+		else:
+			staapvideo.visible = true
+			staapvideo.play()
+

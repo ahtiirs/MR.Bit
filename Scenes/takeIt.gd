@@ -4,6 +4,7 @@ var foundItem= ""
 var itemtoComponent = {"Brain":"CPU","Piano":"Keyboard","YellowNotes":"RAM","Battery":"PSU","Bookshelf":"HDD"}
 var foundText = {"Brain":"Oi, leidsin aju ","Piano":"Pianoleidmise tekst"}
 var answer = false
+onready var game = get_parent().get_parent()
 
 signal flytoBag
 
@@ -13,8 +14,11 @@ func _ready():
 func _on_Take_pressed():
 	self.answer = true
 	emit_signal("flytoBag",itemtoComponent[foundItem])
+	game.bag = itemtoComponent[foundItem]
 	self.visible = false
+	
 	get_tree().paused = false
+	
 	pass # Replace with function body.
 
 func _on_Leave_pressed():
