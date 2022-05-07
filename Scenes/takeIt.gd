@@ -1,37 +1,39 @@
 extends ColorRect
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var foundPart = ""
+var foundItem= ""
+var itemtoComponent = {"Brain":"CPU","Piano":"Keyboard","YellowNotes":"RAM","Battery":"PSU","Bookshelf":"HDD"}
 var foundText = {"Brain":"Oi, leidsin aju ","Piano":"Pianoleidmise tekst"}
 var answer = false
 
-# Called when the node enters the scene tree for the first time.
+signal flytoBag
+
 func _ready():
-	
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Take_pressed():
-	print(foundPart,answer)
 	self.answer = true
-	print(foundPart,answer)
+	emit_signal("flytoBag",itemtoComponent[foundItem])
 	self.visible = false
 	get_tree().paused = false
 	pass # Replace with function body.
-
 
 func _on_Leave_pressed():
-	print(foundPart,answer)
 	self.answer = false
-	print(foundPart,answer)
 	self.visible = false
 	get_tree().paused = false
 	pass # Replace with function body.
+
+func _on_Player_foundItem(item):
+	foundItem = item
+	print(item)
+	if foundText.has(item):
+		print(foundText[item])
+		self.get_node("Label").text = foundText[item]
+#		for i in foundText:  # for name, age in dictionary.iteritems():  (for Python 2.x)
+#			print(i)
+#			if i == item:
+#				print(i.value)
+	else:
+		self.get_node("Label").text = "Sellise vidina koha pole mul veel sõnu"
+	self.visible = true
+	get_tree().paused = true

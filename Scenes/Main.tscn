@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -45,6 +45,8 @@
 [ext_resource path="res://Scenes/Bookshelf.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/Battery.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Scenes/takeIt.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Assets/sounds/elu_maha.mp3" type="AudioStream" id=46]
+[ext_resource path="res://Scenes/inTheBag.gd" type="Script" id=47]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
@@ -469,6 +471,7 @@ margin_top = 82.0
 margin_right = 1094.0
 margin_bottom = 90.0
 custom_styles/panel = SubResource( 5 )
+script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -573,26 +576,31 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 
+[node name="ouch" type="AudioStreamPlayer2D" parent="walls/Player"]
+position = Vector2( -1476, 311 )
+stream = ExtResource( 46 )
+bus = "Footsteps"
+
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
 position = Vector2( 2074, -1607 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="Brain" parent="walls" instance=ExtResource( 10 )]
+[node name="Brain" parent="walls" groups=["Collect"] instance=ExtResource( 10 )]
 position = Vector2( 2718, -3265 )
 
-[node name="YellowNotes" parent="walls" instance=ExtResource( 24 )]
+[node name="YellowNotes" parent="walls" groups=["Collect", "components"] instance=ExtResource( 24 )]
 position = Vector2( 5660, -1847 )
 rotation = 0.0232711
 scale = Vector2( 1.04854, 1.04854 )
 
-[node name="Bookshelf" parent="walls" instance=ExtResource( 43 )]
+[node name="Bookshelf" parent="walls" groups=["Collect"] instance=ExtResource( 43 )]
 position = Vector2( 2628, 209 )
 
-[node name="Battery" parent="walls" instance=ExtResource( 44 )]
+[node name="Battery" parent="walls" groups=["Collect"] instance=ExtResource( 44 )]
 position = Vector2( 2060, -4039 )
 
-[node name="Piano" parent="walls" instance=ExtResource( 29 )]
+[node name="Piano" parent="walls" groups=["Collect"] instance=ExtResource( 29 )]
 position = Vector2( -2316, -1455 )
 
 [node name="Horn" type="StaticBody2D" parent="walls"]
@@ -677,5 +685,7 @@ bus = "Back"
 [connection signal="timeout" from="walls/GUI/Dialogarea/Timer" to="walls/GUI/Dialogarea/Dialog" method="_on_Timer_timeout"]
 [connection signal="pressed" from="walls/GUI/Dialogarea/Button" to="walls/GUI/Dialogarea/Dialog" method="_on_Button_pressed"]
 [connection signal="timeout" from="walls/GUI/Uduekraan/Timer" to="walls" method="_on_Timer_timeout"]
+[connection signal="flytoBag" from="walls/GUI/takeIt" to="walls/GUI/inTheBag" method="_on_takeIt_flytoBag"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/StaapEntrance/NortBridgeUks" method="_on_Area2D_body_entered"]
+[connection signal="foundItem" from="walls/Player" to="walls/GUI/takeIt" method="_on_Player_foundItem"]
 [connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]

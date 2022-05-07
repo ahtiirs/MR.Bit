@@ -13,6 +13,8 @@ var moveVector = Vector2.ZERO
 
 
 signal lives
+signal foundItem
+
 
 enum YesIds {
 	Yes,
@@ -90,104 +92,96 @@ func _process(delta):
 			pass
 
 		if collision.collider.name == "OldQuard":
-			lives = lives -1
+			$ouch.play()
 			
-
-
-			self.set_position(Vector2(1543,-1635))
-			emit_signal("lives",lives)
-			get_tree().paused = true
-			
-			OldGuard.set_position(Vector2(175,-1920))
+			if !$ouch.playing:
+				lives = lives -1
+				self.set_position(Vector2(1543,-1635))
+				emit_signal("lives",lives)
+				get_tree().paused = true
+				
+				OldGuard.set_position(Vector2(175,-1920))
 
 			if lives <= 0:
 				print("stop")
 				get_tree().quit() # Mängu lõpp
+
 				
-		if collision.collider.name == "Brain" && collided != true:
-			collided = true
-			take.foundPart = "Brain"
-			takeLabel.text = take.foundText["Brain"] 
-			take.visible = true
-			get_tree().paused = true
-			print("Player sai vastuse: ",take.answer)
-			if take.answer:
-				var game = get_parent()
-			
-				var dispBagall = get_parent().get_node("GUI/inTheBag")
-				for _i in dispBagall.get_children ():
-					_i.visible = false
-			
-				var dispBag = get_parent().get_node("GUI/inTheBag/CPU")
+		var collGroups = collision.collider.get_groups()
+		print("collArray",collGroups)
 		
-	#			dispBagall.visible = false
-				dispBag.visible = true
-				animation.play("toTheBag")
+		if collision.collider.get_groups().has("Collect") && collided == false:
+			collided = true
+			emit_signal("foundItem",collision.collider.name)		
 				
-				game.bag = "CPU"
-				pass # Replace with function body.				
+#		if collision.collider.name == "Brain" && collided != true:
+#			collided = true
+#			collision.collider.get_groups())
+#
+#			emit_signal("foundItem",collision.collider.name)
+
 				
-		if collision.collider.name == "YellowNotes" && collided != true:
-			collided = true
-			var game = get_parent()
-			var dispBagall = get_parent().get_node("GUI/inTheBag")
-			for _i in dispBagall.get_children ():
-				_i.visible = false
-
-
-			var dispBag = get_parent().get_node("GUI/inTheBag/RAM")
-			
-#			dispBagall.visible = false
-			dispBag.visible = true
-			animation.play("toTheBag")
-			
-			game.bag = "RAM"
-			pass # Replace with function body.
-			
-		if collision.collider.name == "Bookshelf" && collided != true:
-			collided = true
-			var game = get_parent()
-			var dispBagall = get_parent().get_node("GUI/inTheBag")
-			for _i in dispBagall.get_children ():
-				_i.visible = false
-
-			var dispBag = get_parent().get_node("GUI/inTheBag/HDD")
-
-			dispBag.visible = true
-			animation.play("toTheBag")
-			
-			game.bag = "HDD"
-			pass # Replace with function body.	
-			
-		if collision.collider.name == "Piano" && collided != true:
-			collided = true
-			var game = get_parent()
-			var dispBagall = get_parent().get_node("GUI/inTheBag")
-			for _i in dispBagall.get_children ():
-				_i.visible = false
-
-			var dispBag = get_parent().get_node("GUI/inTheBag/Keyboard")
-
-			dispBag.visible = true
-			animation.play("toTheBag")
-			
-			game.bag = "Keyboard"
-			pass # Replace with function body.	
-		
-		if collision.collider.name == "Battery" && collided != true:
-			collided = true
-			var game = get_parent()
-			var dispBagall = get_parent().get_node("GUI/inTheBag")
-			for _i in dispBagall.get_children ():
-				_i.visible = false
-
-			var dispBag = get_parent().get_node("GUI/inTheBag/PSU")
-
-			dispBag.visible = true
-			animation.play("toTheBag")
-			
-			game.bag = "PSU"
-			pass # Replace with function body.	
+#		if collision.collider.name == "YellowNotes" && collided != true:
+#			collided = true
+#			var game = get_parent()
+#			var dispBagall = get_parent().get_node("GUI/inTheBag")
+#			for _i in dispBagall.get_children ():
+#				_i.visible = false
+#
+#
+#			var dispBag = get_parent().get_node("GUI/inTheBag/RAM")
+#
+##			dispBagall.visible = false
+#			dispBag.visible = true
+#			animation.play("toTheBag")
+#
+#			game.bag = "RAM"
+#			pass # Replace with function body.
+#
+#		if collision.collider.name == "Bookshelf" && collided != true:
+#			collided = true
+#			var game = get_parent()
+#			var dispBagall = get_parent().get_node("GUI/inTheBag")
+#			for _i in dispBagall.get_children ():
+#				_i.visible = false
+#
+#			var dispBag = get_parent().get_node("GUI/inTheBag/HDD")
+#
+#			dispBag.visible = true
+#			animation.play("toTheBag")
+#
+#			game.bag = "HDD"
+#			pass # Replace with function body.	
+#
+#		if collision.collider.name == "Piano" && collided != true:
+#			collided = true
+#			var game = get_parent()
+#			var dispBagall = get_parent().get_node("GUI/inTheBag")
+#			for _i in dispBagall.get_children ():
+#				_i.visible = false
+#
+#			var dispBag = get_parent().get_node("GUI/inTheBag/Keyboard")
+#
+#			dispBag.visible = true
+#			animation.play("toTheBag")
+#
+#			game.bag = "Keyboard"
+#			pass # Replace with function body.	
+#
+#		if collision.collider.name == "Battery" && collided != true:
+#			collided = true
+#			var game = get_parent()
+#			var dispBagall = get_parent().get_node("GUI/inTheBag")
+#			for _i in dispBagall.get_children ():
+#				_i.visible = false
+#
+#			var dispBag = get_parent().get_node("GUI/inTheBag/PSU")
+#
+#			dispBag.visible = true
+#			animation.play("toTheBag")
+#
+#			game.bag = "PSU"
+#			pass # Replace with function body.	
 
 			
 	else:

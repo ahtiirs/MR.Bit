@@ -13,7 +13,7 @@ enum {
 	Mouse,
 	Projecor,
 	Recorder,
-	Mic
+	Mic,
 	Cooler
 }
 
@@ -69,6 +69,5 @@ func _on_Player_lives(lives):
 func _on_Timer_timeout():
 	mist.visible=false
 	get_tree().paused = false
-
-
-
+	
+	
