@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -14,7 +14,10 @@
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Staap.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/NortBridgeUks.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/StaapStart_Keyb.gd" type="Script" id=15]
+[ext_resource path="res://bit_theme.tres" type="Theme" id=16]
 [ext_resource path="res://Assets/muusika/action-workout-trap-fashion-99524.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Scenes/StaapText.gd" type="Script" id=18]
 [ext_resource path="res://Assets/muusika/sport-fashion-rock-95426.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Assets/muusika/dead-by-daylight-10243.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Assets/sounds/Hiire1_01.mp3" type="AudioStream" id=22]
@@ -50,6 +53,8 @@ points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, -256 )
 } ]
 0/z_index = 0
+
+[sub_resource type="Theme" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 97.5, 29 )
@@ -98,6 +103,46 @@ position = Vector2( 15, 321 )
 
 [node name="Staap" parent="walls/GUI" index="0"]
 script = ExtResource( 13 )
+
+[node name="StaapStart_Keyb" parent="walls/GUI/Staap" index="1"]
+autoplay = false
+script = ExtResource( 15 )
+
+[node name="Exit" parent="walls/GUI/Staap" index="7"]
+visible = false
+
+[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="8"]
+visible = false
+margin_left = 472.0
+margin_top = 280.0
+margin_right = 840.0
+margin_bottom = 475.0
+theme = SubResource( 8 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="RichTextLabel" parent="walls/GUI/Staap/StaapText"]
+margin_left = 17.0
+margin_top = 12.0
+margin_right = 348.0
+margin_bottom = 169.0
+theme = ExtResource( 16 )
+text = "Algne text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ok" type="Button" parent="walls/GUI/Staap/StaapText"]
+margin_left = 288.0
+margin_top = 163.0
+margin_right = 354.0
+margin_bottom = 183.0
+text = "Sain aru"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Staap" parent="walls" instance=ExtResource( 6 )]
 
@@ -230,6 +275,10 @@ stream = ExtResource( 21 )
 autoplay = true
 bus = "Back"
 
+[connection signal="videoFinish" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
+[connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
+[connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
+[connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
 [connection signal="foundItem" from="walls/Player" to="walls/GUI/takeIt" method="_on_Player_foundItem"]
 [connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]

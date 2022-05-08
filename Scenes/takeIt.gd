@@ -15,6 +15,7 @@ func _on_Take_pressed():
 	self.answer = true
 	emit_signal("flytoBag",itemtoComponent[foundItem])
 	game.bag = itemtoComponent[foundItem]
+	
 	self.visible = false
 	
 	get_tree().paused = false

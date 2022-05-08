@@ -2,7 +2,10 @@ extends TileMap
 var gameStatus = 0
 var gameLevel= 1
 var bag = 0
-var pc = []
+var pc = ["MB"]
+var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
+var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
+
 enum {
 	Brain,
 	Notes,
@@ -75,3 +78,7 @@ func _on_Timer_timeout():
 
 
 
+
+
+func _on_StaapStart_Keyb_finished():
+	pass # Replace with function body.
