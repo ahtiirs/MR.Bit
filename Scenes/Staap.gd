@@ -39,7 +39,7 @@ func _on_StaapStart_videoFinish():
 	var component = get_node(game.bag)
 	print(game.bag)
 	component.visible = true
-	staapmessage.get_node("label").text = staapText[game.bag]
+	staapmessage.get_node("label").text = staapText[game.pc[game.status]]
 	staapmessage.visible = true
 	
 	

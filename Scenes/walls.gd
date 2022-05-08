@@ -1,6 +1,6 @@
 extends TileMap
-var gameStatus = 0
-var gameLevel= 1
+var status = 0
+var level= 1
 var bag = 0
 var pc = ["MB"]
 var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
