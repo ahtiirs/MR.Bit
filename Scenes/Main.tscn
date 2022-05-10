@@ -175,7 +175,7 @@ smoothing_enabled = true
 [node name="ouch" type="AudioStreamPlayer2D" parent="walls/Player"]
 position = Vector2( -1476, 311 )
 stream = ExtResource( 46 )
-bus = "Footsteps"
+bus = "Collision"
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
@@ -282,5 +282,6 @@ bus = "Back"
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
 [connection signal="foundItem" from="walls/Player" to="walls/GUI/takeIt" method="_on_Player_foundItem"]
 [connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]
+[connection signal="finished" from="walls/Player/ouch" to="walls/Player" method="_on_ouch_finished"]
 
 [editable path="walls/GUI"]

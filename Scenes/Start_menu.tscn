@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Button.gd" type="Script" id=1]
-[ext_resource path="res://Assets/taust/start.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI/tavavaade.jpg" type="Texture" id=2]
 
 [node name="Start_menu" type="CanvasLayer"]
 follow_viewport_enable = true
@@ -9,8 +9,8 @@ follow_viewport_enable = true
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 93.0
-margin_bottom = 62.0
+margin_right = 14.0
+margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -18,55 +18,48 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1366.0
-margin_bottom = 775.0
+margin_right = 1287.0
+margin_bottom = 727.0
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer"]
-margin_right = 1359.0
-margin_bottom = 768.0
+margin_right = 1280.0
+margin_bottom = 720.0
 texture = ExtResource( 2 )
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
-margin_left = 579.0
-margin_top = 320.0
-margin_right = 779.0
-margin_bottom = 448.0
-
-[node name="Button" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 40.0
+[node name="Button" type="Button" parent="PanelContainer/CenterContainer/TextureRect"]
+margin_left = 522.0
+margin_top = 457.0
+margin_right = 722.0
+margin_bottom = 497.0
 rect_min_size = Vector2( 200, 40 )
 text = "ALUSTA"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button2" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 200.0
-margin_bottom = 84.0
+[node name="Button3" type="Button" parent="PanelContainer/CenterContainer/TextureRect"]
+margin_left = 522.0
+margin_top = 553.0
+margin_right = 722.0
+margin_bottom = 593.0
+rect_min_size = Vector2( 200, 40 )
+text = "LAHKUN MÄNGUST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="PanelContainer/CenterContainer/TextureRect"]
+margin_left = 522.0
+margin_top = 505.0
+margin_right = 722.0
+margin_bottom = 545.0
 rect_min_size = Vector2( 200, 40 )
 text = "VALIKUD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
-margin_top = 88.0
-margin_right = 200.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 200, 40 )
-text = "LAHKUN MÄNGUST"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer"]
-margin_left = 679.0
-margin_top = 384.0
-margin_right = 679.0
-margin_bottom = 384.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer"]
-margin_left = 679.0
-margin_top = 384.0
-margin_right = 679.0
-margin_bottom = 384.0
-
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Button" to="PanelContainer/CenterContainer/VBoxContainer/Button" method="_on_Button_pressed"]
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Button3" to="PanelContainer/CenterContainer/VBoxContainer/Button" method="_on_Button3_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button3" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button3_pressed"]
