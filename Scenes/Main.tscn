@@ -279,6 +279,7 @@ bus = "Back"
 [connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
+[connection signal="pressed" from="walls/GUI/Staap/StaapText/ok" to="walls/GUI/Staap" method="_on_ok_pressed"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
 [connection signal="foundItem" from="walls/Player" to="walls/GUI/takeIt" method="_on_Player_foundItem"]
 [connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]

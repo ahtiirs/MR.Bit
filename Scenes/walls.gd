@@ -1,9 +1,10 @@
 extends TileMap
 var status = 0
 var level= 1
-var bag = 0
+var bag = "empty"
 var pc = ["MB"]
 var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
+var ok_button_l1 = [1,0,0,0,0,0,0]
 var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
 
 enum {
@@ -82,3 +83,6 @@ func _on_Timer_timeout():
 
 func _on_StaapStart_Keyb_finished():
 	pass # Replace with function body.
+
+
+
