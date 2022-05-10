@@ -13,6 +13,7 @@ var freeDistance = []
 var time_start = 0
 var time_now = 0
 var quick = 1.0
+var notcatch = true
 
 var moves = {
 	1 : Vector2(-1,1),
@@ -168,9 +169,13 @@ func _process(delta):
 #		if collision.Object != null :
 #			if collided == false:
 #			print("vastu seina")
-
+			
 		collided = true
 		tryTime= 1
+		if collision.collider.name == "Player":
+			print("Sain su kätte poiss")
+			notcatch = false
+			
 	else:
 		collided = false
 				
@@ -186,23 +191,27 @@ func _process(delta):
 func update_animation(moveVec):
 
 #	print ("valvur ",moveVec)
-	if (moveVec.x < 0 && moveVec.y > 0):
+	if (moveVec.x < 0 && moveVec.y > 0 && notcatch):
 		$AnimatedSprite.play("1")
-	if (moveVec.x == 0 && moveVec.y > 0 ):
+	if (moveVec.x == 0 && moveVec.y > 0  && notcatch):
 		$AnimatedSprite.play("2")
-	if (moveVec.x > 0 && moveVec.y  > 0):
+	if (moveVec.x > 0 && moveVec.y  > 0 && notcatch):
 		$AnimatedSprite.play("3")		
-	if (moveVec.x > 0 && moveVec.y == 0):
+	if (moveVec.x > 0 && moveVec.y == 0 && notcatch):
 		$AnimatedSprite.play("4")			
-	if (moveVec.x  > 0&& moveVec.y < 0):
+	if (moveVec.x  > 0&& moveVec.y < 0 && notcatch):
 		$AnimatedSprite.play("5")
-	if (moveVec.x == 0 && moveVec.y < 0):
+	if (moveVec.x == 0 && moveVec.y < 0 && notcatch):
 		$AnimatedSprite.play("6")		
-	if (moveVec.x < 0 && moveVec.y < 0):
+	if (moveVec.x < 0 && moveVec.y < 0 && notcatch):
 		$AnimatedSprite.play("7")
-	if (moveVec.x < 0 && moveVec.y == 0):
+	if (moveVec.x < 0 && moveVec.y == 0 && notcatch):
 		$AnimatedSprite.play("8")		
-	if (moveVec.x == 0 && moveVec.y == 0):
+	if (moveVec.x == 0 && moveVec.y == 0 && notcatch):
+		$AnimatedSprite.play("idle")
+		$OldManSound.stop()
+		$OldManPauseSound.play()
+	if (!notcatch):
 		$AnimatedSprite.play("idle")
 		$OldManSound.stop()
 		$OldManPauseSound.play()
