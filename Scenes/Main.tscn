@@ -144,13 +144,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="9"]
+visible = false
+margin_left = 128.0
+margin_top = 78.0
+margin_right = 1155.0
+margin_bottom = 487.0
+theme = SubResource( 8 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
+margin_left = 14.0
+margin_top = 15.0
+margin_right = 345.0
+margin_bottom = 172.0
+theme = ExtResource( 16 )
+text = "Algne text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
+margin_left = 900.0
+margin_top = 353.0
+margin_right = 966.0
+margin_bottom = 373.0
+text = "Sain aru"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogarea" parent="walls/GUI" index="5"]
+position = Vector2( -226, 300 )
+scale = Vector2( 1.54414, 1.83594 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Dialog" parent="walls/GUI/Dialogarea" index="0"]
+margin_left = 169.0
+margin_top = 106.0
+margin_right = 950.0
+margin_bottom = 215.0
+theme = ExtResource( 16 )
+fit_content_height = true
+scroll_following = true
+
+[node name="Button" parent="walls/GUI/Dialogarea" index="2"]
+margin_left = 906.006
+margin_top = 185.191
+margin_right = 943.006
+margin_bottom = 207.191
+theme = ExtResource( 16 )
+
 [node name="Staap" parent="walls" instance=ExtResource( 6 )]
 
 [node name="StaapEntrance" type="Area2D" parent="walls"]
 position = Vector2( 18, -47 )
 
 [node name="NortBridgeUks" type="CollisionShape2D" parent="walls/StaapEntrance"]
-position = Vector2( 1490, -2034 )
+position = Vector2( 1462, -2140 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
@@ -280,6 +334,7 @@ bus = "Back"
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
 [connection signal="pressed" from="walls/GUI/Staap/StaapText/ok" to="walls/GUI/Staap" method="_on_ok_pressed"]
+[connection signal="pressed" from="walls/GUI/Staap/Partinfo/ok" to="walls/GUI/Staap/Partinfo" method="_on_ok_pressed"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
 [connection signal="foundItem" from="walls/Player" to="walls/GUI/takeIt" method="_on_Player_foundItem"]
 [connection signal="lives" from="walls/Player" to="walls" method="_on_Player_lives"]

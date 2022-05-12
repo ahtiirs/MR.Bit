@@ -9,3 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_ok_pressed():
+	self.visible = false 
+	pass # Replace with function body.

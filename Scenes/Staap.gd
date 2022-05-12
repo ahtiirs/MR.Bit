@@ -39,8 +39,11 @@ func _on_StaapStart_videoFinish():
 		component.visible = true
 		if game.level1[game.status] == game.bag:
 			game.status = game.status +1
-			game.pc.append(game.level1[game.status])	
-	
+			game.pc.append(game.level1[game.status])
+			var componentInfo = get_node("Partinfo")
+			componentInfo.get_node("label").text = "proovime siia midagi tarka ja ilusat kirjutada"
+			componentInfo.visible = true
+			
 	staapmessage.get_node("label").text = staapText[game.level1[game.status]]
 	staapmessage.visible = true
 
@@ -52,7 +55,8 @@ func _on_Exit_pressed():
 		_i.visible = false
 	get_tree().paused = false
 	staapmessage.visible = false
-	intheBag.visible = true
+	game.bag = "empty"
+#	intheBag.visible = true
 
 
 
