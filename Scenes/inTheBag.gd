@@ -7,6 +7,8 @@ func _ready():
 
 
 func _on_takeIt_flytoBag(item):
+	print("lennutame kotti")
+	self.visible = true
 #	var dispBagall = get_parent().get_node("GUI/inTheBag")
 	for _i in self.get_children ():
 		_i.visible = false

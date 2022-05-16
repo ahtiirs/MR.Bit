@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -18,9 +18,11 @@
 [ext_resource path="res://bit_theme.tres" type="Theme" id=16]
 [ext_resource path="res://Assets/muusika/action-workout-trap-fashion-99524.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Scenes/StaapText.gd" type="Script" id=18]
+[ext_resource path="res://Assets/infovaade/tyhikott-klaver.png" type="Texture" id=19]
 [ext_resource path="res://Assets/muusika/sport-fashion-rock-95426.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Assets/muusika/dead-by-daylight-10243.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Assets/sounds/Hiire1_01.mp3" type="AudioStream" id=22]
+[ext_resource path="res://Assets/infovaade/tyhikott.png" type="Texture" id=23]
 [ext_resource path="res://Scenes/YellowNotes.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=32]
@@ -53,8 +55,6 @@ points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, -256 )
 } ]
 0/z_index = 0
-
-[sub_resource type="Theme" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 97.5, 29 )
@@ -108,26 +108,36 @@ script = ExtResource( 13 )
 autoplay = false
 script = ExtResource( 15 )
 
-[node name="Exit" parent="walls/GUI/Staap" index="7"]
+[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="2"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 23 )
+
+[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="3"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 19 )
+
+[node name="Exit" parent="walls/GUI/Staap" index="9"]
 visible = false
 
-[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="8"]
+[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="10"]
 visible = false
-margin_left = 472.0
-margin_top = 280.0
-margin_right = 840.0
-margin_bottom = 475.0
-theme = SubResource( 8 )
+margin_left = 423.0
+margin_top = 121.0
+margin_right = 877.0
+margin_bottom = 440.0
+theme = ExtResource( 16 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/StaapText"]
-margin_left = 17.0
-margin_top = 12.0
-margin_right = 348.0
-margin_bottom = 169.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 439.0
+margin_bottom = 304.0
 theme = ExtResource( 16 )
 text = "Algne text"
 __meta__ = {
@@ -135,22 +145,22 @@ __meta__ = {
 }
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/StaapText"]
-margin_left = 288.0
-margin_top = 163.0
-margin_right = 354.0
-margin_bottom = 183.0
+margin_left = 369.0
+margin_top = 273.0
+margin_right = 435.0
+margin_bottom = 297.0
 text = "Sain aru"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="9"]
+[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="11"]
 visible = false
 margin_left = 128.0
 margin_top = 78.0
 margin_right = 1155.0
 margin_bottom = 487.0
-theme = SubResource( 8 )
+theme = ExtResource( 16 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,8 +169,8 @@ __meta__ = {
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
 margin_left = 14.0
 margin_top = 15.0
-margin_right = 345.0
-margin_bottom = 172.0
+margin_right = 1013.0
+margin_bottom = 397.0
 theme = ExtResource( 16 )
 text = "Algne text"
 __meta__ = {
@@ -168,10 +178,10 @@ __meta__ = {
 }
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 900.0
-margin_top = 353.0
-margin_right = 966.0
-margin_bottom = 373.0
+margin_left = 937.0
+margin_top = 364.0
+margin_right = 1003.0
+margin_bottom = 388.0
 text = "Sain aru"
 __meta__ = {
 "_edit_use_anchors_": false

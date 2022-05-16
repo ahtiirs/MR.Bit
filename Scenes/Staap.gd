@@ -33,16 +33,18 @@ func _on_StaapEntrance_body_entered(body):
 
 
 func _on_StaapStart_videoFinish():
-	if game.bag != "empty":
-		var component = get_node(game.bag)
-		print(game.bag)
-		component.visible = true
-		if game.level1[game.status] == game.bag:
-			game.status = game.status +1
-			game.pc.append(game.level1[game.status])
-			var componentInfo = get_node("Partinfo")
-			componentInfo.get_node("label").text = "proovime siia midagi tarka ja ilusat kirjutada"
-			componentInfo.visible = true
+	if game.bag == "empty" && game.pc.has("Keyboard"):
+		game.bag = "empty_keyb"
+	
+	var component = get_node(game.bag)
+	print(game.bag)
+	component.visible = true
+	if game.level1[game.status] == game.bag:
+		game.status = game.status +1
+		game.pc.append(game.level1[game.status])
+		var componentInfo = get_node("Partinfo")
+		componentInfo.get_node("label").text = "proovime siia midagi tarka ja ilusat kirjutada"
+		componentInfo.visible = true
 			
 	staapmessage.get_node("label").text = staapText[game.level1[game.status]]
 	staapmessage.visible = true
@@ -57,6 +59,7 @@ func _on_Exit_pressed():
 	staapmessage.visible = false
 	game.bag = "empty"
 #	intheBag.visible = true
+	
 
 
 
