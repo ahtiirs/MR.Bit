@@ -51,6 +51,12 @@ func _on_StaapStart_videoFinish():
 		componentInfo.visible = true
 			
 	staapmessage.get_node("label").text = staapText[game.level1[game.status]]
+	
+	get_tree().set_group("level1_label", "visible", true)
+	print(game.pc)
+	for i in game.pc:
+		get_node(i+"_label").modulate.a = 1
+	
 	staapmessage.visible = true
 
 	

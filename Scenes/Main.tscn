@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -24,7 +24,12 @@
 [ext_resource path="res://Assets/sounds/Hiire1_01.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Assets/infovaade/tyhikott.png" type="Texture" id=23]
 [ext_resource path="res://Scenes/YellowNotes.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/kogutud/protsessor.png" type="Texture" id=25]
+[ext_resource path="res://Assets/kogutud/malu.png" type="Texture" id=26]
+[ext_resource path="res://Assets/kogutud/emaplaat.png" type="Texture" id=27]
+[ext_resource path="res://Assets/kogutud/klaviatuur-m.png" type="Texture" id=28]
 [ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/kogutud/kovaketas.png" type="Texture" id=30]
 [ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Bookshelf.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/Battery.tscn" type="PackedScene" id=44]
@@ -118,10 +123,40 @@ visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 19 )
 
-[node name="Exit" parent="walls/GUI/Staap" index="9"]
+[node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="9" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1132, 149 )
+texture = ExtResource( 27 )
+
+[node name="CPU_label" type="Sprite" parent="walls/GUI/Staap" index="10" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1132, 197 )
+texture = ExtResource( 25 )
+
+[node name="RAM_label" type="Sprite" parent="walls/GUI/Staap" index="11" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1133, 246 )
+texture = ExtResource( 26 )
+
+[node name="HDD_label" type="Sprite" parent="walls/GUI/Staap" index="12" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1132, 293 )
+texture = ExtResource( 30 )
+
+[node name="Keyboard_label" type="Sprite" parent="walls/GUI/Staap" index="13" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1133, 342 )
+texture = ExtResource( 28 )
+
+[node name="Exit" parent="walls/GUI/Staap" index="14"]
 visible = false
 
-[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="10"]
+[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="15"]
 visible = false
 margin_left = 423.0
 margin_top = 121.0
@@ -154,7 +189,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="11"]
+[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="16"]
 visible = false
 margin_left = 128.0
 margin_top = 78.0
