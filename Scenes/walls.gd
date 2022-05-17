@@ -2,7 +2,7 @@ extends TileMap
 var status = 0
 var level= 1
 var bag = "empty"
-var pc = ["MB"]
+var pc = []
 var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
 var ok_button_l1 = [1,0,0,0,0,0,0]
 var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]

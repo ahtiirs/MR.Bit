@@ -6,8 +6,8 @@ var dialog = [
 	"Jälle sa siin, kas ikka vaatasid staabist järele mida tegema pead?",
 	"Aaa sul on protsessorit vaja, no otsi vaata, arvuti mõtleb protsessoriga, mõtle millega sina mõtled!",
 	"No mõtle peaga, on sul seal aju millega mõelda, leia endale siis kui pole!",
-	"Viiies dialood, öoisajcdö oisajdöoiajvf a",
-	"Kuues oij öcoisajdöoj afdoijvösoifdjövsoi öboijetröbweotij!"]
+	"Viies dialoog",
+	"Kuues dialoog"]
 var page = 0
 var paragraph = true
 var kontroll = 0
