@@ -2,7 +2,7 @@ extends ColorRect
 
 var foundItem= ""
 var itemtoComponent = {"Brain":"CPU","Piano":"Keyboard","YellowNotes":"RAM","Battery":"PSU","Bookshelf":"HDD"}
-var foundText = {"Brain":"Oi, leidsin aju ","Piano":"Pianoleidmise tekst"}
+var foundText = {"Brain":"Hm, kas sellega saab ehk mõelda?","Piano":"Sellel saab klahve klõbistada","YellowNotes":"Nendele saaks küll midagi üles märkida kiirelt","BookShelf":"Siia on kõasti infot talletunud","Battery":"Siin on kõvasti Energiat"}
 var answer = false
 onready var game = get_parent().get_parent()
 
