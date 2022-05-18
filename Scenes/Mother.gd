@@ -44,6 +44,7 @@ var timer = 0
 var tryTime = 0
 var randMouse = 0
 var randEnemy = 0
+var bag = "empty"
 
 enum {
 	IDLE,

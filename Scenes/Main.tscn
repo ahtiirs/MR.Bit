@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -30,7 +30,9 @@
 [ext_resource path="res://Assets/kogutud/klaviatuur-m.png" type="Texture" id=28]
 [ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/kogutud/kovaketas.png" type="Texture" id=30]
+[ext_resource path="res://Assets/kogutud/toiteplokk.png" type="Texture" id=31]
 [ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=32]
+[ext_resource path="res://Assets/staap/level_end.webm" type="VideoStream" id=33]
 [ext_resource path="res://Scenes/Bookshelf.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/Battery.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Assets/sounds/elu_maha.mp3" type="AudioStream" id=46]
@@ -113,50 +115,70 @@ script = ExtResource( 13 )
 autoplay = false
 script = ExtResource( 15 )
 
-[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="2"]
+[node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="2"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="3"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 23 )
 
-[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="3"]
+[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="4"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 19 )
 
-[node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="9" groups=["level1_label"]]
+[node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="10" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 149 )
 texture = ExtResource( 27 )
 
-[node name="CPU_label" type="Sprite" parent="walls/GUI/Staap" index="10" groups=["level1_label"]]
+[node name="CPU_label" type="Sprite" parent="walls/GUI/Staap" index="11" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 197 )
 texture = ExtResource( 25 )
 
-[node name="RAM_label" type="Sprite" parent="walls/GUI/Staap" index="11" groups=["level1_label"]]
+[node name="RAM_label" type="Sprite" parent="walls/GUI/Staap" index="12" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1133, 246 )
 texture = ExtResource( 26 )
 
-[node name="HDD_label" type="Sprite" parent="walls/GUI/Staap" index="12" groups=["level1_label"]]
+[node name="HDD_label" type="Sprite" parent="walls/GUI/Staap" index="13" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 293 )
 texture = ExtResource( 30 )
 
-[node name="Keyboard_label" type="Sprite" parent="walls/GUI/Staap" index="13" groups=["level1_label"]]
+[node name="PSU_label" type="Sprite" parent="walls/GUI/Staap" index="14" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
-position = Vector2( 1133, 342 )
+position = Vector2( 1134, 341 )
+texture = ExtResource( 31 )
+
+[node name="Keyboard_label" type="Sprite" parent="walls/GUI/Staap" index="15" groups=["level1_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1134, 389 )
 texture = ExtResource( 28 )
 
-[node name="Exit" parent="walls/GUI/Staap" index="14"]
+[node name="Exit" parent="walls/GUI/Staap" index="16"]
 visible = false
+margin_left = 1160.0
+margin_right = 1251.0
+margin_bottom = 658.0
+theme = ExtResource( 16 )
+text = "Seiklema"
 
-[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="15"]
+[node name="StaapText" type="Panel" parent="walls/GUI/Staap" index="17"]
 visible = false
 margin_left = 423.0
 margin_top = 121.0
@@ -169,10 +191,9 @@ __meta__ = {
 }
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/StaapText"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 439.0
-margin_bottom = 304.0
+margin_top = -1.0
+margin_right = 454.0
+margin_bottom = 318.0
 theme = ExtResource( 16 )
 text = "Algne text"
 __meta__ = {
@@ -184,16 +205,16 @@ margin_left = 369.0
 margin_top = 273.0
 margin_right = 435.0
 margin_bottom = 297.0
-text = "Sain aru"
+text = "Edasi"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="16"]
+[node name="Partinfo" type="Panel" parent="walls/GUI/Staap" index="18"]
 visible = false
-margin_left = 128.0
+margin_left = 439.0
 margin_top = 78.0
-margin_right = 1155.0
+margin_right = 877.0
 margin_bottom = 487.0
 theme = ExtResource( 16 )
 script = ExtResource( 18 )
@@ -202,10 +223,9 @@ __meta__ = {
 }
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 14.0
-margin_top = 15.0
-margin_right = 1013.0
-margin_bottom = 397.0
+margin_top = 4.0
+margin_right = 438.0
+margin_bottom = 409.0
 theme = ExtResource( 16 )
 text = "Algne text"
 __meta__ = {
@@ -213,11 +233,11 @@ __meta__ = {
 }
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 937.0
-margin_top = 364.0
-margin_right = 1003.0
-margin_bottom = 388.0
-text = "Sain aru"
+margin_left = 338.0
+margin_top = 355.0
+margin_right = 404.0
+margin_bottom = 379.0
+text = "Sulge"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -377,6 +397,7 @@ bus = "Back"
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
+[connection signal="finished" from="walls/GUI/Staap/Level1_end" to="walls/GUI/Staap" method="_on_Level1_end_finished"]
 [connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
 [connection signal="pressed" from="walls/GUI/Staap/StaapText/ok" to="walls/GUI/Staap" method="_on_ok_pressed"]
 [connection signal="pressed" from="walls/GUI/Staap/Partinfo/ok" to="walls/GUI/Staap/Partinfo" method="_on_ok_pressed"]

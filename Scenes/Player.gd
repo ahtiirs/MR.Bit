@@ -23,6 +23,8 @@ enum YesIds {
 
 onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
+onready var mother = get_parent().get_node("Mother")
+onready var game = get_parent()
 #onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
 onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
 onready var OldGuard = get_parent().get_node("OldQuard")
@@ -79,6 +81,10 @@ func _process(delta):
 				$collision.play()
 				collided = true
 		if collision.collider.name == "Mother":
+#			if mother.bag == "OS" || mother.bag == "Game":
+#				game.bag = mother.bag 
+#				mother.bag = "empty"
+#
 #			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
 #			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
 #			YesPopup.popup(Rect2(-500,-500,YesPopup.rect_size.x,YesPopup.rect_size.y))
