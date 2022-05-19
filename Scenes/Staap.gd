@@ -7,12 +7,13 @@ var partText = {"MB":"Emaplaat on trükiplaat arvutis, mille sees ja peal on eri
 
 
 onready var game = get_parent().get_parent()
-onready var mother = get_parent().get_node("Mother")
+onready var mother = get_parent().get_parent().get_node("Mother")
 onready var staapvideo = get_node("StaapStart")
 onready var staapvideoKeyb = get_node("StaapStart_Keyb")
 onready var level1end = get_node("Level1_end")
 onready var staapmessage = get_node("StaapText")
 onready var intheBag = get_parent().get_node("inTheBag")
+onready var componentInfo = get_node("Partinfo")	
 
 
 
@@ -22,6 +23,7 @@ func _ready():
 
 
 func _on_StaapEntrance_body_entered(body):
+	print(mother.bag)
 	if body.name == "Player":
 		print(game.pc)
 		intheBag.visible = false
@@ -39,11 +41,12 @@ func _on_StaapEntrance_body_entered(body):
 			staapvideo.play()
 
 
-func _on_StaapStart_videoFinish():
+func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav funktsioon
+	
 	if game.bag == "empty" && game.pc.has("Keyboard"):
 		game.bag = "empty_keyb"
 	
-#	game.bag = "OS" # katse kui on vaja kohe level lõppu
+#	game.bag = "OS" # katse kui on vaja kohe level lõppu simuleerida
 	if game.bag == "OS":
 		level1end.visible = true
 		level1end.play()
@@ -51,30 +54,30 @@ func _on_StaapStart_videoFinish():
 		game.level = 1
 	else:
 		var component = get_node(game.bag)
-		print(game.bag)
 		component.visible = true
 
 		
 		
-	if game.level1[game.status] == game.bag:
-#		game.status = game.status +1
-		game.pc.append(game.level1[game.status])
-		var componentInfo = get_node("Partinfo")
-		componentInfo.get_node("label").text = partText[game.bag]
+	if game.level1[game.status] == game.bag:  #Mängija sisenes õige asjaga mäng läheb järgmisele tasemele
+
+		game.pc.append(game.level1[game.status])    #Kotis olev komponent lisatakse olemasolevale seadmete listile
+		
+		componentInfo.get_node("label").text = partText[game.bag]	# Toodud komponendi kohta õpetlik info 
 		componentInfo.visible = true
-		game.status = game.status +1
-		if game.bag == "OS":
+		
+		game.status = game.status +1 	# Mäng astme võrra edasi
+		if game.bag == "Keyboard":
 			mother.bag="OS"
 			
-			
-		staapmessage.get_node("label").text = staapText[game.level1[game.status]]
 		
-		get_tree().set_group("level1_label", "visible", true)
-		print(game.pc)
-		for i in game.pc:
-			get_node(i+"_label").modulate.a = 1
-		
-		staapmessage.visible = true
+	staapmessage.get_node("label").text = staapText[game.level1[game.status]]
+	
+	get_tree().set_group("level1_label", "visible", true)
+	print(game.pc)
+	for i in game.pc:
+		get_node(i+"_label").modulate.a = 1	 	# Ekraanile list juppidest valgena mis on juba arvutis
+	
+	staapmessage.visible = true
 
 	
 	

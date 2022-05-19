@@ -326,7 +326,7 @@ position = Vector2( -4, -15 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/Horn"]
 
 [node name="Mouse" parent="walls" instance=ExtResource( 9 )]
-position = Vector2( 1202, -895 )
+position = Vector2( 3420, -1567 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )

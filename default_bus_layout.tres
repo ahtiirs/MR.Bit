@@ -12,12 +12,12 @@ voice/3/cutoff_hz = 16000.0
 voice/3/pan = -0.29
 
 [resource]
-bus/0/volume_db = -23.0919
+bus/0/volume_db = -1.91476
 bus/1/name = "Footsteps"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -9.92555
+bus/1/volume_db = -5.625
 bus/1/send = "Master"
 bus/2/name = "Collision"
 bus/2/solo = false
@@ -31,5 +31,5 @@ bus/3/name = "Back"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -80.0
+bus/3/volume_db = -8.00903
 bus/3/send = "Master"
