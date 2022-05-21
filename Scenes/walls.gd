@@ -42,8 +42,8 @@ func _on_Player_lives(lives):
 
 	mist.visible=true
 	timer.start()
-#	get_tree().paused = true
-	
+	get_tree().paused = true
+
 	print(lives)
 	if lives >= 1:
 		live1.visible=true
@@ -65,12 +65,13 @@ func _on_Player_lives(lives):
 		live5.visible=true
 	else:
 		live5.visible=false
-
+	pass
 
 
 func _on_Timer_timeout():
 	mist.visible=false
-#	get_tree().paused = false
+	print("imer lõpetas, mist maha")
+	get_tree().paused = false
 	
 	
 

@@ -105,16 +105,7 @@ func _process(delta):
 #			emit_signal("lives",lives)
 			collided = true
 			$ouch.play()
-			if $ouch.playing:
-				lives = lives -1
-				self.set_position(Vector2(1543,-1635))
-				emit_signal("lives",lives)
-#				get_tree().paused = true
 
-				OldGuard.set_position(Vector2(175,-1920))
-			else:
-#				get_tree().paused = false
-				pass
 
 			if lives <= 0:
 				print("stop")
@@ -137,6 +128,9 @@ func _process(delta):
 #	moveVector.y = moveVector.y * 1.3
 #	moveVector.x = moveVector.x / 1.3
 	update_animation(moveVector)
+	if lives <= 0:
+		print("stop")
+		get_tree().quit() # Mängu lõpp
 
 func update_animation(moveVec):
 
@@ -189,10 +183,9 @@ func update_animation(moveVec):
 func _on_ouch_finished():
 	get_tree().paused = false
 	OldGuard.notcatch = true
+	lives = lives -1
+	emit_signal("lives",lives)
 	self.set_position(Vector2(1543,-1635))
-	
-	
-	
 	OldGuard.set_position(Vector2(175,-1920))
 	
 	if lives <= 0:
