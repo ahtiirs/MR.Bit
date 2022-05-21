@@ -98,26 +98,32 @@ func _process(delta):
 			pass
 
 		if collision.collider.name == "OldQuard" && collided == false:
-			collided = true
-#			get_tree().paused = true
-			$ouch.play()
-			lives = lives -1
-			emit_signal("lives",lives)
-#			if !$ouch.playing:
-#				lives = lives -1
-#				self.set_position(Vector2(1543,-1635))
-#				emit_signal("lives",lives)
-#				get_tree().paused = true
-#
-#				OldGuard.set_position(Vector2(175,-1920))
 
-#			if lives <= 0:
-#				print("stop")
-#				get_tree().quit() # Mängu lõpp
+#			get_tree().paused = true
+
+#			lives = lives -1
+#			emit_signal("lives",lives)
+			collided = true
+			$ouch.play()
+			if $ouch.playing:
+				lives = lives -1
+				self.set_position(Vector2(1543,-1635))
+				emit_signal("lives",lives)
+#				get_tree().paused = true
+
+				OldGuard.set_position(Vector2(175,-1920))
+			else:
+#				get_tree().paused = false
+				pass
+
+			if lives <= 0:
+				print("stop")
+				get_tree().quit() # Mängu lõpp
+
 
 				
 		var collGroups = collision.collider.get_groups()
-		print("collArray",collGroups)
+#		print("collArray",collGroups)
 		
 		if collision.collider.get_groups().has("Collect") && collided == false:
 			collided = true
@@ -181,7 +187,7 @@ func update_animation(moveVec):
 
 
 func _on_ouch_finished():
-
+	get_tree().paused = false
 	OldGuard.notcatch = true
 	self.set_position(Vector2(1543,-1635))
 	

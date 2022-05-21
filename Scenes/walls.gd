@@ -3,6 +3,7 @@ var status = 0
 var level= 1
 var bag = "empty"
 var pc = []
+var current_level = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
 var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
 var ok_button_l1 = [1,0,0,0,0,0,0]
 var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
@@ -38,10 +39,6 @@ func _ready():
 
 
 func _on_Player_lives(lives):
-	pass # Replace with function body.
-	
-
-	print("kotis", bag)
 
 	mist.visible=true
 	timer.start()
@@ -73,7 +70,7 @@ func _on_Player_lives(lives):
 
 func _on_Timer_timeout():
 	mist.visible=false
-	get_tree().paused = false
+#	get_tree().paused = false
 	
 	
 

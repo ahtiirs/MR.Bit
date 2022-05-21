@@ -227,7 +227,7 @@ script = ExtResource( 35 )
 
 [node name="Pealkiri" type="Label" parent="walls/GUI/Staap/Partinfo"]
 margin_right = 435.0
-margin_bottom = 65.0
+margin_bottom = 121.0
 theme = ExtResource( 16 )
 text = "TUBLI OLED!
 Saabusid täpselt õige asjaga."
@@ -239,7 +239,7 @@ __meta__ = {
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
 margin_left = 14.0
-margin_top = 90.0
+margin_top = 137.0
 margin_right = 419.0
 margin_bottom = 338.0
 theme = ExtResource( 16 )
@@ -254,6 +254,17 @@ margin_top = 355.0
 margin_right = 404.0
 margin_bottom = 379.0
 text = "Sulge"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameLevel" type="ProgressBar" parent="walls/GUI/Panel_P" index="1"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 237.0
+margin_bottom = 37.0
+theme = ExtResource( 16 )
+rounded = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -418,6 +429,7 @@ stream = ExtResource( 21 )
 autoplay = true
 bus = "Back"
 
+[connection signal="lives" from="walls/GUI/Staap" to="walls" method="_on_Player_lives"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
