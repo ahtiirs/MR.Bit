@@ -144,7 +144,7 @@ func _process(delta):
 			quick = 2
 
 		else:
-			animation.stop()
+#			animation.stop()
 			state = WANDER
 			quick = 1.0
 # ------------------------------------------------------------			
@@ -189,7 +189,8 @@ func _process(delta):
 
 
 func update_animation(moveVec):
-
+	$AnimatedSprite.speed_scale=1
+	var lastanimation = $AnimatedSprite.animation
 #	print ("valvur ",moveVec)
 	if (moveVec.x < 0 && moveVec.y > 0 && notcatch):
 		$AnimatedSprite.play("1")
@@ -212,8 +213,11 @@ func update_animation(moveVec):
 		$OldManSound.stop()
 		$OldManPauseSound.play()
 	if (!notcatch):
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite.speed_scale=0
+#		$AnimatedSprite.play("idle")
 		$OldManSound.stop()
-		$OldManPauseSound.play()
+		motion.x = 0
+		motion.y = 0
+
 		
 		

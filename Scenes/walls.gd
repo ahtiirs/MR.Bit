@@ -79,10 +79,3 @@ func _on_Timer_timeout():
 
 
 
-
-
-func _on_StaapStart_Keyb_finished():
-	pass # Replace with function body.
-
-
-

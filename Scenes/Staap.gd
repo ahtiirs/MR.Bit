@@ -23,12 +23,14 @@ func _ready():
 
 
 func _on_StaapEntrance_body_entered(body):
+
 	print(mother.bag)
 	if body.name == "Player":
 		print(game.pc)
 		intheBag.visible = false
 		if game.ok_button_l1[game.status] == 1:
 			self.get_node("StaapText/ok").visible = true
+			self.get_node("Exit").visible = false
 			
 		self.get_node("Exit").visible = true
 		get_tree().paused = true
@@ -42,7 +44,7 @@ func _on_StaapEntrance_body_entered(body):
 
 
 func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav funktsioon
-	
+	staapmessage.visible = false
 	if game.bag == "empty" && game.pc.has("Keyboard"):
 		game.bag = "empty_keyb"
 	
@@ -56,7 +58,7 @@ func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav fu
 		var component = get_node(game.bag)
 		component.visible = true
 
-		
+	staapmessage.get_node("label").text = staapText[game.level1[game.status]]	
 		
 	if game.level1[game.status] == game.bag:  #Mängija sisenes õige asjaga mäng läheb järgmisele tasemele
 
@@ -64,22 +66,19 @@ func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav fu
 		
 		componentInfo.get_node("label").text = partText[game.bag]	# Toodud komponendi kohta õpetlik info 
 		componentInfo.visible = true
+		staapmessage.visible = false
 		
 		game.status = game.status +1 	# Mäng astme võrra edasi
 		if game.bag == "Keyboard":
 			mother.bag="OS"
-			
-		
-	staapmessage.get_node("label").text = staapText[game.level1[game.status]]
+		staapmessage.get_node("label").text = staapText[game.level1[game.status]]	
+	else:
 	
-	get_tree().set_group("level1_label", "visible", true)
-	print(game.pc)
-	for i in game.pc:
-		get_node(i+"_label").modulate.a = 1	 	# Ekraanile list juppidest valgena mis on juba arvutis
-	
-	staapmessage.visible = true
 
+		staapmessage.visible = true
 	
+	_on_Partinfo_renewlist()
+
 	
 func _on_Exit_pressed():
 	self.get_node("Exit").visible = false
@@ -107,3 +106,10 @@ func _on_ok_pressed():
 
 func _on_Level1_end_finished():
 	pass # Replace with function body.
+
+
+func _on_Partinfo_renewlist():
+	get_tree().set_group("level1_label", "visible", true)
+	print(game.pc)
+	for i in game.pc:
+		get_node(i+"_label").modulate.a = 1	 	

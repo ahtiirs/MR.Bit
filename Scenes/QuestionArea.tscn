@@ -3,12 +3,12 @@
 [ext_resource path="res://Scenes/QuestionArea.gd" type="Script" id=1]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=2]
 
-[node name="QuestionArea" type="ColorRect"]
-visible = false
-margin_left = 576.0
+[node name="QuestionArea" type="WindowDialog"]
+visible = true
+margin_left = 552.0
 margin_top = 192.0
-margin_right = 744.0
-margin_bottom = 269.0
+margin_right = 800.0
+margin_bottom = 288.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -26,10 +26,10 @@ __meta__ = {
 }
 
 [node name="Question" type="Label" parent="Panel"]
-margin_left = 8.0
+margin_left = 32.0
 margin_top = 9.0
-margin_right = 184.0
-margin_bottom = 33.0
+margin_right = 245.0
+margin_bottom = 49.0
 theme = ExtResource( 2 )
 text = "Kas vestled emaga?"
 __meta__ = {
@@ -37,20 +37,20 @@ __meta__ = {
 }
 
 [node name="Yes" type="Button" parent="Panel"]
-margin_left = 40.0
-margin_top = 49.0
-margin_right = 88.0
-margin_bottom = 73.0
+margin_left = 80.0
+margin_top = 65.0
+margin_right = 128.0
+margin_bottom = 89.0
 text = "JAH"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="No" type="Button" parent="Panel"]
-margin_left = 104.0
-margin_top = 49.0
-margin_right = 152.0
-margin_bottom = 73.0
+margin_left = 152.0
+margin_top = 65.0
+margin_right = 200.0
+margin_bottom = 89.0
 text = "EI"
 __meta__ = {
 "_edit_use_anchors_": false

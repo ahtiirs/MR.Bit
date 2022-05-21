@@ -101,7 +101,8 @@ func _process(delta):
 			collided = true
 #			get_tree().paused = true
 			$ouch.play()
-			
+			lives = lives -1
+			emit_signal("lives",lives)
 #			if !$ouch.playing:
 #				lives = lives -1
 #				self.set_position(Vector2(1543,-1635))
@@ -180,8 +181,7 @@ func update_animation(moveVec):
 
 
 func _on_ouch_finished():
-	lives = lives -1
-	emit_signal("lives",lives)
+
 	OldGuard.notcatch = true
 	self.set_position(Vector2(1543,-1635))
 	
