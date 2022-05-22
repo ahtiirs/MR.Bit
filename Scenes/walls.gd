@@ -3,10 +3,12 @@ var status = 0
 var level= 1
 var bag = "empty"
 var pc = []
-var current_level = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
+var current_level = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS","Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
+var ok_button = [1,0,0,0,0,0,0]
 var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
 var ok_button_l1 = [1,0,0,0,0,0,0]
 var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
+var ok_button_l2 = [0,0,0,0,0,0,0]
 
 enum {
 	Brain,
@@ -72,8 +74,11 @@ func _on_Timer_timeout():
 	mist.visible=false
 	print("imer lõpetas, mist maha")
 	get_tree().paused = false
-	
-	
 
 
-
+func _on_Staap_levelup():
+		level=level+1
+		current_level=level2
+		ok_button=ok_button_l2
+		var status = 0
+		bag = "empty"
