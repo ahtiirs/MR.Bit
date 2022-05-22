@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/epic-dramatic-action-trailer-99525.mp3-5ae72ae34d8a005a9e79effef8a63fb8.mp3str"
+
+[deps]
+
+source_file="res://Assets/muusika/epic-dramatic-action-trailer-99525.mp3"
+dest_files=[ "res://.import/epic-dramatic-action-trailer-99525.mp3-5ae72ae34d8a005a9e79effef8a63fb8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
