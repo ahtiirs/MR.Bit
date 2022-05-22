@@ -3,7 +3,7 @@ extends RichTextLabel
 onready var game = get_parent().get_parent().get_parent()
 
 # Variables
-var dialog = {"MB":"Tere poja tahtsid endale ehitada arvuti. Emaplaat on ainus komponent, mis mul õnnestus leida. Selle leiad staabist.  Selleks, et saaksid terve arvuti valmis teha on aga oluliselt rohkem komponente vaja. Siin sõjaväe linnakus on kõik vajalik olemas. Aga pane tähele, siin on kuri Bogdan, kes valvab perimeetrit, hoidu temast kindlasti!","CPU":"Kas siit ei anna aju leida?","RAM":"Kuhu sa oma märkmeid teed?","HDD":"Vanasti oli info raamatutes!","PSU":"Telefon saab energiat akudest äkki saab arvuti ka!","Keyboard":"Sellel saab klahve klõbistada!","OS":"Siin on sulle programm mille abil saad arvuti käima"}
+var dialog = {"MB":"Hei poja, tahtsid endale ehitada arvuti? Emaplaat on ainus komponent, mille mina sulle alguses annan. Sa leiad selle staabist.  Sealt saad ka oma järgmise missiooni. Jälgi juhiseid täpselt, vale asi kotis staapi sisenedes kaotad elu. Elusid on sul kokku viis. Ringi liikudes ole väga ettevaatlik! Siin valvab kuri Bogdan. Kui temaga kohtud kaotad alati ühe elu. Hätta jäädes tule räägi minuga, ehk oskan nõu anda. Edu sulle poja! ","CPU":"Kas siit ei anna aju leida?","RAM":"Kuhu sa oma märkmeid teed?","HDD":"Vanasti oli info raamatutes!","PSU":"Telefon saab energiat akudest äkki saab arvuti ka!","Keyboard":"Sellel saab klahve klõbistada!","OS":"Siin on sulle programm mille abil saad arvuti käima"}
 
 
 var page = 0
@@ -26,6 +26,7 @@ func _on_Timer_timeout():
 		set_visible_characters(get_total_character_count())
 
 func _on_QuestionArea_on_dialog():
+
 	DialogArea.visible = true
 	if page < dialog.size() && paragraph == true:
 		set_bbcode(dialog[game.level1[game.status]])

@@ -367,7 +367,7 @@ pitch_scale = 1.1
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
-position = Vector2( 2074, -1607 )
+position = Vector2( 2367, -1941 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Brain" parent="walls" groups=["Collect"] instance=ExtResource( 10 )]
