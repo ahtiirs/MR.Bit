@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sport-fashion-rock-95426.mp3-20920a4afb7b9f86fd87433c82758f30.mp3str"
+
+[deps]
+
+source_file="res://Assets/muusika/sport-fashion-rock-95426.mp3"
+dest_files=[ "res://.import/sport-fashion-rock-95426.mp3-20920a4afb7b9f86fd87433c82758f30.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

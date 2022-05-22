@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3-2f5d7b28056e1d7a67fa98be7fb5e3e7.mp3str"
+
+[deps]
+
+source_file="res://Assets/muusika/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3"
+dest_files=[ "res://.import/elevator-madness-w-caturday-scloudtomp3downloader.com_.mp3-2f5d7b28056e1d7a67fa98be7fb5e3e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

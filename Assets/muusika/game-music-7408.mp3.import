@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/game-music-7408.mp3-a18febff540dc4537e868de38a20ddcb.mp3str"
+
+[deps]
+
+source_file="res://Assets/muusika/game-music-7408.mp3"
+dest_files=[ "res://.import/game-music-7408.mp3-a18febff540dc4537e868de38a20ddcb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
