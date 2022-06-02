@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/jupid/postitid-2seinata.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/YellowNotes.gd" type="Script" id=2]
+
+[node name="YellowNotes" type="StaticBody2D"]
+position = Vector2( -131, -63 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, -184 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 128 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -3, -8 )
+polygon = PoolVector2Array( -89, 87, 138, 81, 133, -112, 49, -81, -99, 33 )
+
+[connection signal="input_event" from="." to="." method="_on_YellowNotes_input_event"]

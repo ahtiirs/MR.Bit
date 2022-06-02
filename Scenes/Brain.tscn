@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Brain.gd" type="Script" id=2]
+[ext_resource path="res://Assets/jupid/aju.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 103.586
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 80.3057
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Brain" type="KinematicBody2D"]
+position = Vector2( 21, -29 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -11, -75 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7, -75 )
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -10, -105 )
+scale = Vector2( 0.41375, 0.41375 )
+frames = SubResource( 3 )
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

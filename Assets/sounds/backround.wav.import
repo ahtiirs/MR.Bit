@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/backround.wav-2731afd1bf5bb84cf30176fe02e92cad.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/backround.wav"
+dest_files=[ "res://.import/backround.wav-2731afd1bf5bb84cf30176fe02e92cad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

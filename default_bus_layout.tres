@@ -1,0 +1,47 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectChorus" id=2]
+resource_name = "Chorus"
+voice_count = 3
+voice/2/delay_ms = 23.78
+voice/3/delay_ms = 8.69
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = -0.29
+
+[resource]
+bus/0/volume_db = -3.76831
+bus/1/name = "footsteps"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -8.52817
+bus/1/send = "Master"
+bus/2/name = "collision"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 6.02
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 2 )
+bus/2/effect/0/enabled = true
+bus/3/name = "music"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -57.7367
+bus/3/send = "Master"
+bus/4/name = "Jutt"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 6.02
+bus/4/send = "Master"
+bus/5/name = "character"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = "Master"

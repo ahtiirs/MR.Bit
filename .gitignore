@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 .import/
 *.translation
 export_presets.cfg
 .mono/
+=======
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+*.import
+>>>>>>> Level2_uus

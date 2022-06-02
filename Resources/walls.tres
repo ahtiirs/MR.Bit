@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_resource type="TileSet" load_steps=17 format=2]
+=======
+[gd_resource type="TileSet" load_steps=23 format=2]
+>>>>>>> Level2_uus
 
 [ext_resource path="res://Assets/walls/corner-back.png" type="Texture" id=1]
 [ext_resource path="res://Assets/walls/corner-front.png" type="Texture" id=2]
@@ -8,8 +12,12 @@
 [ext_resource path="res://Assets/walls/to-right-broken-1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/walls/to-right-broken-2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/walls/to-right.png" type="Texture" id=8]
+[ext_resource path="res://Assets/staap/staap.png" type="Texture" id=9]
+[ext_resource path="res://Assets/asjad-saalis/kondekas-1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/asjad-saalis/raamaturiiul-2.png" type="Texture" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
+<<<<<<< HEAD
 points = PoolVector2Array( 82.5, 223.5, 125.5, 190.5, 158.5, 217.5, 124.5, 247.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -32,6 +40,39 @@ points = PoolVector2Array( 205.5, 135.5, 256, 180.5, 119.5, 244.5, 72.5, 223.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 209.5, 265.5, 256, 307.5, 120.5, 377.5, 72.5, 354.5 )
+=======
+points = PoolVector2Array( 88.5, 237.5, 125.5, 217.5, 159.5, 228.5, 124.5, 247.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 39.5, 290.5, 125.5, 336.5, 213.5, 285.5, 255.5, 307.5, 123.5, 376.5, 0, 307.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 165.5, 351.5, 252.5, 410.5, 81.5, 507.5, 0, 466.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 70.5, 301.5, 205.5, 367.5, 149.5, 384, 21.5, 316.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 46.5, 293.5, 167.5, 350.5, 126.5, 371.5, 3.5, 314.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0.5, 300.5, 42.5, 274.5, 170.5, 346.5, 128.5, 374.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 181.5, 305.5, 224.5, 325.5, 133.5, 370.5, 66.5, 384, 39.5, 365.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 217.5, 168.5, 256, 180.5, 119.5, 244.5, 83.5, 232.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 214.5, 294.5, 256, 307.5, 120.5, 377.5, 76.5, 365.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 772.64, 458.72, 1996.64, 1020.32, 1197.44, 1408, 26.72, 831.68 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 17.5, 163.5, 59.5, 137.5, 105.5, 122.5, 173.5, 147.5, 180.5, 178.5, 152.5, 225.5, 121.5, 233, 79.5, 231.5, 38.5, 215.5, 18.5, 192.5 )
+>>>>>>> Level2_uus
 
 [resource]
 0/name = "corner-back.png 0"
@@ -202,3 +243,66 @@ points = PoolVector2Array( 209.5, 265.5, 256, 307.5, 120.5, 377.5, 72.5, 354.5 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, -256 )
 } ]
 7/z_index = 0
+8/name = "staap.png 8"
+8/texture = ExtResource( 9 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 2048, 1408 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 9 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+8/z_index = 0
+9/name = "kondekas-1.png 9"
+9/texture = ExtResource( 10 )
+9/tex_offset = Vector2( 0, -128 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 28, 11, 203, 233 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, -128 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, -128 )
+9/shape = SubResource( 10 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -128 )
+} ]
+9/z_index = 0
+10/name = "raamaturiiul-2.png 10"
+10/texture = ExtResource( 11 )
+10/tex_offset = Vector2( 0, -384 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 256, 512 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, -384 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, -384 )
+10/shape = SubResource( 11 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -384 )
+} ]
+10/z_index = 0

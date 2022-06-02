@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/QuestionArea.gd" type="Script" id=1]
+[ext_resource path="res://bit_theme.tres" type="Theme" id=2]
+
+[node name="QuestionArea" type="WindowDialog"]
+visible = true
+margin_left = 552.0
+margin_top = 192.0
+margin_right = 800.0
+margin_bottom = 288.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="Button" parent="."]
+margin_left = 136.0
+margin_top = 64.0
+margin_right = 184.0
+margin_bottom = 88.0
+text = "EI"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 229.0
+margin_bottom = 48.0
+theme = ExtResource( 2 )
+text = "Kas vestled emaga?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 112.0
+margin_bottom = 88.0
+text = "JAH"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="Yes" to="." method="_on_Yes_pressed"]
