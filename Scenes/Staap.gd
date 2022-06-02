@@ -51,48 +51,56 @@ func _on_StaapEntrance_body_entered(body):
 
 	print("Ema kotis ", mother.bag)
 	if body.name == "Player":
-		print(game.pc)
 		intheBag.visible = false
 		if game.ok_button_l1[game.status] == 1:
 			self.get_node("StaapText/ok").visible = true
 			self.get_node("Exit").visible = false
 			
-		self.get_node("Exit").visible = true
+# Olemasolevate juppide järgi otsustatakse milist taustavideot mängitakse
+		self.get_node("Exit").visible = true  
 		get_tree().paused = true
-		if game.pc.has("Keyboard"):
+		if game.pc.has("Speaker"):
 			staapvideoKeyb.visible = true
 			staapvideoKeyb.play()
-
+		elif game.pc.has("Keyboard"):
+			staapvideoKeyb.visible = true
+			staapvideoKeyb.play()
 		else:
 			staapvideo.visible = true
 			staapvideo.play()
+# -----------------------------------------------------------------------
 
+func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõppes, tuleb vaadata kas poiss tuli õige jupp kotis
 
-func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav funktsioon
-
-
+	# kui kotis pole mänguetapile vastav jupp ning kott pole märkega "empty" siis üks elu maha
 	if game.current_level[game.status] != game.bag && game.bag !="empty": 
 		player.lives = player.lives -1
 		emit_signal("lives",player.lives)
 			
 
 	staapmessage.visible = false
+	
+	#Kott on tühi aga eelnevalt on klaviatuur juba olemas 
 	if game.bag == "empty" && game.pc.has("Keyboard"):
 		game.bag = "empty_keyb"
-	progres.value = int((game.status+1)*100/8)
+		
+	progres.value = int((game.status+1)*100/8) # progress edenemine
 
 	
 #	game.bag = "OS" # katse kui on vaja kohe level lõppu simuleerida
+
+
+	# kui saabus OS siis on level 1 läbi
 	if game.bag == "OS":
 		level1end.visible = true
 		level1end.play()
 
 	else:
-		var component = get_node(game.bag)
+		var component = get_node(game.bag) #tuualse pilt kotiga mis vastas kotis olevale muutujale
 		component.visible = true
 
 
-
+	# 
 	staapmessage.get_node("label").text = staapText[game.current_level[game.status]]	
 		
 	if game.current_level[game.status] == game.bag:  #Mängija sisenes õige asjaga mäng läheb järgmisele tasemele
@@ -108,6 +116,8 @@ func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõpus täidetav fu
 		game.status = game.status +1 	# Mäng astme võrra edasi
 		if game.bag == "Keyboard":
 			mother.bag="OS"
+		if game.bag == "Mouse":
+			mother.bag="Game"
 		staapmessage.get_node("label").text = staapText[game.current_level[game.status]]	
 	else:
 	
@@ -150,10 +160,14 @@ func _on_ok_pressed():
 
 
 func _on_Partinfo_renewlist():
-	get_tree().set_group("level1_label", "visible", true)
+	if game.level == 1:
+		get_tree().set_group("level1_label", "visible", true)
+	if game.level == 2:
+		get_tree().set_group("level2_label", "visible", true)
+	
 	print("jupid ",game.pc)
 	for i in game.pc:
-		get_node(i+"_label").modulate.a = 1	 	
+		get_node(i+"_label").modulate.a = 1
 
 
 func _on_Level1_end_finished():
