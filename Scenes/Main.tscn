@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -54,6 +54,11 @@
 [ext_resource path="res://Assets/infovaade/kott-jahutusega.png" type="Texture" id=52]
 [ext_resource path="res://Assets/kogutud/videokaart.png" type="Texture" id=53]
 [ext_resource path="res://Assets/infovaade/kott-videokaardiga.png" type="Texture" id=54]
+[ext_resource path="res://Assets/jupid/kolar.png" type="Texture" id=55]
+[ext_resource path="res://Assets/jupid/helikaart.png" type="Texture" id=56]
+[ext_resource path="res://Assets/jupid/videokaart.png" type="Texture" id=57]
+[ext_resource path="res://Assets/jupid/ventikas.png" type="Texture" id=58]
+[ext_resource path="res://Assets/jupid/mikrofon.png" type="Texture" id=59]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
@@ -91,7 +96,7 @@ size = 304
 font_data = ExtResource( 34 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 97.5, 29 )
+extents = Vector2( 97.5, 42.5 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( 4, -8 )
@@ -370,6 +375,35 @@ margin_bottom = 189.272
 theme = ExtResource( 16 )
 text = "Seiklema"
 
+[node name="Mouse" parent="walls/GUI/inTheBag" index="5"]
+position = Vector2( -460, 326 )
+scale = Vector2( 0.110604, 0.0823722 )
+
+[node name="Cooler" parent="walls/GUI/inTheBag" index="6"]
+position = Vector2( -468, 262 )
+scale = Vector2( 0.335937, 0.335937 )
+texture = ExtResource( 58 )
+
+[node name="GPU" parent="walls/GUI/inTheBag" index="7"]
+position = Vector2( -460, 269 )
+scale = Vector2( 0.463623, 0.463623 )
+texture = ExtResource( 57 )
+
+[node name="Soundcard" parent="walls/GUI/inTheBag" index="8"]
+position = Vector2( -462, 266 )
+scale = Vector2( 0.460205, 0.460205 )
+texture = ExtResource( 56 )
+
+[node name="Speaker" parent="walls/GUI/inTheBag" index="9"]
+position = Vector2( -462, 266 )
+scale = Vector2( 0.234375, 0.234375 )
+texture = ExtResource( 55 )
+
+[node name="Mic" parent="walls/GUI/inTheBag" index="10"]
+position = Vector2( -463, 266 )
+scale = Vector2( 0.121826, 0.121826 )
+texture = ExtResource( 59 )
+
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -404,7 +438,7 @@ anims/Nextlevel = ExtResource( 36 )
 position = Vector2( 18, -47 )
 
 [node name="NortBridgeUks" type="CollisionShape2D" parent="walls/StaapEntrance"]
-position = Vector2( 1462, -2140 )
+position = Vector2( 1466, -2064 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
@@ -489,7 +523,7 @@ position = Vector2( -57, 8 )
 position = Vector2( -1113, -440 )
 stream = ExtResource( 17 )
 autoplay = true
-bus = "Back"
+bus = "music"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Music"]
 pause_mode = 2
@@ -497,19 +531,19 @@ position = Vector2( 1719, -2399 )
 stream = ExtResource( 11 )
 autoplay = true
 max_distance = 2500.0
-bus = "Back"
+bus = "music"
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 6015, -2200 )
 stream = ExtResource( 20 )
 autoplay = true
-bus = "Back"
+bus = "music"
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 1455, 888 )
 stream = ExtResource( 21 )
 autoplay = true
-bus = "Back"
+bus = "music"
 
 [connection signal="levelup" from="walls/GUI/Staap" to="walls" method="_on_Staap_levelup"]
 [connection signal="lives" from="walls/GUI/Staap" to="walls" method="_on_Player_lives"]

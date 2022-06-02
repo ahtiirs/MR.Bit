@@ -3,27 +3,36 @@ var status = 0
 var level= 1
 var bag = "empty"
 var pc = []
-var current_level = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS","Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
+var current_level = [
+	"MB",
+	"CPU",
+	"RAM",
+	"HDD",
+	"PSU",
+	"Keyboard",
+	"OS",
+	"Mouse",
+	"Cooler",
+	"GPU",
+	"Soundcard",
+	"Speaker",
+	"Mic"
+	]
+	
 var ok_button = [1,0,0,0,0,0,0]
-var level1 = ["MB","CPU","RAM","HDD","PSU","Keyboard","OS"]
+var level1 = [
+	"MB",
+	"CPU",
+	"RAM",
+	"HDD",
+	"PSU",
+	"Keyboard",
+	"OS"
+	]
+	
 var ok_button_l1 = [1,0,0,0,0,0,0]
 var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
 var ok_button_l2 = [0,0,0,0,0,0,0]
-
-enum {
-	Brain,
-	Notes,
-	Books,
-	Battery,
-	Piano,
-	Mother,
-	Ruupor,
-	Mouse,
-	Projecor,
-	Recorder,
-	Mic,
-	Cooler
-}
 
 onready var live1 = get_node("GUI/Panel_V/VBoxContainer/Syda1")
 onready var live2 = get_node("GUI/Panel_V/VBoxContainer/Syda2")

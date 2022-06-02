@@ -3,7 +3,20 @@ extends RichTextLabel
 onready var game = get_parent().get_parent().get_parent()
 
 # Variables
-var dialog = {"MB":"Hei poja, tahtsid endale ehitada arvuti? Emaplaat on ainus komponent, mille mina sulle alguses annan. Sa leiad selle staabist.  Sealt saad ka oma järgmise missiooni. Jälgi juhiseid täpselt, vale asi kotis staapi sisenedes kaotad elu. Elusid on sul kokku viis. Ringi liikudes ole väga ettevaatlik! Siin valvab kuri Bogdan. Kui temaga kohtud kaotad alati ühe elu. Hätta jäädes tule räägi minuga, ehk oskan nõu anda. Edu sulle poja! ","CPU":"Kas siit ei anna aju leida?","RAM":"Kuhu sa oma märkmeid teed?","HDD":"Vanasti oli info raamatutes!","PSU":"Telefon saab energiat akudest äkki saab arvuti ka!","Keyboard":"Sellel saab klahve klõbistada!","OS":"Siin on sulle programm mille abil saad arvuti käima"}
+var dialog = {
+	"MB":"Hei poja, tahtsid endale ehitada arvuti? Emaplaat on ainus komponent, mille mina sulle alguses annan. Sa leiad selle staabist.  Sealt saad ka oma järgmise missiooni. Jälgi juhiseid täpselt, vale asi kotis staapi sisenedes kaotad elu. Elusid on sul kokku viis. Ringi liikudes ole väga ettevaatlik! Siin valvab kuri Bogdan. Kui temaga kohtud kaotad alati ühe elu. Hätta jäädes tule räägi minuga, ehk oskan nõu anda. Edu sulle poja! ",
+	"CPU":"Kas siit ei anna aju leida?",
+	"RAM":"Kuhu sa oma märkmeid teed?",
+	"HDD":"Vanasti oli info raamatutes!",
+	"PSU":"Telefon saab energiat akudest äkki saab arvuti ka!",
+	"Keyboard":"Sellel saab klahve klõbistada!",
+	"OS":"Siin on sulle programm mille abil saad arvuti käima",
+	"GPU":"",
+	"Cooler":"",
+	"Speaker":"",
+	"Mouse":"",
+	"Game":""
+	}
 
 
 var page = 0

@@ -76,7 +76,7 @@ func _process(delta):
 #
 #		print(to_local(global_position))
 
-		if collision.collider.name == "walls":
+		if collision.collider.name == "walls" || collision.collider.name == "Staap" :
 			if collided == false:
 				$collision.play()
 				collided = true
