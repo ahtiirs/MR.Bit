@@ -81,9 +81,9 @@ func _process(delta):
 				$collision.play()
 				collided = true
 		if collision.collider.name == "Mother":
-#			if mother.bag == "OS" || mother.bag == "Game":
-#				game.bag = mother.bag 
-#				mother.bag = "empty"
+			if mother.bag == "OS" || mother.bag == "Game":
+				game.bag = mother.bag 
+				mother.bag = "empty"
 #
 #			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
 #			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
@@ -99,12 +99,12 @@ func _process(delta):
 
 		if collision.collider.name == "OldQuard" && collided == false:
 
-#			get_tree().paused = true
-
+			get_tree().paused = true
+			$ouch.play()
 #			lives = lives -1
 #			emit_signal("lives",lives)
 			collided = true
-			$ouch.play()
+
 
 
 			if lives <= 0:

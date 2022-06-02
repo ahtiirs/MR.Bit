@@ -69,6 +69,11 @@ animations = [ {
 "name": "3",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "2",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "7",
@@ -78,15 +83,10 @@ animations = [ {
 "loop": true,
 "name": "4",
 "speed": 8.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "2",
-"speed": 8.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 52.0
+radius = 108.0
 height = 0.0
 
 [node name="OldQuard" type="KinematicBody2D"]
@@ -98,7 +98,7 @@ frames = SubResource( 2 )
 animation = "5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 12, 36 )
+position = Vector2( 17, 0 )
 shape = SubResource( 3 )
 
 [node name="OldManSound" type="AudioStreamPlayer2D" parent="."]

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ohe Vanamees.mp3-2ad1928b9721d6c8b00020fbeca5979f.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

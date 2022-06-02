@@ -11,5 +11,5 @@ dest_files=[ "res://.import/titt.mp3-a14f3d34f5bd904d67e117c3598bce34.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
