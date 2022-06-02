@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:Assets/GUI/syda.png.import
 path="res://.import/syda.png-72d281c9b3324dfb622ef54f1a3f9226.stex"
-========
-path="res://.import/poiss-1-0003.png-103f72095f9f09e22f49fa77140244be.stex"
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0003.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/GUI/syda.png.import
 source_file="res://Assets/GUI/syda.png"
 dest_files=[ "res://.import/syda.png-72d281c9b3324dfb622ef54f1a3f9226.stex" ]
-========
-source_file="res://Assets/poiss/poiss-1-0003.png"
-dest_files=[ "res://.import/poiss-1-0003.png-103f72095f9f09e22f49fa77140244be.stex" ]
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0003.png.import
 
 [params]
 

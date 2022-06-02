@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:Assets/asjad-saalis/aju.png.import
 path="res://.import/aju.png-e0162fd7635e67d9be474618f4b962e3.stex"
-========
-path="res://.import/poiss-1-0004.png-8c661b584ce8e7357c67c140ee86ebcb.stex"
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0004.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/asjad-saalis/aju.png.import
 source_file="res://Assets/asjad-saalis/aju.png"
 dest_files=[ "res://.import/aju.png-e0162fd7635e67d9be474618f4b962e3.stex" ]
-========
-source_file="res://Assets/poiss/poiss-1-0004.png"
-dest_files=[ "res://.import/poiss-1-0004.png-8c661b584ce8e7357c67c140ee86ebcb.stex" ]
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0004.png.import
 
 [params]
 

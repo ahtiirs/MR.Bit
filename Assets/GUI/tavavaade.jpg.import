@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:Assets/GUI/tavavaade.jpg.import
 path="res://.import/tavavaade.jpg-6fe065349d6eb7cd1ee607cda557e38f.stex"
-========
-path="res://.import/poiss-1-0001.png-9b032369373f2b7eb1311c4aa7578260.stex"
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0001.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/GUI/tavavaade.jpg.import
 source_file="res://Assets/GUI/tavavaade.jpg"
 dest_files=[ "res://.import/tavavaade.jpg-6fe065349d6eb7cd1ee607cda557e38f.stex" ]
-========
-source_file="res://Assets/poiss/poiss-1-0001.png"
-dest_files=[ "res://.import/poiss-1-0001.png-9b032369373f2b7eb1311c4aa7578260.stex" ]
->>>>>>>> Level2_uus:Assets/poiss/poiss-1-0001.png.import
 
 [params]
 
