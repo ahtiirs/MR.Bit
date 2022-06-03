@@ -535,7 +535,6 @@ position = Vector2( 2060, -4039 )
 position = Vector2( -2316, -1455 )
 
 [node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
-visible = false
 position = Vector2( 4385, -1508 )
 
 [node name="Projector" parent="walls" groups=["Collect"] instance=ExtResource( 38 )]
