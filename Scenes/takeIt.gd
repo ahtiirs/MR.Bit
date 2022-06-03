@@ -12,7 +12,9 @@ var itemtoComponent = {
 	"Projector":"GPU",
 	"Taperecorder":"Soundcard",
 	"Rupor":"Speaker",
-	"Mic":"Mic"
+	"Mic":"Mic",
+	"OS":"OS",
+	"Game":"Game"
 	}
 
 var foundText = {

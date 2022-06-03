@@ -32,6 +32,8 @@ onready var LivesBar = get_node("GUI")
 onready var animation = get_parent().get_node("GUI/Animations")
 onready var take = get_parent().get_node("GUI/takeIt")
 onready var takeLabel = get_parent().get_node("GUI/takeIt/Label")
+onready var OS = get_parent().get_node("OS")
+onready var Game = get_parent().get_node("Game")
 
 
 
@@ -81,9 +83,12 @@ func _process(delta):
 				$collision.play()
 				collided = true
 		if collision.collider.name == "Mother":
-			if mother.bag == "OS" || mother.bag == "Game":
-				game.bag = mother.bag 
-				mother.bag = "empty"
+			if mother.bag == "OS":
+#				game.bag = mother.bag 
+#				mother.bag = "empty"
+				OS.visible = true
+			if 	mother.bag == "Game":
+				Game.visible = true
 #
 #			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
 #			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))

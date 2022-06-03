@@ -10,12 +10,12 @@ var dialog = {
 	"HDD":"Vanasti oli info raamatutes!",
 	"PSU":"Telefon saab energiat akudest äkki saab arvuti ka!",
 	"Keyboard":"Sellel saab klahve klõbistada!",
-	"OS":"Siin on sulle programm mille abil saad arvuti käima",
-	"GPU":"",
-	"Cooler":"",
-	"Speaker":"",
-	"Mouse":"",
-	"Game":""
+	"OS":"Veidi imelik lugu aga kohtasin siin üht pingviini, Linux kasutab pingviini oma logona, ehk saad temalt programmi!",
+	"GPU":"123",
+	"Cooler":"123",
+	"Speaker":"123",
+	"Mouse":"123",
+	"Game":"Vägin siin mingit kirevat karpi vesagil vedelemas, tundus mängu moodi olevat, mine otsi üles!"
 	}
 
 
@@ -29,7 +29,7 @@ onready var DialogArea = get_parent()
 # Functions
 func _ready():
 
-	set_bbcode(dialog[game.level1[game.status]])
+	set_bbcode(dialog[game.current_level[game.status]])
 	set_visible_characters(0)
 
 func _on_Timer_timeout():
@@ -42,7 +42,7 @@ func _on_QuestionArea_on_dialog():
 
 	DialogArea.visible = true
 	if page < dialog.size() && paragraph == true:
-		set_bbcode(dialog[game.level1[game.status]])
+		set_bbcode(dialog[game.current_level[game.status]])
 		set_visible_characters(0)
 		page += 1
 		paragraph = false
@@ -51,7 +51,7 @@ func _on_QuestionArea_on_dialog():
 
 	print("kontroll ",page)
 	kontroll+=1
-	if game.level1[game.status] == "OS":
+	if game.current_level[game.status] == "OS":
 		game.bag = "OS"
 
 func _on_Button_pressed():

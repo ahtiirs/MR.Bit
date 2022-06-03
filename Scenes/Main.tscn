@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -59,6 +59,12 @@
 [ext_resource path="res://Assets/jupid/videokaart.png" type="Texture" id=57]
 [ext_resource path="res://Assets/jupid/ventikas.png" type="Texture" id=58]
 [ext_resource path="res://Assets/jupid/mikrofon.png" type="Texture" id=59]
+[ext_resource path="res://Assets/jupid/forthnihght.png" type="Texture" id=60]
+[ext_resource path="res://Assets/jupid/pingu-ylanurgas.png" type="Texture" id=61]
+[ext_resource path="res://Scenes/OS.tscn" type="PackedScene" id=62]
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=63]
+[ext_resource path="res://Assets/infovaade/pinku-infovaade.png" type="Texture" id=64]
+[ext_resource path="res://Assets/infovaade/fortnight-infovaade.png" type="Texture" id=65]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
@@ -150,24 +156,20 @@ script = ExtResource( 13 )
 autoplay = false
 script = ExtResource( 15 )
 
-[node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="2"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
-stream = ExtResource( 33 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="3"]
+[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="2"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 23 )
 
-[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="4"]
+[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="3"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 19 )
+
+[node name="OS" type="Sprite" parent="walls/GUI/Staap" index="9"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 64 )
 
 [node name="GPU" type="Sprite" parent="walls/GUI/Staap" index="10"]
 visible = false
@@ -194,68 +196,90 @@ visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 49 )
 
-[node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="15" groups=["level1_label"]]
+[node name="Game" type="Sprite" parent="walls/GUI/Staap" index="15"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 65 )
+
+[node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="16" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 149 )
 texture = ExtResource( 27 )
 
-[node name="CPU_label" type="Sprite" parent="walls/GUI/Staap" index="16" groups=["level1_label"]]
+[node name="CPU_label" type="Sprite" parent="walls/GUI/Staap" index="17" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 197 )
 texture = ExtResource( 25 )
 
-[node name="RAM_label" type="Sprite" parent="walls/GUI/Staap" index="17" groups=["level1_label"]]
+[node name="RAM_label" type="Sprite" parent="walls/GUI/Staap" index="18" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1133, 246 )
 texture = ExtResource( 26 )
 
-[node name="HDD_label" type="Sprite" parent="walls/GUI/Staap" index="18" groups=["level1_label"]]
+[node name="HDD_label" type="Sprite" parent="walls/GUI/Staap" index="19" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 293 )
 texture = ExtResource( 30 )
 
-[node name="PSU_label" type="Sprite" parent="walls/GUI/Staap" index="19" groups=["level1_label"]]
+[node name="PSU_label" type="Sprite" parent="walls/GUI/Staap" index="20" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1134, 341 )
 texture = ExtResource( 31 )
 
-[node name="Keyboard_label" type="Sprite" parent="walls/GUI/Staap" index="20" groups=["level1_label"]]
+[node name="Keyboard_label" type="Sprite" parent="walls/GUI/Staap" index="21" groups=["level1_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1134, 389 )
 texture = ExtResource( 28 )
 
-[node name="GPU_label" type="Sprite" parent="walls/GUI/Staap" index="21"]
+[node name="OS_label" type="Sprite" parent="walls/GUI/Staap" index="22" groups=["level1_label"]]
 visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1135, 437 )
+texture = ExtResource( 28 )
+
+[node name="GPU_label" type="Sprite" parent="walls/GUI/Staap" index="23" groups=["level2_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 149 )
 texture = ExtResource( 53 )
 
-[node name="Cooler_label" type="Sprite" parent="walls/GUI/Staap" index="22"]
+[node name="Cooler_label" type="Sprite" parent="walls/GUI/Staap" index="24" groups=["level2_label"]]
 visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 197 )
 texture = ExtResource( 50 )
 
-[node name="Sound_label" type="Sprite" parent="walls/GUI/Staap" index="23"]
+[node name="Soundcard_label" type="Sprite" parent="walls/GUI/Staap" index="25" groups=["level2_label"]]
 visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 244 )
 texture = ExtResource( 42 )
 
-[node name="Speaker_label" type="Sprite" parent="walls/GUI/Staap" index="24"]
+[node name="Speaker_label" type="Sprite" parent="walls/GUI/Staap" index="26" groups=["level2_label"]]
 visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 292 )
 texture = ExtResource( 47 )
 
-[node name="Mouse_label" type="Sprite" parent="walls/GUI/Staap" index="25"]
+[node name="Mouse_label" type="Sprite" parent="walls/GUI/Staap" index="27" groups=["level2_label"]]
 visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1132, 338 )
 texture = ExtResource( 48 )
 
-[node name="Exit" parent="walls/GUI/Staap" index="26"]
+[node name="Game_label" type="Sprite" parent="walls/GUI/Staap" index="28" groups=["level2_label"]]
+visible = false
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1134, 382 )
+texture = ExtResource( 48 )
+
+[node name="Exit" parent="walls/GUI/Staap" index="29"]
 visible = false
 margin_left = 1160.0
 margin_right = 1251.0
@@ -263,7 +287,16 @@ margin_bottom = 658.0
 theme = ExtResource( 16 )
 text = "Seiklema"
 
-[node name="StaapText" type="WindowDialog" parent="walls/GUI/Staap" index="27"]
+[node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="30"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaapText" type="WindowDialog" parent="walls/GUI/Staap" index="31"]
 margin_left = 423.0
 margin_top = 121.0
 margin_right = 877.0
@@ -295,7 +328,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="28"]
+[node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="32"]
 margin_left = 439.0
 margin_top = 78.0
 margin_right = 877.0
@@ -375,34 +408,46 @@ margin_bottom = 189.272
 theme = ExtResource( 16 )
 text = "Seiklema"
 
-[node name="Mouse" parent="walls/GUI/inTheBag" index="5"]
+[node name="OS" type="Sprite" parent="walls/GUI/inTheBag" index="5" groups=["components"]]
+visible = false
+position = Vector2( -485, 253 )
+scale = Vector2( 0.0649414, 0.0747439 )
+texture = ExtResource( 61 )
+
+[node name="Mouse" parent="walls/GUI/inTheBag" index="6"]
 position = Vector2( -460, 326 )
 scale = Vector2( 0.110604, 0.0823722 )
 
-[node name="Cooler" parent="walls/GUI/inTheBag" index="6"]
+[node name="Cooler" parent="walls/GUI/inTheBag" index="7"]
 position = Vector2( -468, 262 )
 scale = Vector2( 0.335937, 0.335937 )
 texture = ExtResource( 58 )
 
-[node name="GPU" parent="walls/GUI/inTheBag" index="7"]
+[node name="GPU" parent="walls/GUI/inTheBag" index="8"]
 position = Vector2( -460, 269 )
 scale = Vector2( 0.463623, 0.463623 )
 texture = ExtResource( 57 )
 
-[node name="Soundcard" parent="walls/GUI/inTheBag" index="8"]
+[node name="Soundcard" parent="walls/GUI/inTheBag" index="9"]
 position = Vector2( -462, 266 )
 scale = Vector2( 0.460205, 0.460205 )
 texture = ExtResource( 56 )
 
-[node name="Speaker" parent="walls/GUI/inTheBag" index="9"]
+[node name="Speaker" parent="walls/GUI/inTheBag" index="10"]
 position = Vector2( -462, 266 )
 scale = Vector2( 0.234375, 0.234375 )
 texture = ExtResource( 55 )
 
-[node name="Mic" parent="walls/GUI/inTheBag" index="10"]
+[node name="Mic" parent="walls/GUI/inTheBag" index="11"]
 position = Vector2( -463, 266 )
 scale = Vector2( 0.121826, 0.121826 )
 texture = ExtResource( 59 )
+
+[node name="Game" type="Sprite" parent="walls/GUI/inTheBag" index="12" groups=["components"]]
+visible = false
+position = Vector2( -483, 252 )
+scale = Vector2( 0.0884705, 0.0884705 )
+texture = ExtResource( 60 )
 
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false
@@ -489,6 +534,10 @@ position = Vector2( 2060, -4039 )
 [node name="Piano" parent="walls" groups=["Collect"] instance=ExtResource( 29 )]
 position = Vector2( -2316, -1455 )
 
+[node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
+visible = false
+position = Vector2( 4385, -1508 )
+
 [node name="Projector" parent="walls" groups=["Collect"] instance=ExtResource( 38 )]
 position = Vector2( -772, -2479 )
 
@@ -503,6 +552,10 @@ position = Vector2( 2004, -991 )
 
 [node name="Mic" parent="walls" groups=["Collect"] instance=ExtResource( 37 )]
 position = Vector2( 4372, -3246 )
+
+[node name="Game" parent="walls" groups=["Collect"] instance=ExtResource( 63 )]
+visible = false
+position = Vector2( -966, -1994 )
 
 [node name="Mouse" parent="walls" groups=["Collect"] instance=ExtResource( 9 )]
 position = Vector2( 3420, -1567 )
@@ -550,8 +603,8 @@ bus = "music"
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
-[connection signal="finished" from="walls/GUI/Staap/Level1_end" to="walls/GUI/Staap" method="_on_Level1_end_finished"]
 [connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
+[connection signal="finished" from="walls/GUI/Staap/Level1_end" to="walls/GUI/Staap" method="_on_Level1_end_finished"]
 [connection signal="pressed" from="walls/GUI/Staap/StaapText/ok" to="walls/GUI/Staap" method="_on_ok_pressed"]
 [connection signal="renewlist" from="walls/GUI/Staap/Partinfo" to="walls/GUI/Staap" method="_on_Partinfo_renewlist"]
 [connection signal="pressed" from="walls/GUI/Staap/Partinfo/ok" to="walls/GUI/Staap/Partinfo" method="_on_ok_pressed"]
