@@ -44,24 +44,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "5",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "6",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "1",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "8",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
@@ -82,6 +67,21 @@ animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "8",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "5",
 "speed": 8.0
 } ]
 
