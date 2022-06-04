@@ -26,7 +26,8 @@ var current_level = [
 	"Soundcard",
 	"Speaker",
 	"Mouse",
-	"Game"
+	"Game",
+	"Game Over"
 	]
 	
 var ok_button = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -100,4 +101,4 @@ func _on_Staap_levelup():
 #		current_level=level2
 #		ok_button=ok_button_l2
 		var status = 0
-		bag = "empty"
+#		bag = "empty"

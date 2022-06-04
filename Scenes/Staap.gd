@@ -1,5 +1,6 @@
 extends Node2D
 
+var LevelsInfo = [0,7,7,0]
 var staapText = {
 	"MB":"Sulle on siin monitor ja arvuti korpus  milles on emaplaat. Ülejäänud vajaliku arvuti tööle saamiseks pead leidma vanalt tehase territooriumilt. Kui sa jääd hätta, pöördu ema poole, ta aitab. Ära teda aga liialt tihti tüüta, ema elu pole kerge. Kui liigud ringi, ole ettevaatlik, Bogdan on kuri ja temaga kohtudes jääd iga kord ilma ühest võimalusest arvuti kokku saada. Võimalusi on sul viis.",
 	"CPU":"Leia protsessor, see on nagu arvuti aju , mis kinnitub emaplaadi külge. See aitab arvutil teostada tehteid ja arvutusi, ning juhib teiste seadmete tööd. Protsessori leiad sümboli juurest, mis vihjab mõtlemisele. Head otsimist!",
@@ -13,7 +14,8 @@ var staapText = {
 	"Soundcard":"Leia helikaart!",
 	"Speaker":"Leia kõlarid!",
 	"Mouse":"Leia hiir!",
-	"Game":"Leia mäng!"
+	"Game":"Leia mäng!",
+	"Game Over":"Game Over"
 	}
 
 
@@ -30,7 +32,8 @@ var partText = {
 	"Soundcard":"Helikaart on...",
 	"Speaker":"Kõlarid on...",
 	"Mouse":"Hiir on...",
-	"Game":"Jehuu, läheb mänguks!"
+	"Game":"Jehuu, läheb mänguks!",
+	"Game Over":"Game Over"
 	}
 
 
@@ -40,10 +43,12 @@ onready var player = get_parent().get_parent().get_node("Player")
 onready var staapvideo = get_node("StaapStart")
 onready var staapvideoKeyb = get_node("StaapStart_Keyb")
 onready var level1end = get_node("Level1_end")
-onready var staapmessage = get_node("StaapText")
+onready var level2end = get_node("Level2_end")
+onready var task_window = get_node("StaapText")
 onready var intheBag = get_parent().get_node("inTheBag")
-onready var componentInfo = get_node("Partinfo")
+onready var component_info = get_node("Partinfo")
 onready var progres = .get_parent().get_node("Panel_P/GameLevel")
+onready var task_text = task_window.get_node("label")
 onready var wait = 0
 onready var timeout = 30
 
@@ -53,25 +58,32 @@ signal levelup
 
 
 func _ready():
-	
 	pass # Replace with function body.current_level
 
-
+func _process(delta):
+	if Input.get_action_strength("skip") && wait == 0:
+		wait = timeout
+		next_game_status()
+		game.bag = game.current_level[game.status]
+		_set_progressbar()
+	if wait > 0:
+		wait  = wait - 1
+		
+		
 func _on_StaapEntrance_body_entered(body):
-
-	print("Ema kotis ", mother.bag)
 	if body.name == "Player":
 		intheBag.visible = false
-		if game.ok_button[game.status] == 1:
-			self.get_node("StaapText/ok").visible = true
-			self.get_node("Exit").visible = false
+#		if game.ok_button[game.status] == 1:
+#			self.get_node("StaapText/ok").visible = true
+#			self.get_node("Exit").visible = false
+
 			
-# Olemasolevate juppide järgi otsustatakse milist taustavideot mängitakse
+#>>> 1 <<<< Olemasolevate juppide järgi otsustatakse milist taustavideot mängitakse
 		self.get_node("Exit").visible = true  
 		get_tree().paused = true
 		if game.pc.has("Speaker"):
 			staapvideoKeyb.visible = true
-			staapvideoKeyb.play()
+			staapvideoKeyb.play()  # ??????????????????? kas meil on speaker video ka ?
 		elif game.pc.has("Keyboard"):
 			staapvideoKeyb.visible = true
 			staapvideoKeyb.play()
@@ -80,85 +92,108 @@ func _on_StaapEntrance_body_entered(body):
 			staapvideo.play()
 # -----------------------------------------------------------------------
 
+
+####################### Kas kott on tühi või on vale jupp siis eli lännu ################################################
 func _on_StaapStart_videoFinish():		#Staapi sisenemise video lõppes, tuleb vaadata kas poiss tuli õige jupp kotis
 
+	_bag_compare()
+	_back_pic()
+	_set_progressbar()
+	_right_component()
+	_on_Partinfo_renewlist()
+	_give_to_mother_something()
+
+########################################################################################################################
+
+
+
+func _back_pic():
+	#Kott on tühi aga eelnevalt on klaviatuur juba olemas 
+	if game.bag == "empty" && game.pc.has("Keyboard"):
+		game.bag = "empty_keyb"
+
+	var back_pic = get_node(game.bag) #tuualse pilt kotiga mis vastas kotis olevale muutujale
+	back_pic.visible = true
+#	task_text.text = staapText[game.current_level[game.status]]	
+
+
+func _set_progressbar():
+	progres.value = int((game.status-LevelsInfo[game.level-1])*100/(LevelsInfo[game.level]-1)) # progress edenemine
+
+
+func _bag_compare():
 	# kui kotis pole mänguetapile vastav jupp ning kott pole märkega "empty" siis üks elu maha
 	if game.current_level[game.status] != game.bag && game.bag !="empty": 
 		player.lives = player.lives -1
 		emit_signal("lives",player.lives)
-	staapmessage.visible = false
-
-	#Kott on tühi aga eelnevalt on klaviatuur juba olemas 
-	if game.bag == "empty" && game.pc.has("Keyboard"):
-		game.bag = "empty_keyb"
-		
-	progres.value = int((game.status+1)*100/8) # progress edenemine
-	
-	var component = get_node(game.bag) #tuualse pilt kotiga mis vastas kotis olevale muutujale
-	component.visible = true
-	staapmessage.get_node("label").text = staapText[game.current_level[game.status]]	
-
-	if game.bag=="OS":
-		print("läks level2")
-		level1end.visible = true
-		level1end.play()
-	else:
-		compare_component()
-	
+	task_window.visible = false
 
 
-
-
-func compare_component():
+func _right_component():
 	if game.current_level[game.status] == game.bag:  #Mängija sisenes õige asjaga mäng läheb järgmisele tasemele
-		game.pc.append(game.current_level[game.status])    #Kotis olev komponent lisatakse olemasolevale seadmete listile
-		componentInfo.get_node("label").text = partText[game.bag]	# Toodud komponendi kohta õpetlik info 
-		componentInfo.visible = true
-		staapmessage.visible = false
-		game.status = game.status +1 	# Mäng astme võrra edasi
-		if game.bag == "Keyboard":
-			mother.bag="OS"
-		if game.bag == "Mouse":
-			mother.bag="Game"
-		staapmessage.get_node("label").text = staapText[game.current_level[game.status]]	
-#		next_game_status()
+		component_info.get_node("label").text = partText[game.bag]	# Toodud komponendi kohta õpetlik info 
+		component_info.visible = true
+		task_window.visible = false
 	else:
-		staapmessage.visible = true
+		task_text.text = staapText[game.current_level[game.status]]
+		task_window.visible = true
 	_on_Partinfo_renewlist()
+
+func _give_to_mother_something():
+	if game.bag == "Keyboard":
+		mother.bag="OS"
+	if game.bag == "Mouse":
+		mother.bag="Game"
+
 
 func next_game_status():
 	game.pc.append(game.current_level[game.status])
 	game.status = game.status +1 
-	print(game.pc)
-	print("Game status: ",game.status) 
+	if game.status > 6:
+		game.level = 2
+	_on_Partinfo_renewlist()
 
 
 func _on_ok_pressed():
-
-	staapmessage.get_node("label").text = staapText[game.current_level[game.status+1]]
-	next_game_status()
-	if game.ok_button[game.status] == 0:
-		self.get_node("StaapText/ok").visible = false
-#	game.bag = "empty"
+	if game.ok_button[game.status] == 1:
+		next_game_status()
+		task_text.text = staapText[game.current_level[game.status]]
+	else:	
 	
-func _on_Exit_pressed():
-	self.get_node("Exit").visible = false
-	for _i in self.get_children ():
-		_i.visible = false
+	#	task_text.text = staapText[game.current_level[game.status+1]]
+	#	if game.ok_button[game.status] == 0:
+	#		self.get_node("StaapText/ok").visible = false
+		
+		self.get_node("Exit").visible = false
+		for _i in self.get_children ():
+			_i.visible = false
+	#	if game.bag == "OS":
+	#		level1end.visible = true
+	#		level1end.play()
+		get_tree().paused = false
+		task_window.visible = false
+		
+		game.bag = "empty"
+
+func _partinfo_ok_pressed():
+	component_info.visible = false
 	if game.bag == "OS":
 		level1end.visible = true
+		task_window.visible = false
 		level1end.play()
-	get_tree().paused = false
-	staapmessage.visible = false
+	elif game.bag == "Game":
+		level2end.visible = true
+		task_window.visible = false
+		level2end.play()
+	else:
+		task_text.text = staapText[game.current_level[game.status+1]]
+		task_window.visible = true
 	game.bag = "empty"
-
-func _process(delta):
-	if Input.get_action_strength("skip") && wait == 0:
-		wait = timeout
-		next_game_status()
-	if wait > 0:
-		wait  = wait - 1
-		
+	_back_pic()
+	next_game_status()
+	emit_signal("renewlist")
+	pass # Replace with function body.
+	
 	
 
 
@@ -179,15 +214,24 @@ func _on_Partinfo_renewlist():
 
 
 func _on_Level1_end_finished():
-		print("levelivahetus")
+		component_info.visible = false
 		level1end.visible = false
 		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
+		var leveltext = get_parent().get_node("Level_end/Level_text")
+		leveltext.text = "LEVEL 2"
 		var levelscreen = get_parent().get_node("Level_end")
 		levelscreen.visible = true
 		levelanime.play("Nextlevel")
 		
-		
-		
+func _on_Level2_end_finished():
+		component_info.visible = false
+		level2end.visible = false
+		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
+		var leveltext = get_parent().get_node("Level_end/Level_text")
+		leveltext.text = "Game Over"
+		var levelscreen = get_parent().get_node("Level_end")
+		levelscreen.visible = true
+		levelanime.play("Nextlevel")
 
 
 func _on_Nextlevelanimation_animation_finished(anim_name):
@@ -195,6 +239,11 @@ func _on_Nextlevelanimation_animation_finished(anim_name):
 		if anim_name == "Nextlevel":
 			var levelscreen = get_parent().get_node("Level_end")
 			levelscreen.visible = false
-			emit_signal("levelup")
-			next_game_status()
-			compare_component()
+			task_text.text = staapText[game.current_level[game.status]]
+			task_window.visible = true
+#			emit_signal("levelup")
+#			next_game_status()
+#		component_info.visible = true
+
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -65,6 +65,11 @@
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=63]
 [ext_resource path="res://Assets/infovaade/pinku-infovaade.png" type="Texture" id=64]
 [ext_resource path="res://Assets/infovaade/fortnight-infovaade.png" type="Texture" id=65]
+[ext_resource path="res://Assets/font/LondrinaSolid-Black.ttf" type="DynamicFontData" id=66]
+[ext_resource path="res://Scenes/Test.gd" type="Script" id=67]
+[ext_resource path="res://Assets/kogutud/opsysteem.png" type="Texture" id=68]
+[ext_resource path="res://Assets/staap/levelend2.webm" type="VideoStream" id=69]
+[ext_resource path="res://Assets/kogutud/mang.png" type="Texture" id=70]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 120.5, 377.5, 4.5, 306.5 )
@@ -92,6 +97,13 @@ points = PoolVector2Array( 36.5, 237.5, 132.5, 294.5, 217.5, 258.5, 256, 308.5, 
 } ]
 0/z_index = 0
 
+[sub_resource type="DynamicFont" id=10]
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 66 )
+
 [sub_resource type="DynamicFont" id=8]
 size = 14
 use_filter = true
@@ -102,7 +114,7 @@ size = 304
 font_data = ExtResource( 34 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 97.5, 42.5 )
+extents = Vector2( 118.75, 85.25 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( 4, -8 )
@@ -156,50 +168,50 @@ script = ExtResource( 13 )
 autoplay = false
 script = ExtResource( 15 )
 
-[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="2"]
-visible = false
-position = Vector2( 640, 360 )
-texture = ExtResource( 23 )
-
-[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="3"]
-visible = false
-position = Vector2( 640, 360 )
-texture = ExtResource( 19 )
-
-[node name="OS" type="Sprite" parent="walls/GUI/Staap" index="9"]
+[node name="OS" type="Sprite" parent="walls/GUI/Staap" index="7"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 64 )
 
-[node name="GPU" type="Sprite" parent="walls/GUI/Staap" index="10"]
+[node name="GPU" type="Sprite" parent="walls/GUI/Staap" index="8"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 54 )
 
-[node name="Cooler" type="Sprite" parent="walls/GUI/Staap" index="11"]
+[node name="Cooler" type="Sprite" parent="walls/GUI/Staap" index="9"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 52 )
 
-[node name="Soundcard" type="Sprite" parent="walls/GUI/Staap" index="12"]
+[node name="Soundcard" type="Sprite" parent="walls/GUI/Staap" index="10"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 51 )
 
-[node name="Speaker" type="Sprite" parent="walls/GUI/Staap" index="13"]
+[node name="Speaker" type="Sprite" parent="walls/GUI/Staap" index="11"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 45 )
 
-[node name="Mouse" type="Sprite" parent="walls/GUI/Staap" index="14"]
+[node name="Mouse" type="Sprite" parent="walls/GUI/Staap" index="12"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 49 )
 
-[node name="Game" type="Sprite" parent="walls/GUI/Staap" index="15"]
+[node name="Game" type="Sprite" parent="walls/GUI/Staap" index="13"]
 visible = false
 position = Vector2( 640, 360 )
 texture = ExtResource( 65 )
+
+[node name="empty" type="Sprite" parent="walls/GUI/Staap" index="14"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 23 )
+
+[node name="empty_keyb" type="Sprite" parent="walls/GUI/Staap" index="15"]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 19 )
 
 [node name="MB_label" type="Sprite" parent="walls/GUI/Staap" index="16" groups=["level1_label"]]
 visible = false
@@ -241,7 +253,7 @@ texture = ExtResource( 28 )
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1135, 437 )
-texture = ExtResource( 28 )
+texture = ExtResource( 68 )
 
 [node name="GPU_label" type="Sprite" parent="walls/GUI/Staap" index="23" groups=["level2_label"]]
 visible = false
@@ -276,8 +288,8 @@ texture = ExtResource( 48 )
 [node name="Game_label" type="Sprite" parent="walls/GUI/Staap" index="28" groups=["level2_label"]]
 visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
-position = Vector2( 1134, 382 )
-texture = ExtResource( 48 )
+position = Vector2( 1134, 388 )
+texture = ExtResource( 70 )
 
 [node name="Exit" parent="walls/GUI/Staap" index="29"]
 visible = false
@@ -287,7 +299,23 @@ margin_bottom = 658.0
 theme = ExtResource( 16 )
 text = "Seiklema"
 
-[node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="30"]
+[node name="Test" type="Label" parent="walls/GUI/Staap" index="30"]
+margin_left = 327.0
+margin_top = 20.0
+margin_right = 940.0
+margin_bottom = 67.0
+custom_colors/font_color = Color( 0, 0.658824, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 3
+custom_fonts/font = SubResource( 10 )
+text = "sadcasdcsadc"
+align = 1
+script = ExtResource( 67 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="31"]
 visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
@@ -296,7 +324,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StaapText" type="WindowDialog" parent="walls/GUI/Staap" index="31"]
+[node name="Level2_end" type="VideoPlayer" parent="walls/GUI/Staap" index="32"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 69 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaapText" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
 margin_left = 423.0
 margin_top = 121.0
 margin_right = 877.0
@@ -313,28 +350,28 @@ margin_top = 22.0
 margin_right = 451.0
 margin_bottom = 276.0
 theme = ExtResource( 16 )
-text = "fdn sudh suösu gflibufdhg böoisä oibjwr otijböoijgf öogdijb öodij öboiejrt öoigjre öotigjöreoitjg öoreijt göoiejrt öogijret öoigjer öotijg öeorijtg öoreij "
+text = "Siia tulevad ülesanded mida poiss täidab"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ok" type="Button" parent="walls/GUI/Staap/StaapText"]
-margin_left = 361.0
-margin_top = 255.0
-margin_right = 427.0
-margin_bottom = 291.0
-text = "Edasi"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button" type="Button" parent="walls/GUI/Staap/StaapText"]
+margin_left = 135.0
+margin_top = 270.0
+margin_right = 322.0
+margin_bottom = 306.0
+text = "ASUN TEELE"
 
-[node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="32"]
+[node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="34"]
 margin_left = 439.0
 margin_top = 78.0
 margin_right = 877.0
 margin_bottom = 487.0
 theme = ExtResource( 16 )
 script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Pealkiri" type="Label" parent="walls/GUI/Staap/Partinfo"]
 margin_right = 435.0
@@ -360,11 +397,11 @@ __meta__ = {
 }
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 338.0
-margin_top = 355.0
-margin_right = 404.0
-margin_bottom = 379.0
-text = "Sulge"
+margin_left = 133.0
+margin_top = 356.0
+margin_right = 313.0
+margin_bottom = 392.0
+text = "Paigaldan arvutisse"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -483,12 +520,12 @@ anims/Nextlevel = ExtResource( 36 )
 position = Vector2( 18, -47 )
 
 [node name="NortBridgeUks" type="CollisionShape2D" parent="walls/StaapEntrance"]
-position = Vector2( 1466, -2064 )
+position = Vector2( 1495, -2124 )
 shape = SubResource( 2 )
 script = ExtResource( 14 )
 
 [node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 175, -1927 )
+position = Vector2( 1915, -987 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
@@ -602,11 +639,11 @@ bus = "music"
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
 [connection signal="finished" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap/StaapStart_Keyb" method="_on_StaapStart_Keyb_finished"]
 [connection signal="videoFinish" from="walls/GUI/Staap/StaapStart_Keyb" to="walls/GUI/Staap" method="_on_StaapStart_videoFinish"]
-[connection signal="pressed" from="walls/GUI/Staap/Exit" to="walls/GUI/Staap" method="_on_Exit_pressed"]
 [connection signal="finished" from="walls/GUI/Staap/Level1_end" to="walls/GUI/Staap" method="_on_Level1_end_finished"]
-[connection signal="pressed" from="walls/GUI/Staap/StaapText/ok" to="walls/GUI/Staap" method="_on_ok_pressed"]
+[connection signal="finished" from="walls/GUI/Staap/Level2_end" to="walls/GUI/Staap" method="_on_Level2_end_finished"]
+[connection signal="pressed" from="walls/GUI/Staap/StaapText/Button" to="walls/GUI/Staap" method="_on_ok_pressed"]
 [connection signal="renewlist" from="walls/GUI/Staap/Partinfo" to="walls/GUI/Staap" method="_on_Partinfo_renewlist"]
-[connection signal="pressed" from="walls/GUI/Staap/Partinfo/ok" to="walls/GUI/Staap/Partinfo" method="_on_ok_pressed"]
+[connection signal="pressed" from="walls/GUI/Staap/Partinfo/ok" to="walls/GUI/Staap" method="_partinfo_ok_pressed"]
 [connection signal="timeout" from="walls/GUI/Uduekraan/Timer" to="walls" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="walls/GUI/Level_end/Nextlevelanimation" to="walls/GUI/Staap" method="_on_Nextlevelanimation_animation_finished"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
