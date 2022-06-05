@@ -26,7 +26,7 @@ var foundText = {
 	}
 	
 var answer = false
-onready var game = get_parent().get_parent()
+onready var game = get_node("/root/Bit")
 
 signal flytoBag
 

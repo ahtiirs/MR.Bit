@@ -37,7 +37,7 @@ var partText = {
 	}
 
 
-onready var game = get_parent().get_parent()
+onready var game = get_node("/root/Bit")
 onready var mother = get_parent().get_parent().get_node("Mother")
 onready var player = get_parent().get_parent().get_node("Player")
 onready var staapvideo = get_node("StaapStart")
@@ -241,6 +241,10 @@ func _on_Nextlevelanimation_animation_finished(anim_name):
 			levelscreen.visible = false
 			task_text.text = staapText[game.current_level[game.status]]
 			task_window.visible = true
+			queue_free()
+			get_tree().paused = false
+			get_tree().change_scene("res://Scenes/Level2.tscn")
+			get_tree().paused = false
 #			emit_signal("levelup")
 #			next_game_status()
 #		component_info.visible = true

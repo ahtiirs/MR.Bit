@@ -1,6 +1,6 @@
 extends Label
 
-onready var game = get_parent().get_parent().get_parent()
+onready var game = get_node("/root/Bit")
 func _ready():
 	pass # Replace with function body.
 
