@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/staap/staap_levelII.png" type="Texture" id=1]
+
+[node name="Staap2" type="StaticBody2D"]
+position = Vector2( -1, 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
