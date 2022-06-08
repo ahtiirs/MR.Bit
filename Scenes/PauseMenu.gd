@@ -19,3 +19,7 @@ func _on_Resume_Button_pressed():
 	
 func _on_Quit_Button_pressed():
 	get_tree().quit()
+
+
+func _on_Settings_pressed():
+	get_parent().get_node("Settings").show()

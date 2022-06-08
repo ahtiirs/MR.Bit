@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/kogutud/kovaketas.png" type="Texture" id=30]
 [ext_resource path="res://Assets/kogutud/toiteplokk.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Assets/staap/level_end.webm" type="VideoStream" id=33]
 [ext_resource path="res://Assets/font/LondrinaSolid-Regular.ttf" type="DynamicFontData" id=34]
 [ext_resource path="res://Scenes/Partinfo.gd" type="Script" id=35]
@@ -137,7 +138,13 @@ script = ExtResource( 14 )
 [node name="Staap" parent="walls/GUI" index="0"]
 script = ExtResource( 13 )
 
+[node name="StaapStart" parent="walls/GUI/Staap" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="StaapStart_Keyb" parent="walls/GUI/Staap" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 autoplay = false
 script = ExtResource( 15 )
 
@@ -379,6 +386,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PauseMenu" parent="walls/GUI" index="1"]
+visible = false
+
 [node name="GameLevel" type="ProgressBar" parent="walls/GUI/Panel_P" index="1"]
 margin_left = 3.0
 margin_top = 3.0
@@ -458,6 +468,10 @@ visible = false
 position = Vector2( -483, 252 )
 scale = Vector2( 0.0884705, 0.0884705 )
 texture = ExtResource( 60 )
+
+[node name="Settings" parent="walls/GUI" instance=ExtResource( 32 )]
+pause_mode = 2
+visible = false
 
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false

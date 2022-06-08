@@ -1,0 +1,214 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Settings.gd" type="Script" id=1]
+[ext_resource path="res://bit_theme.tres" type="Theme" id=2]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Resolution_Choice = NodePath("TabContainer/Seaded/ResolutionOptions")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+theme = ExtResource( 2 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Seaded" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 87.0
+margin_right = 239.0
+margin_bottom = 128.0
+rect_rotation = -0.0436789
+text = "Täisekraan"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reolutsion_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 151.0
+margin_right = 236.0
+margin_bottom = 196.0
+rect_rotation = -0.0436789
+text = "Resolutsioon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPU_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 215.0
+margin_right = 249.0
+margin_bottom = 260.0
+rect_rotation = -0.0436789
+text = "Võimas arvuti"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Master_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 311.0
+margin_right = 249.0
+margin_bottom = 356.0
+rect_rotation = -0.0436789
+text = "Heli"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SFX_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 351.0
+margin_right = 249.0
+margin_bottom = 396.0
+rect_rotation = -0.0436789
+text = "Helieffektid"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Speak_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 407.0
+margin_right = 249.0
+margin_bottom = 452.0
+rect_rotation = -0.0436789
+text = "Kõne"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Music_label" type="Label" parent="TabContainer/Seaded"]
+margin_left = 104.0
+margin_top = 455.0
+margin_right = 249.0
+margin_bottom = 500.0
+rect_rotation = -0.0436789
+text = "Muusika"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ResolutionOptions" type="OptionButton" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 151.0
+margin_right = 495.0
+margin_bottom = 187.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="CheckButton" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 87.0
+margin_right = 362.0
+margin_bottom = 123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPU_Button" type="CheckButton" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 215.0
+margin_right = 362.0
+margin_bottom = 251.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterVolume" type="HSlider" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 327.0
+margin_right = 552.0
+margin_bottom = 343.0
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXVolume" type="HSlider" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 375.0
+margin_right = 552.0
+margin_bottom = 391.0
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakVolume" type="HSlider" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 423.0
+margin_right = 552.0
+margin_bottom = 439.0
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolume" type="HSlider" parent="TabContainer/Seaded"]
+margin_left = 296.0
+margin_top = 471.0
+margin_right = 552.0
+margin_bottom = 487.0
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="TabContainer/Seaded"]
+margin_left = 745.0
+margin_top = 458.0
+margin_right = 873.0
+margin_bottom = 494.0
+text = "TAGASI"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="TabContainer/Seaded/ResolutionOptions" to="." method="_on_ResolutionOptions_item_selected"]
+[connection signal="pressed" from="TabContainer/Seaded/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="TabContainer/Seaded/CPU_Button" to="." method="_on_CPU_Button_pressed"]
+[connection signal="value_changed" from="TabContainer/Seaded/MasterVolume" to="." method="_on_MasterVolume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Seaded/SFXVolume" to="." method="_on_SFXVolume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Seaded/SpeakVolume" to="." method="_on_MasterVolume3_value_changed"]
+[connection signal="value_changed" from="TabContainer/Seaded/MusicVolume" to="." method="_on_MasterVolume4_value_changed"]
+[connection signal="pressed" from="TabContainer/Seaded/Button" to="." method="_on_Button_pressed"]
