@@ -22,4 +22,5 @@ func _on_Quit_Button_pressed():
 
 
 func _on_Settings_pressed():
+	self.is_paused = false
 	get_parent().get_node("Settings").show()

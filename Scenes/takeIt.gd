@@ -18,11 +18,19 @@ var itemtoComponent = {
 	}
 
 var foundText = {
-	"Brain":"Hm, kas sellega saab ehk mõelda?",
-	"Piano":"Sellel saab klahve klõbistada",
-	"YellowNotes":"Nendele saaks küll midagi üles märkida kiirelt",
-	"BookShelf":"Siia on kõasti infot talletunud",
-	"Battery":"Siin on kõvasti Energiat"
+	"CPU":"Hm, kas sellega saab ehk mõelda?",
+	"Keyboard":"Sellel saab klahve klõbistada",
+	"RAM":"Nendele saaks küll midagi üles märkida kiirelt",
+	"HDD":"Siia on kõasti infot talletunud",
+	"PSU":"Siin on kõvasti Energiat",
+	"Mouse":"Mouse",
+	"Cooler":"Cooler",
+	"GPU":"GPU",
+	"Soundcard":"Soundcard",
+	"Speaker":"Speaker",
+	"Mic":"Mic",
+	"OS":"OS",
+	"Game":"Game"
 	}
 	
 var answer = false
@@ -53,14 +61,16 @@ func _on_Leave_pressed():
 func _on_Player_foundItem(item):
 	foundItem = item
 	print(item)
-	if foundText.has(item):
-		print(foundText[item])
-		self.get_node("Label").text = foundText[item]
+#	if foundText.has(item):
+#		print(foundText[item])
+
+#		self.get_node("Label").text = foundText[item]
+	self.get_node("Label").text = foundText[game.current_level[game.status]]
 #		for i in foundText:  # for name, age in dictionary.iteritems():  (for Python 2.x)
 #			print(i)
 #			if i == item:
 #				print(i.value)
-	else:
-		self.get_node("Label").text = "Sellise vidina koha pole mul veel sõnu"
+#	else:
+#		self.get_node("Label").text = "Sellise vidina koha pole mul veel sõnu"
 	self.visible = true
 	get_tree().paused = true
