@@ -66,4 +66,5 @@ func _on_MasterVolume4_value_changed(value):
 
 
 func _on_Button_pressed():
+	get_tree().paused = false
 	self.visible = false

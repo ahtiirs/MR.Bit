@@ -147,6 +147,7 @@ func _give_to_mother_something():
 
 
 func next_game_status():
+	_give_to_mother_something()
 	game.pc.append(game.current_level[game.status])
 	game.status = game.status +1 
 	if game.status > 6:
@@ -218,7 +219,7 @@ func _on_Level1_end_finished():
 		level1end.visible = false
 		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
 		var leveltext = get_parent().get_node("Level_end/Level_text")
-		leveltext.text = "LEVEL 2"
+		leveltext.text = "TASE 2"
 		var levelscreen = get_parent().get_node("Level_end")
 		levelscreen.visible = true
 		levelanime.play("Nextlevel")
@@ -228,7 +229,7 @@ func _on_Level2_end_finished():
 		level2end.visible = false
 		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
 		var leveltext = get_parent().get_node("Level_end/Level_text")
-		leveltext.text = "Game Over"
+		leveltext.text = "  LÕPP"
 		var levelscreen = get_parent().get_node("Level_end")
 		levelscreen.visible = true
 		levelanime.play("Nextlevel")
@@ -243,7 +244,8 @@ func _on_Nextlevelanimation_animation_finished(anim_name):
 			task_window.visible = true
 			queue_free()
 			get_tree().paused = false
-			get_tree().change_scene("res://Scenes/Level2.tscn")
+			get_tree().change_scene("res://Scenes/Start_menu.tscn")
+
 			get_tree().paused = false
 #			emit_signal("levelup")
 #			next_game_status()

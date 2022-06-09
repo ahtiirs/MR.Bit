@@ -67,7 +67,7 @@ func update_target_position():
 
 
 	
-		for i in range(1, 9):
+		for i in range(1, 8):
 #			print("Accessing item at index " + str(i))
 #			print(moves[i])
 			var freeWay = checkForCollision(moves[i]*500) - global_position

@@ -83,12 +83,27 @@ func _process(delta):
 				$collision.play()
 				collided = true
 		if collision.collider.name == "Mother":
-			if mother.bag == "OS":
-#				game.bag = mother.bag 
+#			if mother.bag == "OS":
+#				OS.visible = true
+#				OS.set_collision_mask_bit(0, true)
+#				OS.set_collision_mask_bit(1, true)
+#
+#				OS.set_collision_layer_bit(0, true)
+#				OS.set_collision_layer_bit(1, true)
+#
 #				mother.bag = "empty"
-				OS.visible = true
-			if 	mother.bag == "Game":
-				Game.visible = true
+#
+#
+#			if 	mother.bag == "Game":
+#				Game.visible = true
+#				print("Näita mängu")
+#				Game.set_collision_mask_bit(0, true)
+#				Game.set_collision_mask_bit(1, true)
+#
+#				Game.set_collision_layer_bit(0, true)
+#				Game.set_collision_layer_bit(1, true)
+#
+#				mother.bag = "empty"
 #
 #			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
 #			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))

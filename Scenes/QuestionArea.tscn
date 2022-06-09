@@ -8,7 +8,7 @@ visible = true
 margin_left = 552.0
 margin_top = 192.0
 margin_right = 800.0
-margin_bottom = 315.0
+margin_bottom = 320.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -17,9 +17,9 @@ __meta__ = {
 
 [node name="No" type="Button" parent="."]
 margin_left = 136.0
-margin_top = 64.0
+margin_top = 80.0
 margin_right = 184.0
-margin_bottom = 88.0
+margin_bottom = 116.0
 text = "EI"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,9 +38,9 @@ __meta__ = {
 
 [node name="Yes" type="Button" parent="."]
 margin_left = 64.0
-margin_top = 64.0
+margin_top = 80.0
 margin_right = 112.0
-margin_bottom = 88.0
+margin_bottom = 116.0
 text = "JAH"
 __meta__ = {
 "_edit_use_anchors_": false

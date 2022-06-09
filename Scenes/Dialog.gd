@@ -3,6 +3,11 @@ extends RichTextLabel
 #onready var game = get_parent().get_parent().get_parent()
 onready var game = get_node("/root/Bit")
 
+onready var mother = get_parent().get_parent().get_parent().get_node("Mother")
+onready var OS = get_parent().get_parent().get_parent().get_node("OS")
+onready var Game = get_parent().get_parent().get_parent().get_node("Game")
+
+
 
 # Variables
 var dialog = {
@@ -41,6 +46,9 @@ func _on_Timer_timeout():
 		set_visible_characters(get_total_character_count())
 
 func _on_QuestionArea_on_dialog():
+	var jutt = get_parent().get_parent().get_parent().get_node("Mother/"+game.current_level[game.status])
+	if jutt != null:
+		jutt.play()
 
 	DialogArea.visible = true
 	if page < dialog.size() && paragraph == true:
@@ -57,7 +65,34 @@ func _on_QuestionArea_on_dialog():
 		game.bag = "OS"
 
 func _on_Button_pressed():
-	
+	var jutt = get_parent().get_parent().get_parent().get_node("Mother/"+game.current_level[game.status])
+	if jutt != null:
+		jutt.stop()
+	_mother_helps()
 	DialogArea.visible = false
 	get_tree().paused = false
 	pass # Replace with function body.
+	
+	
+func _mother_helps():
+	if mother.bag == "OS":
+		OS.visible = true
+		OS.set_collision_mask_bit(0, true)
+		OS.set_collision_mask_bit(1, true)
+
+		OS.set_collision_layer_bit(0, true)
+		OS.set_collision_layer_bit(1, true)
+
+		mother.bag = "empty"
+
+
+	if 	mother.bag == "Game":
+		Game.visible = true
+		print("Näita mängu")
+		Game.set_collision_mask_bit(0, true)
+		Game.set_collision_mask_bit(1, true)
+
+		Game.set_collision_layer_bit(0, true)
+		Game.set_collision_layer_bit(1, true)
+
+		mother.bag = "empty"

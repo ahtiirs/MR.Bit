@@ -278,6 +278,7 @@ theme = ExtResource( 1 )
 text = "Seiklema"
 
 [node name="Test" type="Label" parent="walls/GUI/Staap" index="30"]
+visible = false
 margin_left = 327.0
 margin_top = 20.0
 margin_right = 940.0
@@ -387,9 +388,6 @@ __meta__ = {
 [node name="PauseMenu" parent="walls/GUI" index="1"]
 visible = false
 
-[node name="Settings" parent="walls/GUI" instance=ExtResource( 72 )]
-visible = false
-
 [node name="GameLevel" type="ProgressBar" parent="walls/GUI/Panel_P" index="1"]
 margin_left = 3.0
 margin_top = 3.0
@@ -401,14 +399,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionArea" parent="walls/GUI" index="5"]
+[node name="QuestionArea" parent="walls/GUI" index="4"]
 visible = false
 margin_left = 508.0
 margin_top = 227.0
 margin_right = 761.0
-margin_bottom = 330.0
+margin_bottom = 369.0
 
-[node name="Dialogarea" parent="walls/GUI" index="6"]
+[node name="Dialogarea" parent="walls/GUI" index="5"]
 position = Vector2( -271, 371 )
 scale = Vector2( 1.59766, 1.54627 )
 color = Color( 0.0705882, 0.0705882, 0.133333, 0.780392 )
@@ -470,6 +468,9 @@ position = Vector2( -483, 252 )
 scale = Vector2( 0.0884705, 0.0884705 )
 texture = ExtResource( 47 )
 
+[node name="Settings" parent="walls/GUI" instance=ExtResource( 72 )]
+visible = false
+
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -527,28 +528,31 @@ position = Vector2( 1035, -4278 )
 position = Vector2( 1162, -4207 )
 
 [node name="Piano" parent="walls" groups=["Collect"] instance=ExtResource( 61 )]
-position = Vector2( 3739, -4842 )
+position = Vector2( 3201, -245 )
 
 [node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 55 )]
-position = Vector2( 4212, -2669 )
+position = Vector2( -1358, 98 )
 
 [node name="Projector" parent="walls" groups=["Collect"] instance=ExtResource( 56 )]
-position = Vector2( 200, -2406 )
+position = Vector2( -755, -2865 )
 
 [node name="Cooler" parent="walls" groups=["Collect"] instance=ExtResource( 53 )]
-position = Vector2( 4758, -4165 )
+position = Vector2( 4682, -4127 )
 
 [node name="Taperecorder" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
-position = Vector2( -563, -3635 )
+position = Vector2( -483, -3598 )
 
 [node name="Rupor" parent="walls" groups=["Collect"] instance=ExtResource( 68 )]
-position = Vector2( -2590, -1209 )
+position = Vector2( -3181, -903 )
 
 [node name="Mic" parent="walls" groups=["Collect"] instance=ExtResource( 64 )]
 position = Vector2( -314, -1139 )
 
 [node name="Game" parent="walls" groups=["Collect"] instance=ExtResource( 67 )]
+visible = false
 position = Vector2( 2523, 410 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="OldQuard2" parent="walls" instance=ExtResource( 70 )]
 position = Vector2( 1744, -1706 )
@@ -583,7 +587,7 @@ position = Vector2( -88, 73 )
 offset = Vector2( 0, -200 )
 rotating = true
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 1.6, 1.6 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true

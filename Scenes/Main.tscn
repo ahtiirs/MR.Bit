@@ -280,6 +280,7 @@ theme = ExtResource( 16 )
 text = "Seiklema"
 
 [node name="Test" type="Label" parent="walls/GUI/Staap" index="30"]
+visible = false
 margin_left = 327.0
 margin_top = 20.0
 margin_right = 940.0
@@ -405,7 +406,7 @@ visible = false
 margin_left = 508.0
 margin_top = 227.0
 margin_right = 761.0
-margin_bottom = 330.0
+margin_bottom = 363.0
 
 [node name="Dialogarea" parent="walls/GUI" index="5"]
 position = Vector2( -271, 371 )
@@ -469,6 +470,10 @@ position = Vector2( -483, 252 )
 scale = Vector2( 0.0884705, 0.0884705 )
 texture = ExtResource( 60 )
 
+[node name="takeIt" parent="walls/GUI" index="10"]
+margin_right = 568.0
+margin_bottom = 203.32
+
 [node name="Settings" parent="walls/GUI" instance=ExtResource( 32 )]
 pause_mode = 2
 visible = false
@@ -510,47 +515,67 @@ rotation = 0.0232711
 scale = Vector2( 1.04854, 1.04854 )
 
 [node name="Bookshelf" parent="walls" groups=["Collect"] instance=ExtResource( 43 )]
-position = Vector2( 2628, 209 )
+position = Vector2( 2725, 216 )
 
 [node name="Battery" parent="walls" groups=["Collect"] instance=ExtResource( 44 )]
-position = Vector2( 2060, -4039 )
+position = Vector2( 2262, -4236 )
 
 [node name="Piano" parent="walls" groups=["Collect"] instance=ExtResource( 29 )]
-position = Vector2( -2316, -1455 )
+position = Vector2( -774, -1455 )
 
 [node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
-position = Vector2( 4385, -1508 )
+visible = false
+position = Vector2( 1952, -1628 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Projector" parent="walls" groups=["Collect"] instance=ExtResource( 38 )]
+visible = false
 position = Vector2( -772, -2479 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Cooler" parent="walls" groups=["Collect"] instance=ExtResource( 41 )]
+visible = false
 position = Vector2( 2980, -3999 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Taperecorder" parent="walls" groups=["Collect"] instance=ExtResource( 40 )]
+visible = false
 position = Vector2( 3156, -1655 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Rupor" parent="walls" groups=["Collect"] instance=ExtResource( 39 )]
+visible = false
 position = Vector2( 2004, -991 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Mic" parent="walls" groups=["Collect"] instance=ExtResource( 37 )]
+visible = false
 position = Vector2( 4372, -3246 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="Game" parent="walls" groups=["Collect"] instance=ExtResource( 63 )]
 visible = false
 position = Vector2( -966, -1994 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1915, -987 )
+position = Vector2( -937, -442 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
 self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
-position = Vector2( 2367, -1941 )
+position = Vector2( 2354, -1797 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Mouse" parent="walls" groups=["Collect"] instance=ExtResource( 9 )]
-position = Vector2( 3420, -1567 )
+position = Vector2( 1839, -1751 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )
@@ -562,7 +587,7 @@ max_distance = 800.0
 attenuation = 0.659754
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 2512, -1471 )
+position = Vector2( 2597, -1951 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera" type="Camera2D" parent="walls/Player"]

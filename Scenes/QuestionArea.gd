@@ -20,8 +20,8 @@ func _ready():
 func _on_Yes_pressed():
 
 	self.visible = false
-	var jutt = get_parent().get_parent().get_node("Mother/Emajutt1")
-	jutt.play()
+#	var jutt = get_parent().get_parent().get_node("Mother/Emajutt1")
+#	jutt.play()
 	emit_signal("on_dialog")
 	pass # Replace with function body.
 

@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Settings.gd" type="Script" id=1]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=2]
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0980392, 0.180392, 0.231373, 0.964706 )
+
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 112.0
+margin_right = -264.0
+margin_bottom = -64.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,11 +21,12 @@ Resolution_Choice = NodePath("TabContainer/Seaded/ResolutionOptions")
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = 50.0
-margin_right = -50.0
-margin_bottom = -50.0
+margin_left = 128.0
+margin_top = 88.0
+margin_right = 32.0
+margin_bottom = -8.0
 theme = ExtResource( 2 )
+custom_styles/panel = SubResource( 1 )
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -29,20 +36,19 @@ __meta__ = {
 [node name="Seaded" type="Tabs" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 24.0
+margin_right = -804.0
+margin_bottom = -508.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fullscreen_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 87.0
-margin_right = 239.0
-margin_bottom = 128.0
+margin_left = 56.0
+margin_top = 88.0
+margin_right = 191.0
+margin_bottom = 129.0
 rect_rotation = -0.0436789
 text = "Täisekraan"
 __meta__ = {
@@ -50,10 +56,10 @@ __meta__ = {
 }
 
 [node name="Reolutsion_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 151.0
-margin_right = 236.0
-margin_bottom = 196.0
+margin_left = 56.0
+margin_top = 150.0
+margin_right = 188.0
+margin_bottom = 195.0
 rect_rotation = -0.0436789
 text = "Resolutsioon"
 __meta__ = {
@@ -61,21 +67,21 @@ __meta__ = {
 }
 
 [node name="CPU_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 215.0
-margin_right = 249.0
-margin_bottom = 260.0
+margin_left = 56.0
+margin_top = 208.0
+margin_right = 344.0
+margin_bottom = 253.0
 rect_rotation = -0.0436789
-text = "Võimas arvuti"
+text = "Kehvema graafikaga arvuti"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Master_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 311.0
-margin_right = 249.0
-margin_bottom = 356.0
+margin_left = 56.0
+margin_top = 312.0
+margin_right = 201.0
+margin_bottom = 357.0
 rect_rotation = -0.0436789
 text = "Heli"
 __meta__ = {
@@ -84,10 +90,10 @@ __meta__ = {
 }
 
 [node name="SFX_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 351.0
-margin_right = 249.0
-margin_bottom = 396.0
+margin_left = 56.0
+margin_top = 352.0
+margin_right = 201.0
+margin_bottom = 397.0
 rect_rotation = -0.0436789
 text = "Helieffektid"
 __meta__ = {
@@ -96,10 +102,10 @@ __meta__ = {
 }
 
 [node name="Speak_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 407.0
-margin_right = 249.0
-margin_bottom = 452.0
+margin_left = 56.0
+margin_top = 400.0
+margin_right = 201.0
+margin_bottom = 445.0
 rect_rotation = -0.0436789
 text = "Kõne"
 __meta__ = {
@@ -108,10 +114,10 @@ __meta__ = {
 }
 
 [node name="Music_label" type="Label" parent="TabContainer/Seaded"]
-margin_left = 104.0
-margin_top = 455.0
-margin_right = 249.0
-margin_bottom = 500.0
+margin_left = 56.0
+margin_top = 448.0
+margin_right = 201.0
+margin_bottom = 493.0
 rect_rotation = -0.0436789
 text = "Muusika"
 __meta__ = {
@@ -120,37 +126,39 @@ __meta__ = {
 }
 
 [node name="ResolutionOptions" type="OptionButton" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 151.0
-margin_right = 495.0
-margin_bottom = 187.0
+margin_left = 346.0
+margin_top = 150.0
+margin_right = 545.0
+margin_bottom = 186.0
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fullscreen" type="CheckButton" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 87.0
-margin_right = 362.0
-margin_bottom = 123.0
+margin_left = 482.0
+margin_top = 94.0
+margin_right = 548.0
+margin_bottom = 130.0
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CPU_Button" type="CheckButton" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 215.0
-margin_right = 362.0
-margin_bottom = 251.0
+margin_left = 474.0
+margin_top = 214.0
+margin_right = 540.0
+margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MasterVolume" type="HSlider" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 327.0
-margin_right = 552.0
-margin_bottom = 343.0
+margin_left = 208.0
+margin_top = 328.0
+margin_right = 464.0
+margin_bottom = 344.0
 min_value = -60.0
 max_value = 0.0
 value = -10.0
@@ -159,10 +167,10 @@ __meta__ = {
 }
 
 [node name="SFXVolume" type="HSlider" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 375.0
-margin_right = 552.0
-margin_bottom = 391.0
+margin_left = 208.0
+margin_top = 368.0
+margin_right = 464.0
+margin_bottom = 384.0
 min_value = -60.0
 max_value = 0.0
 value = -10.0
@@ -171,10 +179,10 @@ __meta__ = {
 }
 
 [node name="SpeakVolume" type="HSlider" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 423.0
-margin_right = 552.0
-margin_bottom = 439.0
+margin_left = 208.0
+margin_top = 416.0
+margin_right = 464.0
+margin_bottom = 432.0
 min_value = -60.0
 max_value = 0.0
 value = -10.0
@@ -183,10 +191,10 @@ __meta__ = {
 }
 
 [node name="MusicVolume" type="HSlider" parent="TabContainer/Seaded"]
-margin_left = 296.0
-margin_top = 471.0
-margin_right = 552.0
-margin_bottom = 487.0
+margin_left = 208.0
+margin_top = 464.0
+margin_right = 464.0
+margin_bottom = 480.0
 min_value = -60.0
 max_value = 0.0
 value = -10.0
@@ -195,10 +203,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="TabContainer/Seaded"]
-margin_left = 745.0
-margin_top = 458.0
-margin_right = 873.0
-margin_bottom = 494.0
+margin_left = 624.0
+margin_top = 456.0
+margin_right = 752.0
+margin_bottom = 492.0
 text = "TAGASI"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Button.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/tavavaade.jpg" type="Texture" id=2]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=4]
 
 [node name="Start_menu" type="CanvasLayer"]
 follow_viewport_enable = true
@@ -58,10 +59,14 @@ margin_top = 505.0
 margin_right = 722.0
 margin_bottom = 545.0
 rect_min_size = Vector2( 200, 40 )
-text = "VALIKUD"
+text = "SEADED"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Settings" parent="." instance=ExtResource( 4 )]
+visible = false
+
 [connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button3" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button3_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button2" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button2_pressed"]
