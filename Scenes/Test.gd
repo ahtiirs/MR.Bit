@@ -10,7 +10,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	self.visible = true
+#	self.visible = true
 	self.text = "Game step: "+ str(game.status) + "    Game Level: "+ str(game.level)+ " \n"
 	self.text += "Game step goal: "+ str(game.current_level[game.status]) + "\n"
 	self.text += "Pc has: "+ str(game.pc) + "\n"

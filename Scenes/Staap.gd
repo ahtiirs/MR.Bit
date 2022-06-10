@@ -152,6 +152,8 @@ func next_game_status():
 	game.status = game.status +1 
 	if game.status > 6:
 		game.level = 2
+	if game.status > 12:
+		game.level = 3
 	_on_Partinfo_renewlist()
 
 
@@ -244,7 +246,11 @@ func _on_Nextlevelanimation_animation_finished(anim_name):
 			task_window.visible = true
 			queue_free()
 			get_tree().paused = false
-			get_tree().change_scene("res://Scenes/Start_menu.tscn")
+			print(game.level)
+			if game.level == 1 || game.level == 2:
+				get_tree().change_scene("res://Scenes/Level2.tscn")
+			else:
+				get_tree().change_scene("res://Scenes/Start_menu.tscn")
 
 			get_tree().paused = false
 #			emit_signal("levelup")
