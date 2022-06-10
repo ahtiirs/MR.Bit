@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://bit_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/font/LondrinaSolid-Black.ttf" type="DynamicFontData" id=2]
@@ -72,6 +72,9 @@
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=70]
 [ext_resource path="res://Scenes/Staap2.tscn" type="PackedScene" id=71]
 [ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Scenes/OldQuard_1.tscn" type="PackedScene" id=73]
+[ext_resource path="res://Scenes/OldQuard_3.tscn" type="PackedScene" id=74]
+[ext_resource path="res://Scenes/OldQuard_2.tscn" type="PackedScene" id=75]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 118.75, 85.25 )
@@ -554,16 +557,25 @@ position = Vector2( 2523, 410 )
 collision_layer = 2
 collision_mask = 2
 
-[node name="OldQuard2" parent="walls" instance=ExtResource( 70 )]
-position = Vector2( 1744, -1706 )
+[node name="OldQuard4" parent="walls" groups=["enemy"] instance=ExtResource( 74 )]
+position = Vector2( 1833, -676 )
+scale = Vector2( 1.5, 1.5 )
 
-[node name="OldQuard" parent="walls" instance=ExtResource( 70 )]
-position = Vector2( 1740, -706 )
+[node name="OldQuard3" parent="walls" groups=["enemy"] instance=ExtResource( 75 )]
+position = Vector2( -2192, -1728 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="OldQuard2" parent="walls" groups=["enemy"] instance=ExtResource( 73 )]
+position = Vector2( 7766, -1882 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="OldQuard" parent="walls" groups=["enemy"] instance=ExtResource( 70 )]
+position = Vector2( 2054, -3491 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 63 )]
 self_modulate = Color( 0.403922, 0.235294, 0.235294, 1 )
-position = Vector2( 3250, -1625 )
+position = Vector2( 3573, -873 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Mouse" parent="walls" groups=["Collect"] instance=ExtResource( 65 )]
@@ -579,7 +591,7 @@ max_distance = 800.0
 attenuation = 0.659754
 
 [node name="Player" parent="walls" instance=ExtResource( 66 )]
-position = Vector2( 5923, -41 )
+position = Vector2( 4662, -801 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera" type="Camera2D" parent="walls/Player"]

@@ -1,0 +1,127 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-40001.png" type="Texture" id=1]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-40002.png" type="Texture" id=2]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-20001.png" type="Texture" id=3]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-20004.png" type="Texture" id=4]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-40004.png" type="Texture" id=5]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-10004.png" type="Texture" id=6]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-50002.png" type="Texture" id=7]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-30004.png" type="Texture" id=8]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-40003.png" type="Texture" id=9]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-50001.png" type="Texture" id=10]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-20002.png" type="Texture" id=11]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-50003.png" type="Texture" id=12]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-10003.png" type="Texture" id=13]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-50004.png" type="Texture" id=14]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-60001.png" type="Texture" id=15]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-20003.png" type="Texture" id=16]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-10002.png" type="Texture" id=17]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-10001.png" type="Texture" id=18]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-30001.png" type="Texture" id=19]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-30002.png" type="Texture" id=20]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-30003.png" type="Texture" id=21]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-70002.png" type="Texture" id=22]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-70001.png" type="Texture" id=23]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-60002.png" type="Texture" id=24]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-70003.png" type="Texture" id=25]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-60004.png" type="Texture" id=26]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-60003.png" type="Texture" id=27]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-70004.png" type="Texture" id=28]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-80003.png" type="Texture" id=29]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-80002.png" type="Texture" id=30]
+[ext_resource path="res://Assets/vanamees/pisike/vanamees-p-80001.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/OldQuard.gd" type="Script" id=33]
+[ext_resource path="res://Assets/sounds/Vanamees1.mp3" type="AudioStream" id=34]
+[ext_resource path="res://Assets/sounds/vanamees2.mp3" type="AudioStream" id=35]
+[ext_resource path="res://Assets/sounds/ohe Vanamees.mp3" type="AudioStream" id=36]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 30 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "8",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "6",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "7",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "5",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 60.0
+height = 0.0
+
+[node name="OldQuard" type="KinematicBody2D"]
+script = ExtResource( 33 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 11, -123 )
+frames = SubResource( 2 )
+animation = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 14, 25 )
+shape = SubResource( 3 )
+
+[node name="OldManSound" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 34 )
+pitch_scale = 1.22
+autoplay = true
+max_distance = 1500.0
+bus = "character"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 3, -5 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 500, 0 )
+
+[node name="OldManAttentionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+pitch_scale = 1.26
+max_distance = 1500.0
+bus = "character"
+
+[node name="OldManPauseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 36 )
+pitch_scale = 1.33
+max_distance = 1500.0
+bus = "character"

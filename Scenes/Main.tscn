@@ -565,7 +565,7 @@ position = Vector2( -966, -1994 )
 collision_layer = 2
 collision_mask = 2
 
-[node name="OldQuard" parent="walls" instance=ExtResource( 4 )]
+[node name="OldQuard" parent="walls" groups=["enemy"] instance=ExtResource( 4 )]
 position = Vector2( -937, -442 )
 scale = Vector2( 1.5, 1.5 )
 

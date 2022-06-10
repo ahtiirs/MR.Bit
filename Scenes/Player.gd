@@ -117,7 +117,7 @@ func _process(delta):
 #			get_tree().paused = true
 			pass
 
-		if collision.collider.name == "OldQuard" && collided == false:
+		if collision.collider.get_groups().has("enemy") && collided == false:
 
 			get_tree().paused = true
 			$ouch.play()
