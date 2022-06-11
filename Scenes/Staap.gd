@@ -5,7 +5,7 @@ var staapText = {
 	"MB":"Sulle on siin monitor ja arvuti korpus  milles on emaplaat. Ülejäänud vajaliku arvuti tööle saamiseks pead leidma vanalt tehase territooriumilt. Kui sa jääd hätta, pöördu ema poole, ta aitab. Ära teda aga liialt tihti tüüta, ema elu pole kerge. Kui liigud ringi, ole ettevaatlik, Bogdan on kuri ja temaga kohtudes jääd iga kord ilma ühest võimalusest arvuti kokku saada. Võimalusi on sul viis.",
 	"CPU":"Missioon 1. \n Otsi arvutile protsessor. Leia territooriumilt sümbol mis vihjab mõtlemisele!",
 	"RAM":"Missioon 2. \n Otsi arvutile mälu. Leia midagi mis aitab asju meeles pidada ajutiselt!",
-	"HDD":"Missioon 3. \n Otsi arvutike kõvaketas. Leia koht milles on kirja pandud palju infot!",
+	"HDD":"Missioon 3. \n Otsi arvutile kõvaketas. Leia koht milles on kirja pandud palju infot!",
 	"PSU":"Missioon 4. \n Otsi arvutile toiteplokk. Leia element mis sisaldab palju energiat!",
 	"Keyboard":"Missioon 5. \n Otsi arvutile klaviatuur. Leia element kus on klahvid!",
 	"OS":"Missioon 6. \n Mine ema juurde, tema ehk teab kust sa saad OP süsteemi!",
@@ -14,7 +14,7 @@ var staapText = {
 	"Soundcard":"Missioon 3. \n Otsi arvutile helikaart. Leia seade mis loob heli!",
 	"Speaker":"Missioon 4. \n Otsi arvutile kõlarid. Leia seade kust kostub heli!",
 	"Mouse":"Missioon 5. \n Otsi arvutile hiir. Leia kedagi või midagi mis on hiire moodi!",
-	"Game":"Missioon 6. \n Mine ema juurde, ta teb kust saada üks äge arvutimäng!",
+	"Game":"Missioon 6. \n Mine ema juurde, ta teab kust saada üks äge arvutimäng!",
 	"Game Over":"Lõpp"
 	}
 

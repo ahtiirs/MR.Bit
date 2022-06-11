@@ -48,9 +48,19 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "4",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 31 ), ExtResource( 30 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "8",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "7",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 4 ) ],
@@ -58,19 +68,9 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "7",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "5",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "4",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 8 ) ],
@@ -85,7 +85,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 39.0
+radius = 32.0
 height = 0.0
 
 [node name="OldQuard" type="KinematicBody2D"]
@@ -97,7 +97,7 @@ frames = SubResource( 2 )
 animation = "2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -34, -18 )
+position = Vector2( -39, -16 )
 shape = SubResource( 3 )
 
 [node name="OldManSound" type="AudioStreamPlayer2D" parent="."]

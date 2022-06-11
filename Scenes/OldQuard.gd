@@ -7,7 +7,7 @@ var acceleration = 200 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
-var MaxDistance = 600 # max kaugus millest lähemal vaenlane märkab mängijat
+var MaxDistance = 850 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
@@ -132,6 +132,7 @@ func _process(delta):
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
 		if !result.has("collider"):
+#		if true:
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
 			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))

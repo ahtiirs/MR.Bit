@@ -37,8 +37,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 24.0
-margin_right = -804.0
-margin_bottom = -508.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -140,7 +138,6 @@ margin_left = 482.0
 margin_top = 94.0
 margin_right = 548.0
 margin_bottom = 130.0
-disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

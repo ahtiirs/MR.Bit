@@ -87,8 +87,12 @@ size = 14
 use_filter = true
 font_data = ExtResource( 34 )
 
-[sub_resource type="DynamicFont" id=9]
-size = 304
+[sub_resource type="DynamicFont" id=11]
+size = 250
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 14
 font_data = ExtResource( 34 )
 
 [node name="Bit" type="Node2D"]
@@ -337,10 +341,10 @@ margin_bottom = 306.0
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
-margin_left = 439.0
-margin_top = 78.0
-margin_right = 877.0
-margin_bottom = 487.0
+margin_left = 333.0
+margin_top = 82.0
+margin_right = 928.0
+margin_bottom = 634.0
 theme = ExtResource( 16 )
 script = ExtResource( 35 )
 __meta__ = {
@@ -348,7 +352,7 @@ __meta__ = {
 }
 
 [node name="Pealkiri" type="Label" parent="walls/GUI/Staap/Partinfo"]
-margin_right = 435.0
+margin_right = 592.0
 margin_bottom = 121.0
 theme = ExtResource( 16 )
 text = "TUBLI OLED!
@@ -360,10 +364,10 @@ __meta__ = {
 }
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 14.0
+margin_left = 10.0
 margin_top = 137.0
-margin_right = 419.0
-margin_bottom = 338.0
+margin_right = 586.0
+margin_bottom = 478.0
 theme = ExtResource( 16 )
 text = "Algne text"
 __meta__ = {
@@ -371,10 +375,10 @@ __meta__ = {
 }
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 133.0
-margin_top = 356.0
-margin_right = 313.0
-margin_bottom = 392.0
+margin_left = 217.0
+margin_top = 494.0
+margin_right = 397.0
+margin_bottom = 530.0
 text = "Paigaldan arvutisse"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -480,7 +484,7 @@ visible = false
 
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.523733 )
 margin_right = 1280.0
 margin_bottom = 720.0
 theme = ExtResource( 16 )
@@ -488,16 +492,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level_text" type="RichTextLabel" parent="walls/GUI/Level_end"]
-margin_left = 163.0
+[node name="Level_text" type="Label" parent="walls/GUI/Level_end"]
+margin_left = 5.0
 margin_top = 168.0
-margin_right = 1152.0
+margin_right = 1275.0
 margin_bottom = 530.0
 theme = ExtResource( 16 )
-custom_fonts/normal_font = SubResource( 9 )
-bbcode_text = "LEVEL 2"
+custom_fonts/font = SubResource( 11 )
 text = "LEVEL 2"
-scroll_active = false
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -566,7 +569,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="OldQuard" parent="walls" groups=["enemy"] instance=ExtResource( 4 )]
-position = Vector2( -937, -442 )
+position = Vector2( 376, -1754 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Mother" parent="walls" instance=ExtResource( 8 )]
@@ -575,7 +578,7 @@ position = Vector2( 2630, -1905 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Mouse" parent="walls" groups=["Collect"] instance=ExtResource( 9 )]
-position = Vector2( 1706, -1783 )
+position = Vector2( 3494, -833 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )
