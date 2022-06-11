@@ -51,19 +51,9 @@ animations = [ {
 "name": "8",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 2 ), ExtResource( 27 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 25 ) ],
 "loop": true,
-"name": "4",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "6",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "5",
+"name": "2",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 9 ), ExtResource( 22 ), ExtResource( 30 ) ],
@@ -71,14 +61,24 @@ animations = [ {
 "name": "7",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 29 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "5",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 2 ), ExtResource( 27 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "4",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "3",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "2",
+"name": "6",
 "speed": 15.0
 } ]
 
@@ -90,13 +90,13 @@ height = 0.0
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 49, 10 )
+position = Vector2( -24, -46 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 19, 41 )
+position = Vector2( -46, -23 )
 shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -12,17 +12,18 @@ onready var Game = get_parent().get_parent().get_parent().get_node("Game")
 # Variables
 var dialog = {
 	"MB":"Hei poja, tahtsid endale ehitada arvuti? Emaplaat on ainus komponent, mille mina sulle alguses annan. Sa leiad selle staabist.  Sealt saad ka oma järgmise missiooni. Jälgi juhiseid täpselt, vale asi kotis staapi sisenedes kaotad elu. Elusid on sul kokku viis. Ringi liikudes ole väga ettevaatlik! Siin valvab kuri Bogdan. Kui temaga kohtud kaotad alati ühe elu. Hätta jäädes tule räägi minuga, ehk oskan nõu anda. Edu sulle poja! ",
-	"CPU":"Kas siit ei anna aju leida?",
-	"RAM":"Kuhu sa oma märkmeid teed?",
-	"HDD":"Vanasti oli info raamatutes!",
-	"PSU":"Telefon saab energiat akudest äkki saab arvuti ka!",
-	"Keyboard":"Sellel saab klahve klõbistada!",
-	"OS":"Veidi imelik lugu aga kohtasin siin üht pingviini, Linux kasutab pingviini oma logona, ehk saad temalt programmi!",
-	"GPU":"123",
-	"Cooler":"123",
-	"Speaker":"123",
-	"Mouse":"123",
-	"Game":"Vägin siin mingit kirevat karpi vesagil vedelemas, tundus mängu moodi olevat, mine otsi üles!"
+	"CPU":"Äkki on aju see mida sa vajad!",
+	"RAM":"Leia midagi millele saab kiirelt asju üles märkida, et meelest ei läheks! ",
+	"HDD":"Vanasti oli kogu tarkus pikaks ajaks talletatud raamatutesse, ehk leiad raamatuid!",
+	"PSU":"Telefonid saavad energiat akudest, äkki saab arvuti ka!",
+	"Keyboard":"Leia midagi millel saab klahidel lõbusalt klõbistada!",
+	"OS":"Uskumatu lugu, aga kohtasin siin ennist üht pingviini, Linux kasutab pingviini oma logona, ehk saad temalt programmi!",
+	"GPU":"Leia midagi millega kinos linale filmi lastakse!",
+	"Soundcard":"Vanaisal oli see asi mida sa otsid, ta kuula oma lemmiklugusid sellega!",
+	"Cooler":"Leia midagi mis paneks õhu liikuma!",
+	"Speaker":"Selle asja abil saab end valjult kuuldavaks teha",
+	"Mouse":"Püüa see rott kinni kes siin sebib, ma koguaeg ehmatan kui teda näen!",
+	"Game":"Nägin siin mingit kirevat karpi kusagil vedelemas, tundus mängu moodi olevat, mine otsi üles!"
 	}
 
 

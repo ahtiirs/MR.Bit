@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Exit" type="Button"]
+margin_left = 1112.0
+margin_top = 632.0
+margin_right = 1248.0
+margin_bottom = 688.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}

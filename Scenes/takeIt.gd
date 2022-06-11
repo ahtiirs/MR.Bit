@@ -1,6 +1,8 @@
 extends ColorRect
 
 var foundItem= ""
+var newitem = ""
+
 var itemtoComponent = {
 	"Brain":"CPU",
 	"Piano":"Keyboard",
@@ -18,20 +20,20 @@ var itemtoComponent = {
 	}
 
 var foundText = {
-	"MB":"Kas ema ei käskinud sul staapi minna?",
-	"CPU":"Hm, kas sellega saab ehk mõelda?",
-	"Keyboard":"Sellel saab klahve klõbistada",
-	"RAM":"Nendele saaks küll midagi üles märkida kiirelt",
-	"HDD":"Siia on kõasti infot talletunud",
-	"PSU":"Siin on kõvasti Energiat",
-	"Mouse":"Mouse",
-	"Cooler":"Cooler",
-	"GPU":"GPU",
-	"Soundcard":"Soundcard",
-	"Speaker":"Speaker",
+	"MB":"Kas ema mitte ei käskinud sul esmalt staapi minna?",
+	"CPU":"Kas see asi aitaks mõelda?",
+	"Keyboard":"Kas see on seade millega saaks infot sisestada?",
+	"RAM":"Kas sellega saaks midagi meelde jätta?",
+	"HDD":"Kas selle abil saaks pikaks ajaks infot talletada?",
+	"PSU":"Kas see annaks seadmetele voolu?",
+	"Mouse":"Kas see on hiire moodi?",
+	"Cooler":"Kas sellega saaks jahutada?",
+	"GPU":"Kas see tekitaks seinale liikuvat pilti?",
+	"Soundcard":"Kas see toodaks heli?",
+	"Speaker":"Kas see tekitab valjut heli?",
 	"Mic":"Mic",
-	"OS":"OS",
-	"Game":"Game"
+	"OS":"Kas see võiks kujutada programmi mis arvuti käima paneb?",
+	"Game":"Kas see on programm mida saaks arvutis mängida"
 	}
 	
 var answer = false
@@ -60,7 +62,13 @@ func _on_Leave_pressed():
 	pass # Replace with function body.
 
 func _on_Player_foundItem(item):
-	foundItem = item
+	if "_" in item:
+		newitem = item.split("_")
+		foundItem = newitem[1]
+	else:
+		foundItem = item	
+		
+	
 	print(item)
 	
 	if game.bag == "empty":

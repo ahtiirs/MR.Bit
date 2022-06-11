@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://bit_theme.tres" type="Theme" id=1]
+
+[node name="Exit" type="Button"]
+visible = false
+margin_left = 1160.0
+margin_top = 632.0
+margin_right = 1251.0
+margin_bottom = 658.0
+theme = ExtResource( 1 )
+text = "Seiklema"
+__meta__ = {
+"_edit_use_anchors_": false
+}

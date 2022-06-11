@@ -7,8 +7,8 @@ var acceleration = 2000 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
-var MaxDistance = 500 # max kaugus millest lähemal vaenlane märkab mängijat
-var DialogDist = 270
+var MaxDistance = 385 # max kaugus millest lähemal vaenlane märkab mängijat
+var DialogDist = 250
 var FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
@@ -79,12 +79,22 @@ func _process(delta):
 
 	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
 
+#	print("Kaugus mängijast", EnemyToPlayer.length())
+
 	if EnemyToPlayer.length() < MaxDistance: # Kas mängija on lähemal kui määratud distants
 		#--- KAs mängija ja iseenda vahele jääb objekte?
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
 		#--
-		if !result.has("collider"): #--- Kui ei jäänud objekte 
+#		print(result)
+#		var kid = result["collider"]
+#		var was = kid.split(":")
+#		if result.collider_id == 2875:
+#			print(result.collider)
+		
+		
+#		if !result.has("collider"): #--- Kui ei jäänud objekte 
+		if true: #--- Kui ei jäänud objekte 
 
 			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position()) #-- pöörame näo mängija poole
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
@@ -96,7 +106,7 @@ func _process(delta):
 			$AnimatedSprite.play("idle")	#--- peatame mängija animatsiooni
 #			print("kaugus",EnemyToPlayer.length())
 			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked: #-- KAs mängija on vestlusläheduses
-				
+				$memm.play()
 				YesPopup.visible = true 	#--- avan vestluse küsimise dialoogi
 				get_tree().paused = true	#--- tasutamäng pausile
 				is_dialog_asked = true		#--- dialoogi treiger üles et ei kordaks kohe 
@@ -120,16 +130,24 @@ func _process(delta):
 
 #	print("läksime")
 	collision = move_and_collide(motion)
+	var titt_Rand = rand_range(1,1000)
+
+	if titt_Rand >= 450 && titt_Rand <= 452:
+		$titt.play()
+	
 	if collision and collision.collider.name != "Player" :
 #		if collision.Object != null :
 #			if collided == false:
 #			print("vastu seina")
 #		print("põrge")
+	
+		
 		update_target_position()
 		collided = true
 		tryTime= 0
 	else:
 		collided = false
+		
 		
 #	update_target_position()
 	update_animation(moveVector)

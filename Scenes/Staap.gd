@@ -3,35 +3,35 @@ extends Node2D
 var LevelsInfo = [0,7,7,0]
 var staapText = {
 	"MB":"Sulle on siin monitor ja arvuti korpus  milles on emaplaat. Ülejäänud vajaliku arvuti tööle saamiseks pead leidma vanalt tehase territooriumilt. Kui sa jääd hätta, pöördu ema poole, ta aitab. Ära teda aga liialt tihti tüüta, ema elu pole kerge. Kui liigud ringi, ole ettevaatlik, Bogdan on kuri ja temaga kohtudes jääd iga kord ilma ühest võimalusest arvuti kokku saada. Võimalusi on sul viis.",
-	"CPU":"Leia protsessor, see on nagu arvuti aju , mis kinnitub emaplaadi külge. See aitab arvutil teostada tehteid ja arvutusi, ning juhib teiste seadmete tööd. Protsessori leiad sümboli juurest, mis vihjab mõtlemisele. Head otsimist!",
-	"RAM":"Leia muutmälu, selle poole saab pöörduda  ühteviisi kiirelt nii lugemiseks, kui ka kirjutamiseks.",
-	"HDD":"Leia kõvaketas, sinna saab suurel hulgal infot talletada ja seda sealt ka lugeda vastavalt vajadusele.",
-	"PSU":"Leia toiteplokk, toiteplokist saab voolu arvuti töötamiseks",
-	"Keyboard":"Leia klaviatuur, klaviatuuril on erinevad klahvid, mida saab vajutada ja anda sisendi arvutile.",
-	"OS":"Tühi kott ei seisa püsti, samuti ei tööta ka arvuti ilma tarkuseta. Mine küsi emalt veidi tarkust mida arvutisse panna. Seda nimetatakse OP süsteemiks.",
-	"GPU":"Leia videokaart!",
-	"Cooler":"Leia jahuti!",
-	"Soundcard":"Leia helikaart!",
-	"Speaker":"Leia kõlarid!",
-	"Mouse":"Leia hiir!",
-	"Game":"Leia mäng!",
-	"Game Over":"Game Over"
+	"CPU":"Missioon 1. \n Otsi arvutile protsessor. Leia territooriumilt sümbol mis vihjab mõtlemisele!",
+	"RAM":"Missioon 2. \n Otsi arvutile mälu. Leia midagi mis aitab asju meeles pidada ajutiselt!",
+	"HDD":"Missioon 3. \n Otsi arvutike kõvaketas. Leia koht milles on kirja pandud palju infot!",
+	"PSU":"Missioon 4. \n Otsi arvutile toiteplokk. Leia element mis sisaldab palju energiat!",
+	"Keyboard":"Missioon 5. \n Otsi arvutile klaviatuur. Leia element kus on klahvid!",
+	"OS":"Missioon 6. \n Mine ema juurde, tema ehk teab kust sa saad OP süsteemi!",
+	"GPU":"Missioon 1. \n Otsi arvutile videokaart. Leia seade mis tekitab liikuvat pilti!",
+	"Cooler":"Missioon 2. \n Otsi arvutile jahutus. Leia seade mida kasutaksid kuuma ilmaga!",
+	"Soundcard":"Missioon 3. \n Otsi arvutile helikaart. Leia seade mis loob heli!",
+	"Speaker":"Missioon 4. \n Otsi arvutile kõlarid. Leia seade kust kostub heli!",
+	"Mouse":"Missioon 5. \n Otsi arvutile hiir. Leia kedagi või midagi mis on hiire moodi!",
+	"Game":"Missioon 6. \n Mine ema juurde, ta teb kust saada üks äge arvutimäng!",
+	"Game Over":"Lõpp"
 	}
 
 
 var partText = {
 	"MB":"Emaplaat on trükiplaat arvutis, mille sees ja peal on erinevaid elektroonika radu ja seadiseid. Rajad omakorda moodustavad siinid, mida mööda liiguvad andmed erinevate siseseadmete ja ka välisseadmetele.Emaplaadile ühendatakse kõik arvuti siseseadmed ja ka kaudselt kõik välisseadmed",
-	"CPU":"Protsessor on arvuti aju ehk keskseade, mis on kinnitatud emaplaadi külge. Kiip sooritab arvuti jaoks vajalikud arvutused. Teostab tehteid ja arvutusi, lisaks teiste seadmete töö juhtimist.",
-	"RAM":"Mälu on arvuti keskne mäluseade, kuhu saab andmeid kirjutada ja kust saab neid lugeda. Suvapöördus (random access) tähendab seda, et igal mälupesal on oma aadress ning nii lugemiseks kui kirjutamiseks on võimalik pöörduda suvalise aadressi poole. Enamik muutmälusid pole säilmälud, s.t. toite väljalülitamisel mälus olevad andmed hävivad.",
-	"HDD":"Arvuti kõvaketas on peamiseks andmekandjaks. Kõvaketas on jäigast materjalist ketas, mis on kaetud magnetiseeruva materjali kihiga, mis omakorda annab võimaluse kõvakettale andmeid salvestada",
-	"PSU":"Toiteplokk on...",
-	"Keyboard":"Klaviatuur on...",
+	"CPU":"Protsessor kujutab endast loogikaskeemi, mis interpreteerib ja täidab käske ning koosneb vähemalt käsuseadmest ja aritmeetika-loogikaseadmest. Enamasti mõeldakse protsessori all arvuti keskprotsessorit. Personaalarvutites ja digijuhtimisega seadmetes kasutatavaid protsessoreid nimetatakse protsessorikiipide väikeste mõõtmete tõttu sageli mikroprotsessoriteks",
+	"RAM":"muutmälu, suvapöördusmälu Arvuti keskne mäluseade, kuhu saab andmeid kirjutada ja kust saab neid lugeda. Suvapöördus (random access) tähendab seda, et igal mälupesal on oma aadress ning nii lugemiseks kui kirjutamiseks on võimalik pöörduda suvalise aadressi poole. Enamik muutmälusid pole säilmälud, s.t. toite väljalülitamisel mälus olevad andmed hävivad",
+	"HDD":"kõvakettaajam Kuna kõvakettad on alati koos kettaajamiga monteeritud hermeetiliselt suletud korpustesse, mida ei saa lahti võtta, siis kasutatakse termineid 'kõvaketas' ja 'kõvakettajam' harilikult sünonüümidena. Flopi- ja laserkettaid saab aga ajamis vahetada ja seepärast tehakse ka terminoloogias selget vahet ketaste ja ajamite vahel",
+	"PSU":"Arvuti toiteplokk (ingl Power Supply Unit ehk PSU) on üheks olulisemaks osaks arvuti riistvarast, muundades elektrivõrgust saadava vahelduvpingevoolu arvuti elektroonikakomponentide jaoks sobivaks madalapingeliseks alalisvooluks. See tähendab, et kõrgem pinge ja väiksema vool konverteeritakse madalamaks pingeks ja tugevamaks vooluks. Ilma toiteplokita ei saa ülejäänud sisemine riistvara toimida, kuid oluline on seejuures silmas pidada, et toiteallikas peab ühilduma nii emaplaadi kui ka arvuti korpusega.",
+	"Keyboard":"QWERTY-klaviatuuripaigutus sai populaarseks pärast seda, kui see 1878. aastal Remingtoni nr 2 kirjutusmasina osana välja anti. Selle paigutuse lõi Christopher Sholes, kuid selle loomise põhjuseid ümbritsevad paljud müüdid. Mõned ütlevad, et ta lõi QWERTY-klaviatuuri, et eraldada tavalised tähekombinatsioonid ja hoida ära kirjutusmasina klahvid segamise eest. Teadlaste sõnul pole selle väite kohta tõestust, eriti kuna E ja R on naabrid ning inglise keeles on neljas kõige levinum tähekombinatsioon.",
 	"OS":"OP Süsteem on...",
-	"GPU":"Videokaart on...",
-	"Cooler":"Jahuti on...",
-	"Soundcard":"Helikaart on...",
-	"Speaker":"Kõlarid on...",
-	"Mouse":"Hiir on...",
+	"GPU":"Graafikakaart on  videokaart, mis on installitud enamikesse arvutusseadmetesse, et kuvada graafilisi andmeid suure selguse, värvide, eraldusvõime ja üldise välimusega. Graafikakaart pakub kvaliteetset visuaalset kuva, töödeldes ja käivitades graafilisi andmeid täiustatud graafiliste tehnikate, funktsioonide ja funktsioonide abil.",
+	"Cooler":"Arvuti jahutus on vajalik arvutikomponentide tekitatud heitsoojuse eemaldamiseks, komponentide hoidmiseks lubatud töötemperatuuri piirides. Komponendid, mis võivad ülekuumenemise korral tekkida ajutise talitlushäire või püsiva rikke korral, hõlmavad integraallülitusi, nagu keskprotsessorid (CPU-d), kiibistikud, graafikakaardid ja kõvakettadraivid.",
+	"Soundcard":"Helikaart on arvutites heli vastuvõtmiseks ja saatmiseks kasutatav laienduskomponent. Helikaarte konfigureeritakse ja kasutatakse tarkvararakenduse ja seadme draiveri abil. Heliandmete vastuvõtmiseks ühendatav sisendseade on tavaliselt mikrofon, heliandmete väljastamiseks kasutatav seade aga kõlarid või kõrvaklapid.",
+	"Speaker":"Arvuti kõlar on väljundriistvaraseade, mis ühendatakse heli tekitamiseks arvutiga. Arvuti kõlarist tuleva heli tekitamiseks kasutatav signaal luuakse arvuti helikaardi abil.",
+	"Mouse":"Arvutihiir on riistvaraline sisendseade, mis juhib kursorit GUI-s (graafilises kasutajaliideses) teksti, ikoonide, failide ja kaustade osutamiseks, teisaldamiseks ja valimiseks arvutis. Lisaks nendele funktsioonidele saab hiirt kasutada ka objektide pukseerimiseks ja juurdepääsu andmiseks paremklõpsu menüüle.",
 	"Game":"Jehuu, läheb mänguks!",
 	"Game Over":"Game Over"
 	}
