@@ -17,10 +17,10 @@ animations = [ {
 position = Vector2( -1, 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 8, -105 )
+position = Vector2( 57, -122 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 51, -10 )
 polygon = PoolVector2Array( -38, -54, 40, -31, 91, 39, 37, 85, -52, 61, -71, -10 )

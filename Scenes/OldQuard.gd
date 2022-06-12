@@ -172,7 +172,8 @@ func _process(delta):
 #			print("vastu seina")
 			
 		collided = true
-		tryTime= 1
+		update_target_position()	
+		tryTime= 0.1
 		if collision.collider.name == "Player":
 			print("Sain su kätte poiss")
 			notcatch = false
