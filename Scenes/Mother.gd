@@ -132,7 +132,7 @@ func _process(delta):
 	collision = move_and_collide(motion)
 	var titt_Rand = rand_range(1,1000)
 
-	if titt_Rand >= 450 && titt_Rand <= 452:
+	if titt_Rand >= 450 && titt_Rand <= 451:
 		$titt.play()
 	
 	if collision and collision.collider.name != "Player" :

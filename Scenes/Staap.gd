@@ -144,7 +144,18 @@ func _give_to_mother_something():
 		mother.bag="OS"
 	if game.bag == "Mouse":
 		mother.bag="Game"
+	if game.current_level[game.status] == "Speaker":
+		_make_mmouse_collective(true)
+	if game.current_level[game.status] == "Mouse":
+		_make_mmouse_collective(false)	
 
+func _make_mmouse_collective(pick):
+	var mouse = get_parent().get_parent().get_node("Mouse")
+	if pick:
+		mouse.add_to_group("Collect")
+		print("korjatav")
+	else:
+		mouse.remove_from_group("Collect")
 
 func next_game_status():
 	_give_to_mother_something()
