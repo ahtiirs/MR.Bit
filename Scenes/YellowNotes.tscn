@@ -4,16 +4,16 @@
 [ext_resource path="res://Scenes/YellowNotes.gd" type="Script" id=2]
 
 [node name="YellowNotes" type="StaticBody2D"]
-position = Vector2( -131, -63 )
+position = Vector2( 0, -1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -109, -334 )
+position = Vector2( 120, -147 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, 128 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -177, -211 )
-polygon = PoolVector2Array( -89, 87, 138, 81, 133, -112, 49, -81, -99, 33 )
+position = Vector2( 90, -8 )
+polygon = PoolVector2Array( -86, 139, 160, 9, 133, -112, 49, -81, -96, -13 )
 
 [connection signal="input_event" from="." to="." method="_on_YellowNotes_input_event"]

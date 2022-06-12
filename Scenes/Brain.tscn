@@ -24,15 +24,15 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -11, -75 )
+position = Vector2( 32, 1 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -7, -75 )
+position = Vector2( 35, -5 )
 shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -10, -105 )
+position = Vector2( 42, -52 )
 scale = Vector2( 0.41375, 0.41375 )
 frames = SubResource( 3 )
 

@@ -140,7 +140,7 @@ func _process(delta):
 			$OldManAttentionSound.play()
 #			animation.play("stumble")
 			state = CHASE 
-			timer = 5
+			timer = 7 # mitu sekundit taga ajab
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
 			quick = 2
 

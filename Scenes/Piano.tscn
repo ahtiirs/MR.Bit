@@ -5,10 +5,10 @@
 [node name="Piano" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -117, -157 )
+position = Vector2( 99, 20 )
 scale = Vector2( 0.41, 0.38625 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -228, -26 )
-polygon = PoolVector2Array( 48, -26, -39, -83, 16, -119, 210, -26, 131, 20 )
+position = Vector2( -17, 129 )
+polygon = PoolVector2Array( 37, 2, -56, -54, 16, -119, 238, -4, 137, 55 )
