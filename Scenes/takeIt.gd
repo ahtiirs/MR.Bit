@@ -44,6 +44,13 @@ signal flytoBag
 func _ready():
 	pass # Replace with function body.
 
+func _process(delta):
+	if self.visible:
+		if Input.get_action_strength("esc"):
+			_on_Leave_pressed()
+		if Input.get_action_strength("ok"):
+			_on_Take_pressed()
+	
 func _on_Take_pressed():
 	self.answer = true
 	emit_signal("flytoBag",itemtoComponent[foundItem])

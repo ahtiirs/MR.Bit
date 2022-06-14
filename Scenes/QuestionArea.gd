@@ -15,7 +15,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func _process(delta):
+	if self.visible:
+		if Input.get_action_strength("esc"):
+			_on_No_pressed()
+		if Input.get_action_strength("ok"):
+			_on_Yes_pressed()
+	
 
 func _on_Yes_pressed():
 

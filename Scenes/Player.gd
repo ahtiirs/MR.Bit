@@ -24,7 +24,7 @@ enum YesIds {
 onready var EnemyToPlayer = global_position
 onready var EnemyPosition = get_parent().get_node("OldQuard").get_position()
 onready var mother = get_parent().get_node("Mother")
-onready var game = get_parent()
+onready var game = get_node("/root/Bit")
 #onready var YesPopup = get_parent().get_node("GUI").get_node("YesNo")
 onready var YesPopup = get_parent().get_node("GUI/QuestionArea")
 onready var OldGuard = get_parent().get_node("OldQuard")
@@ -138,7 +138,11 @@ func _process(delta):
 		
 		if collision.collider.get_groups().has("Collect") && collided == false:
 			collided = true
-			emit_signal("foundItem",collision.collider.name)		
+#			print("bag: ",game.bag)
+#			print("collider name: ",collision.collider.name)
+#			print(take.itemtoComponent[collision.collider.name])
+			if game.bag != take.itemtoComponent[collision.collider.name]:
+				emit_signal("foundItem",collision.collider.name)		
 				
 #	
 

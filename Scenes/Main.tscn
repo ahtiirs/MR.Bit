@@ -1,10 +1,11 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Direction.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=9]
@@ -77,6 +78,21 @@ use_filter = true
 extra_spacing_char = 2
 extra_spacing_space = 1
 font_data = ExtResource( 66 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "PartInfoAnim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="DynamicFont" id=8]
 size = 14
@@ -334,6 +350,8 @@ margin_bottom = 306.0
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
+visible = true
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 333.0
 margin_top = 82.0
 margin_right = 928.0
@@ -376,6 +394,10 @@ text = "Paigaldan arvutisse"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="walls/GUI/Staap/Partinfo"]
+autoplay = "PartInfoAnim"
+anims/PartInfoAnim = SubResource( 12 )
 
 [node name="Exit" parent="walls/GUI/Staap" index="34"]
 visible = false
@@ -477,7 +499,7 @@ visible = false
 
 [node name="Level_end" type="Panel" parent="walls/GUI"]
 visible = false
-modulate = Color( 1, 1, 1, 0.523733 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 1280.0
 margin_bottom = 720.0
 theme = ExtResource( 16 )
@@ -502,6 +524,9 @@ __meta__ = {
 pause_mode = 2
 anims/Nextlevel = ExtResource( 36 )
 
+[node name="Direction" parent="walls/GUI" instance=ExtResource( 6 )]
+position = Vector2( 50, 92 )
+
 [node name="Brain" parent="walls" groups=["Collect"] instance=ExtResource( 10 )]
 position = Vector2( 2718, -3265 )
 
@@ -521,10 +546,9 @@ position = Vector2( 5188, -3025 )
 position = Vector2( 2315, -4185 )
 
 [node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
-visible = false
-position = Vector2( 3317, -660 )
-collision_layer = 2
-collision_mask = 2
+position = Vector2( 1315, -1046 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="Projector" parent="walls" groups=["Collect"] instance=ExtResource( 38 )]
 visible = false
@@ -577,13 +601,15 @@ position = Vector2( 1651, -1660 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )
 stream = ExtResource( 22 )
+volume_db = -9.548
 pitch_scale = 1.23
 autoplay = true
 max_distance = 800.0
 attenuation = 0.659754
+bus = "character"
 
 [node name="Player" parent="walls" instance=ExtResource( 5 )]
-position = Vector2( 2402, -1701 )
+position = Vector2( 2473, -2252 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera" type="Camera2D" parent="walls/Player"]

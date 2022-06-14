@@ -1,26 +1,108 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/pinku/pingviin-10001.png" type="Texture" id=1]
 [ext_resource path="res://Assets/pinku/pingviin-10002.png" type="Texture" id=2]
 [ext_resource path="res://Assets/pinku/pingviin-10003.png" type="Texture" id=3]
 [ext_resource path="res://Assets/pinku/pingviin-10004.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/OS.gd" type="Script" id=5]
+[ext_resource path="res://Assets/pinku/pingviin-50003.png" type="Texture" id=6]
+[ext_resource path="res://Assets/pinku/pingviin-60002.png" type="Texture" id=7]
+[ext_resource path="res://Assets/pinku/pingviin-30003.png" type="Texture" id=8]
+[ext_resource path="res://Assets/pinku/pingviin-50004.png" type="Texture" id=9]
+[ext_resource path="res://Assets/pinku/pingviin-70003.png" type="Texture" id=10]
+[ext_resource path="res://Assets/pinku/pingviin-70004.png" type="Texture" id=11]
+[ext_resource path="res://Assets/pinku/pingviin-80001.png" type="Texture" id=12]
+[ext_resource path="res://Assets/pinku/pingviin-80002.png" type="Texture" id=13]
+[ext_resource path="res://Assets/pinku/pingviin-80003.png" type="Texture" id=14]
+[ext_resource path="res://Assets/pinku/pingviin-50001.png" type="Texture" id=15]
+[ext_resource path="res://Assets/pinku/pingviin-50002.png" type="Texture" id=16]
+[ext_resource path="res://Assets/pinku/pingviin-70002.png" type="Texture" id=17]
+[ext_resource path="res://Assets/pinku/pingviin-80004.png" type="Texture" id=18]
+[ext_resource path="res://Assets/pinku/pingviin-30002.png" type="Texture" id=19]
+[ext_resource path="res://Assets/pinku/pingviin-30004.png" type="Texture" id=20]
+[ext_resource path="res://Assets/pinku/pingviin-20001.png" type="Texture" id=21]
+[ext_resource path="res://Assets/pinku/pingviin-60003.png" type="Texture" id=22]
+[ext_resource path="res://Assets/pinku/pingviin-20003.png" type="Texture" id=23]
+[ext_resource path="res://Assets/pinku/pingviin-20002.png" type="Texture" id=24]
+[ext_resource path="res://Assets/pinku/pingviin-30001.png" type="Texture" id=25]
+[ext_resource path="res://Assets/pinku/pingviin-40001.png" type="Texture" id=26]
+[ext_resource path="res://Assets/pinku/pingviin-40004.png" type="Texture" id=27]
+[ext_resource path="res://Assets/pinku/pingviin-60001.png" type="Texture" id=28]
+[ext_resource path="res://Assets/pinku/pingviin-70001.png" type="Texture" id=29]
+[ext_resource path="res://Assets/pinku/pingviin-40002.png" type="Texture" id=30]
+[ext_resource path="res://Assets/pinku/pingviin-60004.png" type="Texture" id=31]
+[ext_resource path="res://Assets/pinku/pingviin-40003.png" type="Texture" id=32]
+[ext_resource path="res://Assets/pinku/pingviin-20004.png" type="Texture" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 19 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "8",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "7",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "5",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "6",
+"speed": 8.0
 } ]
 
-[node name="OS" type="StaticBody2D"]
+[sub_resource type="CircleShape2D" id=2]
+radius = 42.0119
+
+[node name="OS" type="KinematicBody2D"]
 position = Vector2( -1, 2 )
+script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 57, -122 )
+position = Vector2( 36, -117 )
 frames = SubResource( 1 )
+animation = "8"
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 51, -10 )
+position = Vector2( 26, 11 )
+scale = Vector2( 0.677318, 0.682929 )
 polygon = PoolVector2Array( -38, -54, 40, -31, 91, 39, 37, 85, -52, 61, -71, -10 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 33, 22 )
+shape = SubResource( 2 )

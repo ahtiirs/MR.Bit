@@ -34,8 +34,6 @@ __meta__ = {
 }
 
 [node name="Seaded" type="Tabs" parent="TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_top = 24.0
 tab_align = 0
 __meta__ = {
@@ -128,7 +126,6 @@ margin_left = 346.0
 margin_top = 150.0
 margin_right = 545.0
 margin_bottom = 186.0
-disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -156,9 +153,8 @@ margin_left = 208.0
 margin_top = 328.0
 margin_right = 464.0
 margin_bottom = 344.0
-min_value = -60.0
+min_value = -20.0
 max_value = 0.0
-value = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -168,9 +164,8 @@ margin_left = 208.0
 margin_top = 368.0
 margin_right = 464.0
 margin_bottom = 384.0
-min_value = -60.0
+min_value = -20.0
 max_value = 0.0
-value = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -180,9 +175,8 @@ margin_left = 208.0
 margin_top = 416.0
 margin_right = 464.0
 margin_bottom = 432.0
-min_value = -60.0
+min_value = -20.0
 max_value = 0.0
-value = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -192,9 +186,8 @@ margin_left = 208.0
 margin_top = 464.0
 margin_right = 464.0
 margin_bottom = 480.0
-min_value = -60.0
+min_value = -20.0
 max_value = 0.0
-value = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
