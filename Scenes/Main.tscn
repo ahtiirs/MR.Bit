@@ -546,7 +546,7 @@ position = Vector2( 5188, -3025 )
 position = Vector2( 2315, -4185 )
 
 [node name="OS" parent="walls" groups=["Collect"] instance=ExtResource( 62 )]
-position = Vector2( 1315, -1046 )
+position = Vector2( -908, -491 )
 collision_layer = 3
 collision_mask = 3
 

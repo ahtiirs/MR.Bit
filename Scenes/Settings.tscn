@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Settings.gd" type="Script" id=1]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/GUI/nool/nool-y.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/nool/nool-p.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/nool/nool-a.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GUI/nool/nool-v.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0980392, 0.180392, 0.231373, 0.964706 )
@@ -21,9 +25,9 @@ Resolution_Choice = NodePath("TabContainer/Seaded/ResolutionOptions")
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 128.0
+margin_left = 16.0
 margin_top = 88.0
-margin_right = 32.0
+margin_right = 72.0
 margin_bottom = -8.0
 theme = ExtResource( 2 )
 custom_styles/panel = SubResource( 1 )
@@ -34,13 +38,15 @@ __meta__ = {
 }
 
 [node name="Seaded" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_top = 24.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen_label" type="Label" parent="TabContainer/Seaded"]
+[node name="Fullscreen_label2" type="Label" parent="TabContainer/Seaded"]
 margin_left = 56.0
 margin_top = 88.0
 margin_right = 191.0
@@ -193,14 +199,122 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="TabContainer/Seaded"]
-margin_left = 624.0
+margin_left = 784.0
 margin_top = 456.0
-margin_right = 752.0
+margin_right = 912.0
 margin_bottom = 492.0
 text = "TAGASI"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label juhtklahvid" type="Label" parent="TabContainer/Seaded"]
+margin_left = 699.0
+margin_top = 48.0
+margin_right = 834.0
+margin_bottom = 89.0
+rect_rotation = -0.0436789
+text = "Juhtklahvid"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label Paus" type="Label" parent="TabContainer/Seaded"]
+margin_left = 640.0
+margin_top = 214.0
+margin_right = 775.0
+margin_bottom = 255.0
+rect_rotation = -0.0436789
+text = "Paus - P"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label Enter" type="Label" parent="TabContainer/Seaded"]
+margin_left = 640.0
+margin_top = 264.0
+margin_right = 808.0
+margin_bottom = 305.0
+rect_rotation = -0.0436789
+text = "Kinnita - ENTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label ESC" type="Label" parent="TabContainer/Seaded"]
+margin_left = 640.0
+margin_top = 311.0
+margin_right = 808.0
+margin_bottom = 352.0
+rect_rotation = -0.0436789
+text = "Loobu - ESC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label A" type="Label" parent="TabContainer/Seaded"]
+margin_left = 800.0
+margin_top = 136.0
+margin_right = 820.0
+margin_bottom = 182.0
+rect_rotation = -0.0436789
+rect_scale = Vector2( 1.6, 1.6 )
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label D" type="Label" parent="TabContainer/Seaded"]
+margin_left = 880.0
+margin_top = 136.0
+margin_right = 900.0
+margin_bottom = 182.0
+rect_rotation = -0.0436789
+rect_scale = Vector2( 1.6, 1.6 )
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label S" type="Label" parent="TabContainer/Seaded"]
+margin_left = 840.0
+margin_top = 136.0
+margin_right = 860.0
+margin_bottom = 182.0
+rect_rotation = -0.0436789
+rect_scale = Vector2( 1.6, 1.6 )
+text = "S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label W" type="Label" parent="TabContainer/Seaded"]
+margin_left = 840.0
+margin_top = 88.0
+margin_right = 860.0
+margin_bottom = 134.0
+rect_rotation = -0.0436789
+rect_scale = Vector2( 1.6, 1.6 )
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TabContainer/Seaded"]
+position = Vector2( 686, 120 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="TabContainer/Seaded"]
+position = Vector2( 735, 170 )
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="TabContainer/Seaded"]
+position = Vector2( 640, 168 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="TabContainer/Seaded"]
+position = Vector2( 688, 170 )
+texture = ExtResource( 5 )
 
 [connection signal="item_selected" from="TabContainer/Seaded/ResolutionOptions" to="." method="_on_ResolutionOptions_item_selected"]
 [connection signal="pressed" from="TabContainer/Seaded/Fullscreen" to="." method="_on_Fullscreen_pressed"]

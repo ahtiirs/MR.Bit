@@ -138,10 +138,16 @@ func _process(delta):
 		
 		if collision.collider.get_groups().has("Collect") && collided == false:
 			collided = true
+			var foundItem = ""
 #			print("bag: ",game.bag)
 #			print("collider name: ",collision.collider.name)
 #			print(take.itemtoComponent[collision.collider.name])
-			if game.bag != take.itemtoComponent[collision.collider.name]:
+			if "_" in collision.collider.name:
+				var newitem = collision.collider.name.split("_")
+				foundItem = newitem[1]
+			else:
+				foundItem = collision.collider.name
+			if game.bag != take.itemtoComponent[foundItem]:
 				emit_signal("foundItem",collision.collider.name)		
 				
 #	
