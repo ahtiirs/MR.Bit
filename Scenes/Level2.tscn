@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://bit_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/font/LondrinaSolid-Black.ttf" type="DynamicFontData" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/kogutud/helikaart.png" type="Texture" id=23]
 [ext_resource path="res://Assets/infovaade/kott-kolariga.png" type="Texture" id=24]
 [ext_resource path="res://Assets/kogutud/hiir.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/MiniMother.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/kogutud/jahutus.png" type="Texture" id=27]
 [ext_resource path="res://Assets/infovaade/kott-jahutusega.png" type="Texture" id=28]
 [ext_resource path="res://Assets/kogutud/videokaart.png" type="Texture" id=29]
@@ -491,6 +492,9 @@ __meta__ = {
 [node name="Nextlevelanimation" type="AnimationPlayer" parent="walls/GUI/Level_end"]
 pause_mode = 2
 anims/Nextlevel = ExtResource( 14 )
+
+[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 26 )]
+position = Vector2( 92, 98 )
 
 [node name="2_Brain" parent="walls" groups=["Collect"] instance=ExtResource( 57 )]
 position = Vector2( 3897, -3687 )

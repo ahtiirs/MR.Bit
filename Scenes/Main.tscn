@@ -5,7 +5,6 @@
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Direction.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=9]
@@ -16,6 +15,7 @@
 [ext_resource path="res://Scenes/NortBridgeUks.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/StaapStart_Keyb.gd" type="Script" id=15]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=16]
+[ext_resource path="res://Scenes/MiniMother.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/StaapText.gd" type="Script" id=18]
 [ext_resource path="res://Assets/infovaade/tyhikott-klaver.png" type="Texture" id=19]
 [ext_resource path="res://Assets/sounds/hiir.mp3" type="AudioStream" id=22]
@@ -350,7 +350,6 @@ margin_bottom = 306.0
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
-visible = true
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 333.0
 margin_top = 82.0
@@ -524,8 +523,8 @@ __meta__ = {
 pause_mode = 2
 anims/Nextlevel = ExtResource( 36 )
 
-[node name="Direction" parent="walls/GUI" instance=ExtResource( 6 )]
-position = Vector2( 50, 92 )
+[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 17 )]
+position = Vector2( 73, 99 )
 
 [node name="Brain" parent="walls" groups=["Collect"] instance=ExtResource( 10 )]
 position = Vector2( 2718, -3265 )
@@ -596,7 +595,7 @@ position = Vector2( 2639, -1786 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Mouse" parent="walls" instance=ExtResource( 9 )]
-position = Vector2( 1651, -1660 )
+position = Vector2( 1792, -1671 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Mouse"]
 position = Vector2( 537, 576 )

@@ -128,7 +128,7 @@ __meta__ = {
 }
 
 [node name="ResolutionOptions" type="OptionButton" parent="TabContainer/Seaded"]
-margin_left = 346.0
+margin_left = 320.0
 margin_top = 150.0
 margin_right = 545.0
 margin_bottom = 186.0
