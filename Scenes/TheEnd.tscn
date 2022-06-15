@@ -1,0 +1,152 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/font/LondrinaSolid-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://bit_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/TheEnd.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=19]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 350
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=20]
+resource_name = "TitleAnim"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label_makers:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 4.3, 6.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1585, 0.1585 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label_makers:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4.3, 6.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 596, 200 ), Vector2( 293, 97 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label_makers:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4.3, 6.2, 10.1, 11 ),
+"transitions": PoolRealArray( 3.73213, 0.34151, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label_Notes:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 4.3, 6.5, 10.1, 11 ),
+"transitions": PoolRealArray( 6.49802, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label_End:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.1, 2.4, 4.3, 5.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="TheEnd" type="Panel"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1280.0
+margin_bottom = 720.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_makers" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 1.68858e-05 )
+margin_left = 579.167
+margin_top = 194.278
+margin_right = 1278.17
+margin_bottom = 574.278
+rect_scale = Vector2( 0.20525, 0.20525 )
+custom_fonts/font = SubResource( 19 )
+text = "Mängu loojad:
+Valter Rosenfeld (projektijuht)
+ Juho Kalberg (kujundaja),
+Kalev Kask (helid ja testija,
+Ahti Irs (programmeerija) "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Notes" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 1.89194e-09 )
+margin_left = 136.0
+margin_top = 590.0
+margin_right = 1150.0
+margin_bottom = 630.0
+text = "Mängu prototüüp on valminud Tallinna Ülikooli Rakendusinformaatika tudengite praktikatööna. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Endmusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Label_End" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1279.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 21 )
+text = "LÕPP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleAnimation" type="AnimationPlayer" parent="."]
+anims/TitleAnim = SubResource( 20 )
+
+[connection signal="animation_finished" from="TitleAnimation" to="." method="_on_TitleAnimation_animation_finished"]

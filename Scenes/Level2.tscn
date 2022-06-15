@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://bit_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/font/LondrinaSolid-Black.ttf" type="DynamicFontData" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Assets/kogutud/videokaart.png" type="Texture" id=29]
 [ext_resource path="res://Assets/infovaade/kott-videokaardiga.png" type="Texture" id=30]
 [ext_resource path="res://Assets/infovaade/tyhikott.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/TheEnd.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Assets/kogutud/kolar.png" type="Texture" id=33]
 [ext_resource path="res://Assets/infovaade/kott-hiirega.png" type="Texture" id=34]
 [ext_resource path="res://Assets/infovaade/tyhikott-klaver.png" type="Texture" id=35]
@@ -82,10 +83,28 @@ extra_spacing_char = 2
 extra_spacing_space = 1
 font_data = ExtResource( 2 )
 
+[sub_resource type="InputEventAction" id=11]
+action = "ok"
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
+
+[sub_resource type="InputEventAction" id=13]
+action = "ok"
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
 [sub_resource type="DynamicFont" id=8]
 size = 14
 use_filter = true
 font_data = ExtResource( 3 )
+
+[sub_resource type="InputEventAction" id=15]
+action = "ok"
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 304
@@ -325,6 +344,7 @@ margin_left = 135.0
 margin_top = 270.0
 margin_right = 322.0
 margin_bottom = 306.0
+shortcut = SubResource( 12 )
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
@@ -366,6 +386,7 @@ margin_left = 133.0
 margin_top = 356.0
 margin_right = 313.0
 margin_bottom = 392.0
+shortcut = SubResource( 14 )
 text = "Paigaldan arvutisse"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -393,7 +414,6 @@ __meta__ = {
 }
 
 [node name="QuestionArea" parent="walls/GUI" index="4"]
-visible = false
 margin_left = 508.0
 margin_top = 227.0
 margin_right = 761.0
@@ -418,6 +438,7 @@ margin_top = 153.272
 margin_right = 930.612
 margin_bottom = 189.272
 theme = ExtResource( 1 )
+shortcut = SubResource( 16 )
 text = "Seiklema"
 
 [node name="OS" type="Sprite" parent="walls/GUI/inTheBag" index="5" groups=["components"]]
@@ -465,8 +486,10 @@ texture = ExtResource( 47 )
 pause_mode = 2
 visible = false
 
+[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 26 )]
+position = Vector2( 92, 98 )
+
 [node name="Level_end" type="Panel" parent="walls/GUI"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1280.0
 margin_bottom = 720.0
@@ -476,6 +499,7 @@ __meta__ = {
 }
 
 [node name="Level_text" type="RichTextLabel" parent="walls/GUI/Level_end"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 163.0
 margin_top = 168.0
 margin_right = 1152.0
@@ -493,8 +517,8 @@ __meta__ = {
 pause_mode = 2
 anims/Nextlevel = ExtResource( 14 )
 
-[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 26 )]
-position = Vector2( 92, 98 )
+[node name="TheEnd" parent="walls/GUI" instance=ExtResource( 32 )]
+visible = true
 
 [node name="2_Brain" parent="walls" groups=["Collect"] instance=ExtResource( 57 )]
 position = Vector2( 3897, -3687 )

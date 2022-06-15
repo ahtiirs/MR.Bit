@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/QuestionArea.gd" type="Script" id=1]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=2]
 
+[sub_resource type="InputEventAction" id=6]
+action = "esc"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventAction" id=5]
+action = "ok"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 5 )
+
 [node name="QuestionArea" type="WindowDialog"]
-visible = true
 margin_left = 552.0
 margin_top = 192.0
 margin_right = 800.0
@@ -20,6 +31,7 @@ margin_left = 136.0
 margin_top = 80.0
 margin_right = 184.0
 margin_bottom = 116.0
+shortcut = SubResource( 2 )
 text = "EI"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,6 +53,7 @@ margin_left = 64.0
 margin_top = 80.0
 margin_right = 112.0
 margin_bottom = 116.0
+shortcut = SubResource( 4 )
 text = "JAH"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,10 +1,11 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Resources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/floor-rocks.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/walls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/OldQuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TheEnd.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Mother.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=9]
@@ -79,6 +80,18 @@ extra_spacing_char = 2
 extra_spacing_space = 1
 font_data = ExtResource( 66 )
 
+[sub_resource type="InputEventAction" id=13]
+action = "ok"
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventAction" id=15]
+action = "ok"
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
 [sub_resource type="Animation" id=12]
 resource_name = "PartInfoAnim"
 tracks/0/type = "value"
@@ -98,6 +111,12 @@ tracks/0/keys = {
 size = 14
 use_filter = true
 font_data = ExtResource( 34 )
+
+[sub_resource type="InputEventAction" id=17]
+action = "ok"
+
+[sub_resource type="ShortCut" id=18]
+shortcut = SubResource( 17 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 250
@@ -149,7 +168,10 @@ script = ExtResource( 14 )
 
 [node name="GUI" parent="walls" instance=ExtResource( 12 )]
 
-[node name="Staap" parent="walls/GUI" index="0"]
+[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 17 )]
+position = Vector2( 73, 99 )
+
+[node name="Staap" parent="walls/GUI" index="1"]
 script = ExtResource( 13 )
 
 [node name="StaapStart" parent="walls/GUI/Staap" index="0"]
@@ -347,10 +369,10 @@ margin_left = 135.0
 margin_top = 270.0
 margin_right = 322.0
 margin_bottom = 306.0
+shortcut = SubResource( 14 )
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 333.0
 margin_top = 82.0
 margin_right = 928.0
@@ -389,6 +411,7 @@ margin_left = 217.0
 margin_top = 494.0
 margin_right = 397.0
 margin_bottom = 530.0
+shortcut = SubResource( 16 )
 text = "Paigaldan arvutisse"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -405,7 +428,7 @@ margin_top = 789.0
 margin_right = 1665.0
 margin_bottom = 845.0
 
-[node name="PauseMenu" parent="walls/GUI" index="1"]
+[node name="PauseMenu" parent="walls/GUI" index="2"]
 visible = false
 
 [node name="GameLevel" type="ProgressBar" parent="walls/GUI/Panel_P" index="1"]
@@ -419,14 +442,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionArea" parent="walls/GUI" index="4"]
-visible = false
+[node name="QuestionArea" parent="walls/GUI" index="5"]
 margin_left = 508.0
 margin_top = 227.0
 margin_right = 761.0
 margin_bottom = 363.0
 
-[node name="Dialogarea" parent="walls/GUI" index="5"]
+[node name="Dialogarea" parent="walls/GUI" index="6"]
 position = Vector2( -271, 371 )
 scale = Vector2( 1.59766, 1.54627 )
 color = Color( 0.0705882, 0.0705882, 0.133333, 0.780392 )
@@ -445,6 +467,7 @@ margin_top = 153.272
 margin_right = 930.612
 margin_bottom = 189.272
 theme = ExtResource( 16 )
+shortcut = SubResource( 18 )
 text = "Seiklema"
 
 [node name="OS" type="Sprite" parent="walls/GUI/inTheBag" index="5" groups=["components"]]
@@ -488,7 +511,7 @@ position = Vector2( -483, 252 )
 scale = Vector2( 0.0884705, 0.0884705 )
 texture = ExtResource( 60 )
 
-[node name="takeIt" parent="walls/GUI" index="10"]
+[node name="takeIt" parent="walls/GUI" index="11"]
 margin_right = 568.0
 margin_bottom = 203.32
 
@@ -508,9 +531,9 @@ __meta__ = {
 
 [node name="Level_text" type="Label" parent="walls/GUI/Level_end"]
 margin_left = 5.0
-margin_top = 168.0
+margin_top = 161.955
 margin_right = 1275.0
-margin_bottom = 530.0
+margin_bottom = 523.955
 theme = ExtResource( 16 )
 custom_fonts/font = SubResource( 11 )
 text = "LEVEL 2"
@@ -523,8 +546,7 @@ __meta__ = {
 pause_mode = 2
 anims/Nextlevel = ExtResource( 36 )
 
-[node name="MiniMother" parent="walls/GUI" instance=ExtResource( 17 )]
-position = Vector2( 73, 99 )
+[node name="TheEnd" parent="walls/GUI" instance=ExtResource( 6 )]
 
 [node name="Brain" parent="walls" groups=["Collect"] instance=ExtResource( 10 )]
 position = Vector2( 2718, -3265 )

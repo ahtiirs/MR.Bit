@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/takeIt.gd" type="Script" id=1]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=2]
 
+[sub_resource type="InputEventAction" id=1]
+action = "ok"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "esc"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
 [node name="takeIt" type="ColorRect"]
+visible = false
 anchor_right = 0.225
 anchor_bottom = 0.244
 margin_right = -288.0
@@ -38,6 +51,7 @@ margin_left = 64.0
 margin_top = 160.0
 margin_right = 176.0
 margin_bottom = 200.0
+shortcut = SubResource( 2 )
 text = "Võta"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,6 +62,7 @@ margin_left = 208.0
 margin_top = 160.0
 margin_right = 320.0
 margin_bottom = 200.0
+shortcut = SubResource( 4 )
 text = "Jäta"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var lives = 5 # mängijal elusid
+var lives = 1 # mängijal elusid
 #const MOTION_SPEED = 180# Pixels/second.
 const maxSpeed = 8
 const friction = 20 
@@ -34,6 +34,9 @@ onready var take = get_parent().get_node("GUI/takeIt")
 onready var takeLabel = get_parent().get_node("GUI/takeIt/Label")
 onready var OS = get_parent().get_node("OS")
 onready var Game = get_parent().get_node("Game")
+onready var end = get_parent().get_node("GUI/TheEnd")
+
+
 
 
 
@@ -158,9 +161,11 @@ func _process(delta):
 #	moveVector.y = moveVector.y * 1.3
 #	moveVector.x = moveVector.x / 1.3
 	update_animation(moveVector)
-	if lives <= 0:
-		print("stop")
-		get_tree().quit() # Mängu lõpp
+#	if lives <= 0:
+#		print("otsa sai")
+#		end._start()
+##		end._start() # Mängu lõpp
+		
 
 func update_animation(moveVec):
 
@@ -218,6 +223,6 @@ func _on_ouch_finished():
 	self.set_position(Vector2(1543,-1635))
 	OldGuard.set_position(Vector2(175,-1920))
 	
-	if lives <= 0:
-		print("stop")
-		get_tree().quit() # Mängu lõpp
+#	if lives <= 0:
+#		print("otsa sai")
+#		end._start()

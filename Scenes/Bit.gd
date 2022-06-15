@@ -53,6 +53,7 @@ onready var live4 = get_node("walls/GUI/Panel_V/VBoxContainer/Syda4")
 onready var live5 = get_node("walls/GUI/Panel_V/VBoxContainer/Syda5")
 onready var mist = get_node("walls/GUI/Uduekraan")
 onready var timer = get_node("walls/GUI/Uduekraan/Timer")
+onready var end = get_node("walls/GUI/TheEnd")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,32 +64,40 @@ func _ready():
 
 func _on_Player_lives(lives):
 
-	mist.visible=true
-	timer.start()
-	get_tree().paused = true
+	if lives <= 0:
+		print("otsa sai")
+		
+		get_tree().paused = true
+		end._start()
+	else:	
+		mist.visible=true
+		timer.start()
+		get_tree().paused = true
 
-	print(lives)
-	if lives >= 1:
-		live1.visible=true
-	else:
-		live1.visible=false
-	if lives >= 2:
-		live2.visible=true
-	else:
-		live2.visible=false
-	if lives >= 3:
-		live3.visible=true
-	else:
-		live3.visible=false
-	if lives >= 4:
-		live4.visible=true
-	else:
-		live4.visible=false
-	if lives >= 5:
-		live5.visible=true
-	else:
-		live5.visible=false
-	pass
+		print(lives)
+
+			
+		if lives >= 1:
+			live1.visible=true
+		else:
+			live1.visible=false
+		if lives >= 2:
+			live2.visible=true
+		else:
+			live2.visible=false
+		if lives >= 3:
+			live3.visible=true
+		else:
+			live3.visible=false
+		if lives >= 4:
+			live4.visible=true
+		else:
+			live4.visible=false
+		if lives >= 5:
+			live5.visible=true
+		else:
+			live5.visible=false
+		pass
 
 
 func _on_Timer_timeout():

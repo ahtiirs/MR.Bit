@@ -9,12 +9,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _process(delta):
-	if self.visible:
-		if Input.get_action_strength("esc"):
-			staap._on_ok_pressed()
-		if Input.get_action_strength("ok"):
-			staap._on_ok_pressed()
+#func _process(delta):
+#	if self.visible:
+#		if Input.get_action_strength("esc"):
+#			staap._on_ok_pressed()
+#		if Input.get_action_strength("ok"):
+#			staap._on_ok_pressed()
 
 func _on_ok_pressed():
 	self.visible = false 

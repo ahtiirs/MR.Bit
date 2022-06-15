@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "Nextlevel"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -10,8 +10,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.1, 4.1, 5 ),
-"transitions": PoolRealArray( 2.37842, 1, 1.7411, 1 ),
+"times": PoolRealArray( 0, 2.1, 4.1, 5, 7 ),
+"transitions": PoolRealArray( 2.37842, 1, 1.7411, 1.7411, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }

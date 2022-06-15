@@ -49,8 +49,9 @@ onready var intheBag = get_parent().get_node("inTheBag")
 onready var component_info = get_node("Partinfo")
 onready var progres = .get_parent().get_node("Panel_P/GameLevel")
 onready var task_text = task_window.get_node("label")
+onready var direction = .get_parent().get_node("MiniMother")
 onready var wait = 0
-onready var timeout = 30
+onready var timeout = 15
 
 signal lives
 signal levelup
@@ -73,6 +74,7 @@ func _process(delta):
 func _on_StaapEntrance_body_entered(body):
 	if body.name == "Player":
 		intheBag.visible = false
+		direction.visible = false
 #		if game.ok_button[game.status] == 1:
 #			self.get_node("StaapText/ok").visible = true
 #			self.get_node("Exit").visible = false
@@ -186,7 +188,7 @@ func _on_ok_pressed():
 	#		level1end.play()
 		get_tree().paused = false
 		task_window.visible = false
-		
+		direction.visible = true
 		game.bag = "empty"
 
 func _partinfo_ok_pressed():
@@ -240,12 +242,15 @@ func _on_Level1_end_finished():
 func _on_Level2_end_finished():
 		component_info.visible = false
 		level2end.visible = false
-		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
-		var leveltext = get_parent().get_node("Level_end/Level_text")
-		leveltext.text = "  LÕPP"
-		var levelscreen = get_parent().get_node("Level_end")
-		levelscreen.visible = true
-		levelanime.play("Nextlevel")
+		var end = get_parent().get_node("TheEnd")
+		end._start()
+
+#		var levelanime = get_parent().get_node("Level_end/Nextlevelanimation")
+#		var leveltext = get_parent().get_node("Level_end/Level_text")
+#		leveltext.text = "  LÕPP"
+#		var levelscreen = get_parent().get_node("Level_end")
+#		levelscreen.visible = true
+#		levelanime.play("Nextlevel")
 
 
 func _on_Nextlevelanimation_animation_finished(anim_name):
