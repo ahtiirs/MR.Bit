@@ -656,10 +656,12 @@ position = Vector2( -41, -31 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Music"]
 pause_mode = 2
-position = Vector2( 1719, -2399 )
+position = Vector2( 1148, -2280 )
 stream = ExtResource( 11 )
+volume_db = -26.255
 autoplay = true
-max_distance = 8000.0
+max_distance = 80000.0
+attenuation = 0.000311172
 bus = "music"
 
 [node name="Components" type="Node2D" parent="walls"]
