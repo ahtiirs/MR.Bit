@@ -366,6 +366,7 @@ margin_left = 135.0
 margin_top = 270.0
 margin_right = 322.0
 margin_bottom = 306.0
+shortcut_in_tooltip = false
 shortcut = SubResource( 14 )
 text = "ASUN TEELE"
 
@@ -408,6 +409,7 @@ margin_left = 217.0
 margin_top = 494.0
 margin_right = 397.0
 margin_bottom = 530.0
+shortcut_in_tooltip = false
 shortcut = SubResource( 16 )
 text = "Paigaldan arvutisse"
 __meta__ = {
@@ -424,6 +426,7 @@ margin_left = 1529.0
 margin_top = 789.0
 margin_right = 1665.0
 margin_bottom = 845.0
+shortcut_in_tooltip = false
 
 [node name="PauseMenu" parent="walls/GUI" index="1"]
 visible = false
@@ -464,6 +467,7 @@ margin_top = 153.272
 margin_right = 930.612
 margin_bottom = 189.272
 theme = ExtResource( 16 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 18 )
 text = "Seiklema"
 

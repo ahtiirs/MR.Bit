@@ -132,6 +132,7 @@ margin_left = 320.0
 margin_top = 150.0
 margin_right = 545.0
 margin_bottom = 186.0
+shortcut_in_tooltip = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,6 +142,7 @@ margin_left = 482.0
 margin_top = 94.0
 margin_right = 548.0
 margin_bottom = 130.0
+shortcut_in_tooltip = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,6 +152,7 @@ margin_left = 474.0
 margin_top = 214.0
 margin_right = 540.0
 margin_bottom = 250.0
+shortcut_in_tooltip = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,6 +206,7 @@ margin_left = 784.0
 margin_top = 456.0
 margin_right = 912.0
 margin_bottom = 492.0
+shortcut_in_tooltip = false
 text = "TAGASI"
 __meta__ = {
 "_edit_use_anchors_": false

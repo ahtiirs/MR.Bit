@@ -283,7 +283,6 @@ position = Vector2( 1134, 388 )
 texture = ExtResource( 18 )
 
 [node name="Test" type="Label" parent="walls/GUI/Staap" index="29"]
-visible = false
 margin_left = 327.0
 margin_top = 20.0
 margin_right = 940.0
@@ -640,8 +639,10 @@ position = Vector2( -41, -31 )
 pause_mode = 2
 position = Vector2( 2292, -1537 )
 stream = ExtResource( 39 )
+volume_db = -26.873
 autoplay = true
-max_distance = 8000.0
+max_distance = 80000.0
+attenuation = 0.000357442
 bus = "music"
 
 [node name="Components" type="Node2D" parent="walls"]

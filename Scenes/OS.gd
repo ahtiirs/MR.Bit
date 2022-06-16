@@ -12,7 +12,7 @@ var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
 var time_now = 0
-var walk = 0
+var walk = false
 
 var moves = {
 	1 : Vector2(-1,1),
@@ -133,7 +133,7 @@ func _process(delta):
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
 
-	if walk == 0:
+	if !walk:
 		motion = Vector2(0,0)
 
 	var collision = move_and_collide(motion)

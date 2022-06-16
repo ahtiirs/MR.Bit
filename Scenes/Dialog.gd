@@ -60,10 +60,10 @@ func _on_QuestionArea_on_dialog():
 	else:
 		set_visible_characters(get_total_character_count())
 
-	print("kontroll ",page)
-	kontroll+=1
-	if game.current_level[game.status] == "OS":
-		game.bag = "OS"
+#	print("kontroll ",page)
+#	kontroll+=1
+#	if game.current_level[game.status] == "OS":
+#		game.bag = "OS"
 
 func _on_Button_pressed():
 	var jutt = get_parent().get_parent().get_parent().get_node("Mother/"+game.current_level[game.status])
@@ -78,6 +78,7 @@ func _on_Button_pressed():
 func _mother_helps():
 	if mother.bag == "OS":
 		OS.visible = true
+		OS.walk = true
 		OS.set_collision_mask_bit(0, true)
 		OS.set_collision_mask_bit(1, true)
 
