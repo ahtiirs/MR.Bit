@@ -21,17 +21,17 @@ var staapText = {
 
 var partText = {
 	"MB":"Emaplaat on trükiplaat arvutis, mille sees ja peal on erinevaid elektroonika radu ja seadiseid. Rajad omakorda moodustavad siinid, mida mööda liiguvad andmed erinevate siseseadmete ja ka välisseadmetele.Emaplaadile ühendatakse kõik arvuti siseseadmed ja ka kaudselt kõik välisseadmed",
-	"CPU":"Protsessor kujutab endast loogikaskeemi, mis interpreteerib ja täidab käske ning koosneb vähemalt käsuseadmest ja aritmeetika-loogikaseadmest. Enamasti mõeldakse protsessori all arvuti keskprotsessorit. Personaalarvutites ja digijuhtimisega seadmetes kasutatavaid protsessoreid nimetatakse protsessorikiipide väikeste mõõtmete tõttu sageli mikroprotsessoriteks",
-	"RAM":"muutmälu, suvapöördusmälu Arvuti keskne mäluseade, kuhu saab andmeid kirjutada ja kust saab neid lugeda. Suvapöördus (random access) tähendab seda, et igal mälupesal on oma aadress ning nii lugemiseks kui kirjutamiseks on võimalik pöörduda suvalise aadressi poole. Enamik muutmälusid pole säilmälud, s.t. toite väljalülitamisel mälus olevad andmed hävivad",
-	"HDD":"kõvakettaajam Kuna kõvakettad on alati koos kettaajamiga monteeritud hermeetiliselt suletud korpustesse, mida ei saa lahti võtta, siis kasutatakse termineid 'kõvaketas' ja 'kõvakettajam' harilikult sünonüümidena. Flopi- ja laserkettaid saab aga ajamis vahetada ja seepärast tehakse ka terminoloogias selget vahet ketaste ja ajamite vahel",
-	"PSU":"Arvuti toiteplokk (ingl Power Supply Unit ehk PSU) on üheks olulisemaks osaks arvuti riistvarast, muundades elektrivõrgust saadava vahelduvpingevoolu arvuti elektroonikakomponentide jaoks sobivaks madalapingeliseks alalisvooluks. See tähendab, et kõrgem pinge ja väiksema vool konverteeritakse madalamaks pingeks ja tugevamaks vooluks. Ilma toiteplokita ei saa ülejäänud sisemine riistvara toimida, kuid oluline on seejuures silmas pidada, et toiteallikas peab ühilduma nii emaplaadi kui ka arvuti korpusega.",
-	"Keyboard":"QWERTY-klaviatuuripaigutus sai populaarseks pärast seda, kui see 1878. aastal Remingtoni nr 2 kirjutusmasina osana välja anti. Selle paigutuse lõi Christopher Sholes, kuid selle loomise põhjuseid ümbritsevad paljud müüdid. Mõned ütlevad, et ta lõi QWERTY-klaviatuuri, et eraldada tavalised tähekombinatsioonid ja hoida ära kirjutusmasina klahvid segamise eest. Teadlaste sõnul pole selle väite kohta tõestust, eriti kuna E ja R on naabrid ning inglise keeles on neljas kõige levinum tähekombinatsioon.",
-	"OS":"OP Süsteem on...",
-	"GPU":"Graafikakaart on  videokaart, mis on installitud enamikesse arvutusseadmetesse, et kuvada graafilisi andmeid suure selguse, värvide, eraldusvõime ja üldise välimusega. Graafikakaart pakub kvaliteetset visuaalset kuva, töödeldes ja käivitades graafilisi andmeid täiustatud graafiliste tehnikate, funktsioonide ja funktsioonide abil.",
-	"Cooler":"Arvuti jahutus on vajalik arvutikomponentide tekitatud heitsoojuse eemaldamiseks, komponentide hoidmiseks lubatud töötemperatuuri piirides. Komponendid, mis võivad ülekuumenemise korral tekkida ajutise talitlushäire või püsiva rikke korral, hõlmavad integraallülitusi, nagu keskprotsessorid (CPU-d), kiibistikud, graafikakaardid ja kõvakettadraivid.",
-	"Soundcard":"Helikaart on arvutites heli vastuvõtmiseks ja saatmiseks kasutatav laienduskomponent. Helikaarte konfigureeritakse ja kasutatakse tarkvararakenduse ja seadme draiveri abil. Heliandmete vastuvõtmiseks ühendatav sisendseade on tavaliselt mikrofon, heliandmete väljastamiseks kasutatav seade aga kõlarid või kõrvaklapid.",
-	"Speaker":"Arvuti kõlar on väljundriistvaraseade, mis ühendatakse heli tekitamiseks arvutiga. Arvuti kõlarist tuleva heli tekitamiseks kasutatav signaal luuakse arvuti helikaardi abil.",
-	"Mouse":"Arvutihiir on riistvaraline sisendseade, mis juhib kursorit GUI-s (graafilises kasutajaliideses) teksti, ikoonide, failide ja kaustade osutamiseks, teisaldamiseks ja valimiseks arvutis. Lisaks nendele funktsioonidele saab hiirt kasutada ka objektide pukseerimiseks ja juurdepääsu andmiseks paremklõpsu menüüle.",
+	"CPU":"Protsessor on mikroskeem, mis täidab käske. Oluline on jälgida emaplaadi ja protsessori omavahelist sobivust.",
+	"RAM":"Muutmälu on arvuti keskne mäluseade, kuhu saab andmeid kiirelt kirjutada ja lugeda. Info kustub arvuti väljalülitamisel.",
+	"HDD":'Kõvaketas on info pikaajaliseks talletamiseks. Kaasajal kasutatakse SSD-mäluseadmeid, kuid nimetus kõvaketas on endiselt kasutusse jäänud.',
+	"PSU":"Arvuti toiteplokk tagab arvuti tööks vajalikele osadele elektrivoolu. Jälgima peab, et võimsus oleks piisav ja sobiks korpusesse.",
+	"Keyboard":"Klaviatuur on peamine seade, mille abil inimene saab infot ja käsklusi arvutisse sisestada. Nagu trükimasin vanasti.",
+	"OS":"OP süsteem on arvuti hing – see mis kuvab pilti, vahendab käsklusi, muudab arusaamatu bittide rea inimesele arusaadvaks.",
+	"GPU":"Graafikakaart on  videokaart, mis on installitud enamikesse arvutusseadmetesse, et kuvada graafilisi andmeid suure selguse, värvide, eraldusvõime ja üldise välimusega. ",
+	"Cooler":"Kui arvuti komponendid töötavad, kipuvad nad üle kuumenema, et seda ei juhtuks, peab neid jahutama. Kõige rohkem vajavad jahutust protsessor ja videokaart.",
+	"Soundcard":"Et esitada või salvestada heli on vaja vastavat seadet - selleks ongi helikaart. Helikaardil on mikrofoni sisend ja kõlari väljund.",
+	"Speaker":"Ilmselt teab igaüks, mis on kõlar – kast, mis teeb häält. Tänapäeval on kõlar sageli juba arvuti korpusesse või monitori ehitatud.",
+	"Mouse":"Hiir on pärast klaviatuuri ilmselt järgmine seade, mille abil me arvutit juhime.",
 	"Game":"Jehuu, läheb mänguks!",
 	"Game Over":"Game Over"
 	}

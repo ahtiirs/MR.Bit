@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://bit_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/font/LondrinaSolid-Black.ttf" type="DynamicFontData" id=2]
@@ -11,8 +11,8 @@
 [ext_resource path="res://Scenes/StaapStart_Keyb.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Bit2.gd" type="Script" id=11]
-[ext_resource path="res://Assets/staap/levelend2.webm" type="VideoStream" id=12]
-[ext_resource path="res://Assets/staap/level_end.webm" type="VideoStream" id=13]
+[ext_resource path="res://Assets/staap/level_end.ogv" type="VideoStream" id=12]
+[ext_resource path="res://Assets/staap/levelend2.ogv" type="VideoStream" id=13]
 [ext_resource path="res://ScenesNextlevel.tres" type="Animation" id=14]
 [ext_resource path="res://Assets/infovaade/pinku-infovaade.png" type="Texture" id=15]
 [ext_resource path="res://Assets/infovaade/fortnight-infovaade.png" type="Texture" id=16]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Assets/kogutud/kolar.png" type="Texture" id=33]
 [ext_resource path="res://Assets/infovaade/kott-hiirega.png" type="Texture" id=34]
 [ext_resource path="res://Assets/infovaade/tyhikott-klaver.png" type="Texture" id=35]
+[ext_resource path="res://Assets/infovaade/sisenemine_02.ogv" type="VideoStream" id=36]
 [ext_resource path="res://Assets/sounds/hiir.mp3" type="AudioStream" id=37]
 [ext_resource path="res://Assets/kogutud/protsessor.png" type="Texture" id=38]
 [ext_resource path="res://Assets/muusika/sport-fashion-rock-95426.mp3" type="AudioStream" id=39]
@@ -56,6 +57,7 @@
 [ext_resource path="res://Scenes/OS.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Scenes/Projector.tscn" type="PackedScene" id=56]
 [ext_resource path="res://Scenes/Brain.tscn" type="PackedScene" id=57]
+[ext_resource path="res://Assets/infovaade/sisenemine_01.ogv" type="VideoStream" id=58]
 [ext_resource path="res://Scenes/YellowNotes.tscn" type="PackedScene" id=59]
 [ext_resource path="res://Scenes/Bookshelf.tscn" type="PackedScene" id=60]
 [ext_resource path="res://Scenes/Piano.tscn" type="PackedScene" id=61]
@@ -155,7 +157,11 @@ script = ExtResource( 4 )
 [node name="Staap" parent="walls/GUI" index="0"]
 script = ExtResource( 6 )
 
+[node name="StaapStart" parent="walls/GUI/Staap" index="0"]
+stream = ExtResource( 58 )
+
 [node name="StaapStart_Keyb" parent="walls/GUI/Staap" index="1"]
+stream = ExtResource( 36 )
 autoplay = false
 script = ExtResource( 9 )
 
@@ -283,7 +289,7 @@ position = Vector2( 1134, 388 )
 texture = ExtResource( 18 )
 
 [node name="Test" type="Label" parent="walls/GUI/Staap" index="29"]
-margin_left = 327.0
+margin_left = 351.0
 margin_top = 20.0
 margin_right = 940.0
 margin_bottom = 67.0
@@ -294,20 +300,8 @@ custom_fonts/font = SubResource( 10 )
 text = "sadcasdcsadc"
 align = 1
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="30"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
-stream = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level2_end" type="VideoPlayer" parent="walls/GUI/Staap" index="31"]
 visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
@@ -316,10 +310,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Level2_end" type="VideoPlayer" parent="walls/GUI/Staap" index="31"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="StaapText" type="WindowDialog" parent="walls/GUI/Staap" index="32"]
-margin_left = 423.0
+margin_left = 368.0
 margin_top = 121.0
-margin_right = 877.0
+margin_right = 928.0
 margin_bottom = 439.0
 theme = ExtResource( 1 )
 script = ExtResource( 7 )
@@ -330,66 +333,52 @@ __meta__ = {
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/StaapText"]
 margin_left = 16.0
 margin_top = 22.0
-margin_right = 451.0
-margin_bottom = 276.0
+margin_right = 544.0
+margin_bottom = 257.0
 theme = ExtResource( 1 )
 text = "Siia tulevad ülesanded mida poiss täidab"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="walls/GUI/Staap/StaapText"]
-margin_left = 135.0
+margin_left = 189.0
 margin_top = 270.0
-margin_right = 322.0
+margin_right = 376.0
 margin_bottom = 306.0
 shortcut = SubResource( 12 )
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
-margin_left = 439.0
-margin_top = 78.0
-margin_right = 877.0
-margin_bottom = 487.0
+visible = true
+margin_left = 367.0
+margin_top = 142.0
+margin_right = 928.0
+margin_bottom = 561.0
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Pealkiri" type="Label" parent="walls/GUI/Staap/Partinfo"]
-margin_right = 435.0
+margin_right = 558.0
 margin_bottom = 121.0
 theme = ExtResource( 1 )
 text = "TUBLI OLED!
 Saabusid täpselt õige asjaga."
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="label" type="RichTextLabel" parent="walls/GUI/Staap/Partinfo"]
 margin_left = 14.0
 margin_top = 137.0
-margin_right = 419.0
-margin_bottom = 338.0
+margin_right = 549.0
+margin_bottom = 396.0
 theme = ExtResource( 1 )
 text = "Algne text"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
-margin_left = 133.0
-margin_top = 356.0
-margin_right = 313.0
-margin_bottom = 392.0
+margin_left = 193.0
+margin_top = 367.0
+margin_right = 373.0
+margin_bottom = 403.0
 shortcut = SubResource( 14 )
 text = "Paigaldan arvutisse"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Exit" parent="walls/GUI/Staap" index="34"]
 margin_left = 2305.0
@@ -489,6 +478,7 @@ visible = false
 position = Vector2( 91, 98 )
 
 [node name="Level_end" type="Panel" parent="walls/GUI"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1280.0
 margin_bottom = 720.0
@@ -517,7 +507,7 @@ pause_mode = 2
 anims/Nextlevel = ExtResource( 14 )
 
 [node name="TheEnd" parent="walls/GUI" instance=ExtResource( 32 )]
-visible = true
+visible = false
 
 [node name="2_Brain" parent="walls" groups=["Collect"] instance=ExtResource( 57 )]
 position = Vector2( 3897, -3687 )

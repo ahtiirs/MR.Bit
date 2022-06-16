@@ -14,7 +14,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=20]
 resource_name = "TitleAnim"
-length = 11.0
+length = 15.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label_makers:rect_scale")
 tracks/0/interp = 1
@@ -46,7 +46,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.3, 6.2, 10.1, 11 ),
+"times": PoolRealArray( 4.3, 6.2, 14, 14.9 ),
 "transitions": PoolRealArray( 3.73213, 0.34151, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -58,7 +58,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 4.3, 6.5, 10.1, 11 ),
+"times": PoolRealArray( 4.3, 6.5, 14, 14.9 ),
 "transitions": PoolRealArray( 6.49802, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -90,8 +90,6 @@ tracks/5/keys = {
 
 [node name="TheEnd" type="Panel"]
 pause_mode = 2
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 1280.0
 margin_bottom = 720.0
 theme = ExtResource( 2 )
@@ -101,12 +99,10 @@ __meta__ = {
 }
 
 [node name="Label_makers" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 1.68858e-05 )
-margin_left = 579.167
-margin_top = 194.278
-margin_right = 1278.17
-margin_bottom = 574.278
-rect_scale = Vector2( 0.20525, 0.20525 )
+margin_left = 293.0
+margin_top = 97.0
+margin_right = 991.986
+margin_bottom = 476.993
 custom_fonts/font = SubResource( 19 )
 text = "Mängu loojad:
 Valter Rosenfeld (projektijuht)
@@ -120,19 +116,18 @@ __meta__ = {
 }
 
 [node name="Label_Notes" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 1.89194e-09 )
-margin_left = 136.0
-margin_top = 590.0
-margin_right = 1150.0
-margin_bottom = 630.0
-text = "Mängu prototüüp on valminud Tallinna Ülikooli Rakendusinformaatika tudengite praktikatööna. "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = 137.0
+margin_top = 550.0
+margin_right = 1152.0
+margin_bottom = 633.0
+text = "Mängu prototüüp on valminud Tallinna Ülikooli Rakendusinformaatika tudengite praktikatööna. 
+2022"
+align = 1
 
 [node name="Endmusic" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Label_End" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 2.0
 margin_top = 2.0
@@ -142,9 +137,6 @@ custom_fonts/font = SubResource( 21 )
 text = "LÕPP"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TitleAnimation" type="AnimationPlayer" parent="."]
 anims/TitleAnim = SubResource( 20 )

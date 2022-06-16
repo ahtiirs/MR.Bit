@@ -17,9 +17,6 @@ margin_left = 112.0
 margin_right = -264.0
 margin_bottom = -64.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 Resolution_Choice = NodePath("TabContainer/Seaded/ResolutionOptions")
 
 [node name="TabContainer" type="TabContainer" parent="."]
@@ -207,10 +204,15 @@ margin_top = 456.0
 margin_right = 912.0
 margin_bottom = 492.0
 shortcut_in_tooltip = false
-text = "TAGASI"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "LAHKU MÄNGUST"
+
+[node name="Button2" type="Button" parent="TabContainer/Seaded"]
+margin_left = 637.0
+margin_top = 456.0
+margin_right = 765.0
+margin_bottom = 492.0
+shortcut_in_tooltip = false
+text = "TAGASI MÄNGU"
 
 [node name="Label juhtklahvid" type="Label" parent="TabContainer/Seaded"]
 margin_left = 699.0
@@ -328,3 +330,4 @@ texture = ExtResource( 5 )
 [connection signal="value_changed" from="TabContainer/Seaded/SpeakVolume" to="." method="_on_MasterVolume3_value_changed"]
 [connection signal="value_changed" from="TabContainer/Seaded/MusicVolume" to="." method="_on_MasterVolume4_value_changed"]
 [connection signal="pressed" from="TabContainer/Seaded/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TabContainer/Seaded/Button2" to="." method="_on_Button_pressed"]

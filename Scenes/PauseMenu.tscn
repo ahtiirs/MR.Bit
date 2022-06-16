@@ -27,9 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Backround" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -102,6 +99,8 @@ __meta__ = {
 }
 
 [node name="Quit_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+anchor_top = -0.00819672
+anchor_bottom = -0.00819672
 margin_top = 204.0
 margin_right = 200.0
 margin_bottom = 244.0
