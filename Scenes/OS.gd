@@ -12,6 +12,7 @@ var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
 var time_now = 0
+var walk = 0
 
 var moves = {
 	1 : Vector2(-1,1),
@@ -118,9 +119,7 @@ func _process(delta):
 	if tryTime > 0:
 		tryTime -= delta
 		
-	time_now = OS.get_unix_time()
-	var time_elapsed = time_now - time_start
-#	print(time_elapsed)
+
 		
 	
 	EnemyToPlayer = global_position - EnemyPosition
@@ -133,7 +132,9 @@ func _process(delta):
 		motion.y = lerp(0,motion.y, pow(2,  -20 * delta))
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
-#	motion = Vector2(0,0)
+
+	if walk == 0:
+		motion = Vector2(0,0)
 
 	var collision = move_and_collide(motion)
 
@@ -154,6 +155,8 @@ func _process(delta):
 				
 	
 	update_target_position()		
+
+
 	update_animation(moveVector)
 
 	

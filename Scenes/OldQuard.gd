@@ -7,7 +7,7 @@ var acceleration = 200 # mängija kiirendus ja pidurdus
 var motion = Vector2.ZERO 
 var collision = ""
 var collided = false # kui pole seinaga kokkupõrget toimunud siis alväärtus on false
-var MaxDistance = 850 # max kaugus millest lähemal vaenlane märkab mängijat
+var MaxDistance = 1000 # max kaugus millest lähemal vaenlane märkab mängijat
 var  FOV = 90 # vaenlase vaatenurk
 var freeDistance = []
 var time_start = 0
@@ -140,7 +140,7 @@ func _process(delta):
 			$OldManAttentionSound.play()
 #			animation.play("stumble")
 			state = CHASE 
-			timer = 7 # mitu sekundit taga ajab
+			timer = 10 # mitu sekundit taga ajab
 #			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
 			quick = 2
 
@@ -175,7 +175,7 @@ func _process(delta):
 		update_target_position()	
 		tryTime= 0.1
 		if collision.collider.name == "Player":
-			print("Sain su kätte poiss")
+#			print("Sain su kätte poiss")
 			notcatch = false
 			
 	else:

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var lives = 1 # mängijal elusid
+var lives = 5 # mängijal elusid
 #const MOTION_SPEED = 180# Pixels/second.
 const maxSpeed = 8
 const friction = 20 

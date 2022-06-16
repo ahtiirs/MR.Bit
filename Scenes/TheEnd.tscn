@@ -110,8 +110,8 @@ rect_scale = Vector2( 0.20525, 0.20525 )
 custom_fonts/font = SubResource( 19 )
 text = "Mängu loojad:
 Valter Rosenfeld (projektijuht)
- Juho Kalberg (kujundaja),
-Kalev Kask (helid ja testija,
+ Juho Kalberg (kujundaja)
+Kalev Kask (helid ja testija)
 Ahti Irs (programmeerija) "
 align = 1
 autowrap = true
