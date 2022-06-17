@@ -37,18 +37,6 @@ onready var Game = get_parent().get_node("Game")
 onready var end = get_parent().get_node("GUI/TheEnd")
 
 
-
-
-
-
-
-
-func _ready():
-	
-#	YesPopup.add_item("Räägin emaga",YesIds.Yes)
-#	YesPopup.add_item("Longin edasi",YesIds.No)	
-	pass
-
 func _process(delta):
 	EnemyToPlayer = global_position - get_parent().get_node("OldQuard").get_position()
 
@@ -57,7 +45,7 @@ func _process(delta):
 	moveVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	motion += moveVector * acceleration * delta 
-#	motion = motion.normalized()
+
 
 	if (moveVector.x == 0):
 		motion.x = lerp(0,motion.x, pow(2,  -20 * delta))
@@ -67,67 +55,20 @@ func _process(delta):
 
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	motion.y = clamp(motion.y, -maxSpeed, maxSpeed)
-#	var movePerSec = motion.normalized()
-#	if EnemyToPlayer.length() < MaxDistance:
-#			print (EnemyToPlayer)
-#			print (EnemyToPlayer.dot(motion))
-#			print("Mind nähti, jookseni!!!")
-
 	
 	var collision = move_and_collide(motion)
 
 	if collision :
-#		print(collision.collider.name)
-#
-#		print(to_local(global_position))
-
 		if collision.collider.name == "walls" || collision.collider.name == "Staap" :
 			if collided == false:
 				$collision.play()
 				collided = true
-		if collision.collider.name == "Mother":
-#			if mother.bag == "OS":
-#				OS.visible = true
-#				OS.set_collision_mask_bit(0, true)
-#				OS.set_collision_mask_bit(1, true)
-#
-#				OS.set_collision_layer_bit(0, true)
-#				OS.set_collision_layer_bit(1, true)
-#
-#				mother.bag = "empty"
-#
-#
-#			if 	mother.bag == "Game":
-#				Game.visible = true
-#				print("Näita mängu")
-#				Game.set_collision_mask_bit(0, true)
-#				Game.set_collision_mask_bit(1, true)
-#
-#				Game.set_collision_layer_bit(0, true)
-#				Game.set_collision_layer_bit(1, true)
-#
-#				mother.bag = "empty"
-#
-#			Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y)
-#			YesPopup.popup(Rect2(global_position.x,global_position.y,YesPopup.rect_size.x,YesPopup.rect_size.y))
-#			YesPopup.popup(Rect2(-500,-500,YesPopup.rect_size.x,YesPopup.rect_size.y))
-#			var MotherPosition = get_node("Mother").get_position()
-#			YesPopup.popup()
-#			YesPopup.rect_position = MotherPosition
-						
-#			print("alustan dialoogi emaga")
-#			YesPopup.visible = true
-#			get_tree().paused = true
-			pass
 
 		if collision.collider.get_groups().has("enemy") && collided == false:
 
 			get_tree().paused = true
 			$ouch.play()
-#			lives = lives -1
-#			emit_signal("lives",lives)
 			collided = true
-
 
 
 			if lives <= 0:
@@ -135,7 +76,6 @@ func _process(delta):
 				get_tree().quit() # Mängu lõpp
 
 
-				
 		var collGroups = collision.collider.get_groups()
 #		print("collArray",collGroups)
 		
@@ -158,14 +98,8 @@ func _process(delta):
 			
 	else:
 		collided = false
-#	moveVector.y = moveVector.y * 1.3
-#	moveVector.x = moveVector.x / 1.3
 	update_animation(moveVector)
-#	if lives <= 0:
-#		print("otsa sai")
-#		end._start()
-##		end._start() # Mängu lõpp
-		
+
 
 func update_animation(moveVec):
 
@@ -212,8 +146,6 @@ func update_animation(moveVec):
 	if (moveVec.x == 0 && moveVec.y == 0):
 		$AnimatedSprite.play("idle")
 		$walk.stop()
-		
-
 
 func _on_ouch_finished():
 	get_tree().paused = false
@@ -222,7 +154,4 @@ func _on_ouch_finished():
 	emit_signal("lives",lives)
 	self.set_position(Vector2(1543,-1635))
 	OldGuard.set_position(Vector2(175,-1920))
-	
-#	if lives <= 0:
-#		print("otsa sai")
-#		end._start()
+

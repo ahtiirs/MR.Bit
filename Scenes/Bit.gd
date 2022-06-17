@@ -32,19 +32,8 @@ var current_level = [
 	]
 	
 var ok_button = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-#var level1 = [
-#	"MB",
-#	"CPU",
-#	"RAM",
-#	"HDD",
-#	"PSU",
-#	"Keyboard",
-#	"OS"
-#	]
-	
-#var ok_button_l1 = [1,0,0,0,0,0,0]
-#var level2 = ["Mouse","Cooler","GPU","Soundcard","Speaker","Mic"]
-#var ok_button_l2 = [0,0,0,0,0,0,0]
+
+signal minimammi
 
 onready var live1 = get_node("walls/GUI/Panel_V/VBoxContainer/Syda1")
 onready var live2 = get_node("walls/GUI/Panel_V/VBoxContainer/Syda2")
@@ -56,60 +45,51 @@ onready var timer = get_node("walls/GUI/Uduekraan/Timer")
 onready var end = get_node("walls/GUI/TheEnd")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 
 func _on_Player_lives(lives):
 
 	if lives <= 0:
-		print("otsa sai")
-		
+		emit_signal("minimammi",false)
+		ShowLives(lives)
 		get_tree().paused = true
 		end._start()
-	else:	
+	else:
+		emit_signal("minimammi",false)	
 		mist.visible=true
 		timer.start()
 		get_tree().paused = true
+		ShowLives(lives)
 
-		print(lives)
 
-			
-		if lives >= 1:
-			live1.visible=true
-		else:
-			live1.visible=false
-		if lives >= 2:
-			live2.visible=true
-		else:
-			live2.visible=false
-		if lives >= 3:
-			live3.visible=true
-		else:
-			live3.visible=false
-		if lives >= 4:
-			live4.visible=true
-		else:
-			live4.visible=false
-		if lives >= 5:
-			live5.visible=true
-		else:
-			live5.visible=false
-		pass
+func ShowLives(lives):
+	if lives >= 1:
+		live1.visible=true
+	else:
+		live1.visible=false
+	if lives >= 2:
+		live2.visible=true
+	else:
+		live2.visible=false
+	if lives >= 3:
+		live3.visible=true
+	else:
+		live3.visible=false
+	if lives >= 4:
+		live4.visible=true
+	else:
+		live4.visible=false
+	if lives >= 5:
+		live5.visible=true
+	else:
+		live5.visible=false
+	pass
 
 
 func _on_Timer_timeout():
 	mist.visible=false
-	print("imer lõpetas, mist maha")
 	get_tree().paused = false
-
+	emit_signal("minimammi",true)
 
 func _on_Staap_levelup():
-#	level=level+1
-#	current_level=level2
-#	ok_button=ok_button_l2
-#	var status = 0
-#	bag = "empty"
+#
 	pass

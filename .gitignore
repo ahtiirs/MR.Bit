@@ -3,6 +3,9 @@
 .import/
 export.cfg
 export_presets.cfg
+*.pck
+*.exe
+*.dll
 
 # Mono-specific ignores
 .mono/

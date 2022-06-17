@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Button.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/tavavaade.jpg" type="Texture" id=2]
 [ext_resource path="res://bit_theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/font/LondrinaSolid-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/sounds/rock-it-21275.mp3" type="AudioStream" id=6]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ok"
@@ -142,6 +143,24 @@ align = 1
 
 [node name="Settings" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="BeginMusic" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 6 )
+volume_db = -17.223
+autoplay = true
+bus = "music"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 705.0
+margin_right = 263.0
+margin_bottom = 727.0
+hint_tooltip = "Music by <a href=\"/users/coma-media-24399569/?tab=audio&amp;utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=audio&amp;utm_content=21275\">Coma-Media</a> from <a href=\"https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=21275\">Pixabay</a>"
+text = "Music by Coma-Media from Pixabay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="PanelContainer/CenterContainer/TextureRect/Button3" to="PanelContainer/CenterContainer/TextureRect/Button" method="_on_Button3_pressed"]

@@ -48,9 +48,9 @@ animations = [ {
 "name": "2",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
-"name": "4",
+"name": "3",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 29 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 17 ) ],
@@ -58,14 +58,14 @@ animations = [ {
 "name": "5",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 25 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "8",
+"name": "4",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "3",
+"name": "7",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 30 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ) ],
@@ -78,37 +78,37 @@ animations = [ {
 "name": "1",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 25 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "7",
+"name": "8",
 "speed": 12.0
 } ]
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 47.9094
+radius = 28.7772
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
-position = Vector2( -286, 28 )
+position = Vector2( 0.999969, 1 )
 scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 30, -190 )
+position = Vector2( 2.50004, -206.25 )
 frames = SubResource( 1 )
 animation = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 30, -5 )
+position = Vector2( -1.24991, 2.5 )
 z_as_relative = false
 shape = SubResource( 6 )
 one_way_collision_margin = 0.0
 
 [node name="walk" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, -12.5 )
+position = Vector2( 9.15527e-05, 2.5 )
 stream = ExtResource( 34 )
 bus = "footsteps"
 
 [node name="collision" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 50, -53.75 )
+position = Vector2( 6.10352e-05, 1.24999 )
 stream = ExtResource( 35 )
 bus = "collision"

@@ -289,6 +289,7 @@ position = Vector2( 1134, 388 )
 texture = ExtResource( 18 )
 
 [node name="Test" type="Label" parent="walls/GUI/Staap" index="29"]
+visible = false
 margin_left = 351.0
 margin_top = 20.0
 margin_right = 940.0
@@ -300,6 +301,9 @@ custom_fonts/font = SubResource( 10 )
 text = "sadcasdcsadc"
 align = 1
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Level1_end" type="VideoPlayer" parent="walls/GUI/Staap" index="30"]
 visible = false
@@ -627,7 +631,7 @@ pitch_scale = 1.1
 [node name="Music" type="Node2D" parent="walls"]
 position = Vector2( -41, -31 )
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="walls/Music"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="walls/Music"]
 pause_mode = 2
 position = Vector2( 2292, -1537 )
 stream = ExtResource( 39 )
@@ -706,6 +710,7 @@ position = Vector2( 4307, -3795 )
 [node name="Fire3" parent="walls" instance=ExtResource( 76 )]
 position = Vector2( 1763, 147 )
 
+[connection signal="minimammi" from="." to="walls/GUI/MiniMother" method="_on_Bit_minimammi"]
 [connection signal="body_entered" from="walls/StaapEntrance" to="walls/GUI/Staap" method="_on_StaapEntrance_body_entered"]
 [connection signal="levelup" from="walls/GUI/Staap" to="." method="_on_Staap_levelup"]
 [connection signal="lives" from="walls/GUI/Staap" to="." method="_on_Player_lives"]

@@ -2,6 +2,9 @@ extends Panel
 
 onready var animation  =  get_node("TitleAnimation")	
 
+
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,6 +16,8 @@ func _ready():
 	
 func _start():
 	self.visible = true
+	var backmusic  =  get_parent().get_parent().get_node("Music/AudioStreamPlayer2D")	
+	backmusic.stop()
 	animation.play("TitleAnim")
 	
 

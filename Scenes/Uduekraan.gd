@@ -16,6 +16,6 @@ func _ready():
 #	pass
 func _process(delta):
 	if !timer.is_stopped():
-		print(timer.get_time_left())
+#		print(timer.get_time_left())
 		self.modulate.a = 1 - abs(timer.get_time_left()-2)/2
 	
