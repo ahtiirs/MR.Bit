@@ -32,8 +32,6 @@ var target_vector = Vector2.ZERO
 var newVector = 0
 var rng = RandomNumberGenerator.new()
 
-
-	
 onready var EnemyToPlayer = global_position
 
 onready var EnemyPosition = get_parent().get_node("Player").get_position()
@@ -52,103 +50,43 @@ enum {
 var state = WANDER
 
 # --------------------------------------------------------------------------------------------------
-
-
 func _ready():
 	rng.randomize()
 	pass
-
-func update_target_position():
-	if timer <= 0 || collided == true && tryTime <= 0 && state:
-		randMouse = int(get_viewport().get_mouse_position().x + get_viewport().get_mouse_position().y)
-		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
-		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
-		moveVector = moves[newVector]
+# --------------------------------------------------------------------------------------------------
 
 
-	
-		for i in range(1, 8):
-#			print("Accessing item at index " + str(i))
-#			print(moves[i])
-			var freeWay = checkForCollision(moves[i]*500) - global_position
-			freeDistance.append(freeWay)
-#			print("kaugus ",freeWay)
-#			print(checkForCollision(moves[i]*500))
-			i+=1
-		timer = (randi() % 5) +4
-		collided = false
-		pass
-		
-
-
-#		newVector = randi() % 8
-#		var randomAngle =  newVector * PI / 8
-#		print("random: ", randomAngle)
-#		timer = (randi() % 8) 
-#		moveVector = moveVector.rotated(randomAngle)
-##		moveVector = Vector2((randi() % 100) - 100, (randi() % 100) - 100)
-#
-##		checkForCollision(moveVector*250)
-#		while checkForCollision(moveVector*250):
-#			moveVector = moveVector.rotated(randomAngle)
-#			print("vaatevektor ",moveVector*500)
-#		collided = false
-#		print(moveVector*250)
-
-func checkForCollision(position):
-	get_node("RayCast2D").position = Vector2(0,0)
-	get_node("RayCast2D").cast_to = position# sets the length of the ray to 0
-	get_node("RayCast2D").add_exception(self)
-	get_node("RayCast2D").force_raycast_update()
-#	print("Raycast...",$RayCast2D.is_colliding())
-#	print("Raycast...", $RayCast2D.get_collider ())
-	$RayCast2D.get_collision_point()
-	return $RayCast2D.get_collision_point ()
-	
-func round_dir(vector):
-	if vector <= -0.5:
-		return -1
-	if vector < 0.5:
-		return 0
-	if vector <= 1:
-		return 1
-		
 
 func _process(delta):
 	if timer > 0:
 		timer -= delta
 	if tryTime > 0:
 		tryTime -= delta
-		
-#	time_now = OS.get_unix_time()
-#	var time_elapsed = time_now - time_start
-#	print(time_elapsed)
 
-# ----------- mängija kauguse kontroll, reziimi muutmine 
+	print(timer)
 
 	var EnemyToPlayer = global_position - get_parent().get_node("Player").get_position()
-	if EnemyToPlayer.length() < MaxDistance:
-#		print (EnemyToPlayer)
+	if EnemyToPlayer.length() < MaxDistance && timer <= 0: # Kui poiss on nägemisulatuses
+
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, get_parent().get_node("Player").get_position(),[self])
-		if !result.has("collider"):
-#		if true:
-#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time(),state)
+		print("mida näen: ",result.collider )
+		if result.collider.name == "Player" :
+		
+			print("asun jälge ajama: " ,result.collider.name)
 			moveVector = global_position.direction_to(get_parent().get_node("Player").get_position())
 			moveVector = Vector2(round_dir(moveVector.x),round_dir(moveVector.y))
 			$OldManSound.stop()
-			$OldManAttentionSound.play()
-#			animation.play("stumble")
-			state = CHASE 
-			timer = 10 # mitu sekundit taga ajab
-#			print(result, " Näen SIND!!! Nu Pogodi!", OS.get_unix_time()," State: ",state,"timer ",timer," ",target_vector)
-			quick = 2
 
+			if $OldManAttentionSound.is_playing():
+				$OldManAttentionSound.play()
+
+			state = CHASE 
+			quick = 2
 		else:
 #			animation.stop()
 			state = WANDER
 			quick = 1.0
-# ------------------------------------------------------------			
 
 
 	motion += moveVector * acceleration * delta 
@@ -161,33 +99,89 @@ func _process(delta):
 	motion.x = clamp(motion.x, -maxSpeed * quick, maxSpeed * quick)
 	motion.y = clamp(motion.y, -maxSpeed * quick, maxSpeed * quick)
 
-#	if state != CHASE:
 	collision = move_and_collide(motion)
-#	else:
-#		collision = move_and_collide(target_vector * MOTION_SPEED * delta)
+
+
+
+
 	
 	if collision :
-#		if collision.Object != null :
-#			if collided == false:
-#			print("vastu seina")
-			
+		print("põrge")
 		collided = true
+		timer = 1
+		state = WANDER
+		
 		update_target_position()	
-		tryTime= 0.1
+
+		tryTime= 1
+
 		if collision.collider.name == "Player":
 #			print("Sain su kätte poiss")
 			notcatch = false
-			
 	else:
 		collided = false
+		notcatch = true
 				
-	
 	update_target_position()	
+
 	update_animation(moveVector)
 
+
+
+################################################################################
+################################################################################
+
+
+
+
+
+
+func update_target_position():
 	
+	if timer <= 0 || collided == true && tryTime <= 0 && state:
+#	if timer <= 0 || collided == true  :
+		randMouse = int(get_viewport().get_mouse_position().x + get_viewport().get_mouse_position().y)
+		randEnemy = int(EnemyPosition.x + EnemyPosition.y)
+		newVector = (rng.randi() + randMouse + randEnemy) % 9 + 1
+		moveVector = moves[newVector]
+		print("vanamehe uus suund: ", newVector, "State: ", state)
+
 
 	
+		for i in range(1, 8):
+#			print("Accessing item at index " + str(i))
+#			print(moves[i])
+			var freeWay = checkForCollision(moves[i]*500) - global_position
+			freeDistance.append(freeWay)
+#			print("kaugus ",freeWay)
+#			print(checkForCollision(moves[i]*500))
+			i+=1
+			
+#		timer = rng.randi_range(2,7)
+		collided = false
+
+
+
+func checkForCollision(position):
+	get_node("RayCast2D").position = Vector2(0,0)
+	get_node("RayCast2D").cast_to = position# sets the length of the ray to 0
+	get_node("RayCast2D").add_exception(self)
+	get_node("RayCast2D").force_raycast_update()
+#	print("Raycast...",$RayCast2D.is_colliding())
+#	print("Raycast...", $RayCast2D.get_collider ())
+	$RayCast2D.get_collision_point()
+	return $RayCast2D.get_collision_point ()
+
+
+func round_dir(vector):
+	if vector <= -0.5:
+		return -1
+	if vector < 0.5:
+		return 0
+	if vector <= 1:
+		return 1
+		
+
 
 
 func update_animation(moveVec):

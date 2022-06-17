@@ -17,5 +17,4 @@ func _ready():
 #	pass
 func _process(delta):
 	var angle = player.position.angle_to_point(mother.position)
-	print(angle)
 	$Arrow.set_rotation(angle)

@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/walls.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Bit2.gd" type="Script" id=11]
 [ext_resource path="res://Assets/staap/level_end.ogv" type="VideoStream" id=12]
-[ext_resource path="res://Assets/staap/levelend2.ogv" type="VideoStream" id=13]
+[ext_resource path="res://Assets/staap/infovaade-level-II-end.ogv" type="VideoStream" id=13]
 [ext_resource path="res://ScenesNextlevel.tres" type="Animation" id=14]
 [ext_resource path="res://Assets/infovaade/pinku-infovaade.png" type="Texture" id=15]
 [ext_resource path="res://Assets/infovaade/fortnight-infovaade.png" type="Texture" id=16]
@@ -347,7 +347,6 @@ shortcut = SubResource( 12 )
 text = "ASUN TEELE"
 
 [node name="Partinfo" type="WindowDialog" parent="walls/GUI/Staap" index="33"]
-visible = true
 margin_left = 367.0
 margin_top = 142.0
 margin_right = 928.0
@@ -371,6 +370,9 @@ margin_right = 549.0
 margin_bottom = 396.0
 theme = ExtResource( 1 )
 text = "Algne text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ok" type="Button" parent="walls/GUI/Staap/Partinfo"]
 margin_left = 193.0

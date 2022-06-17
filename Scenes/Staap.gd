@@ -4,10 +4,10 @@ var LevelsInfo = [0,7,7,0]
 var staapText = {
 	"MB":"Sulle on siin monitor ja arvuti korpus  milles on emaplaat. Ülejäänud vajaliku arvuti tööle saamiseks pead leidma vanalt tehase territooriumilt. Kui sa jääd hätta, pöördu ema poole, ta aitab. Ära teda aga liialt tihti tüüta, ema elu pole kerge. Kui liigud ringi, ole ettevaatlik, Bogdan on kuri ja temaga kohtudes jääd iga kord ilma ühest võimalusest arvuti kokku saada. Võimalusi on sul viis.",
 	"CPU":"Missioon 1. \n Otsi arvutile protsessor. Leia territooriumilt sümbol mis vihjab mõtlemisele!",
-	"RAM":"Missioon 2. \n Otsi arvutile mälu. Leia midagi mis aitab asju meeles pidada ajutiselt!",
-	"HDD":"Missioon 3. \n Otsi arvutile kõvaketas. Leia koht milles on kirja pandud palju infot!",
+	"RAM":"Missioon 2. \n Otsi arvutile mälu. Leia midagi, mis aitab asju ajutiselt meeles pidada!",
+	"HDD":"Missioon 3. \n Otsi arvutile kõvaketas. Leia midagi, kuhu on kirja pandud palju infot.",
 	"PSU":"Missioon 4. \n Otsi arvutile toiteplokk. Leia element mis sisaldab palju energiat!",
-	"Keyboard":"Missioon 5. \n Otsi arvutile klaviatuur. Leia element kus on klahvid!",
+	"Keyboard":"Missioon 5. \n Otsi arvutile klaviatuur. Leia element millel on klahvid!",
 	"OS":"Missioon 6. \n Mine ema juurde, tema ehk teab kust sa saad OP süsteemi!",
 	"GPU":"Missioon 1. \n Otsi arvutile videokaart. Leia seade mis tekitab liikuvat pilti!",
 	"Cooler":"Missioon 2. \n Otsi arvutile jahutus. Leia seade mida kasutaksid kuuma ilmaga!",
@@ -61,7 +61,7 @@ signal levelup
 func _ready():
 	pass # Replace with function body.current_level
 
-func _process(delta):
+func _process(delta):  # Testimiseks saab levelite vahel liikuda klahviga page up ja +
 	if Input.get_action_strength("skip") && wait == 0:
 		wait = timeout
 		next_game_status()

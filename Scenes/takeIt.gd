@@ -22,17 +22,17 @@ var itemtoComponent = {
 var foundText = {
 	"MB":"Kas ema mitte ei käskinud sul esmalt staapi minna?",
 	"CPU":"Kas see asi aitaks mõelda?",
-	"Keyboard":"Kas see on seade millega saaks infot sisestada?",
-	"RAM":"Kas sellega saaks midagi meelde jätta?",
+	"Keyboard":"Kas see on seade, millel on palju klahve?",
+	"RAM":"Kas sellega saaks midagi ajutiselt meelde jätta?",
 	"HDD":"Kas selle abil saaks pikaks ajaks infot talletada?",
 	"PSU":"Kas see annaks seadmetele voolu?",
 	"Mouse":"Kas see on hiire moodi?",
 	"Cooler":"Kas sellega saaks jahutada?",
-	"GPU":"Kas see tekitaks seinale liikuvat pilti?",
+	"GPU":"Kas see tekitaks seinale liikuva pildi?",
 	"Soundcard":"Kas see toodaks heli?",
 	"Speaker":"Kas see tekitab valjut heli?",
 	"Mic":"Mic",
-	"OS":"Kas see võiks kujutada programmi mis arvuti käima paneb?",
+	"OS":"Kas see võiks kujutada programmi, mis arvuti käima paneb?",
 	"Game":"Kas see on programm mida saaks arvutis mängida"
 	}
 	

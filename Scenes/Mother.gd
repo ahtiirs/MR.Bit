@@ -106,7 +106,7 @@ func _process(delta):
 			$AnimatedSprite.play("idle")	#--- peatame mängija animatsiooni
 #			print("kaugus",EnemyToPlayer.length())
 			if EnemyToPlayer.length() < DialogDist && !is_dialog_asked: #-- KAs mängija on vestlusläheduses
-				$memm.play()
+#				$memm.play()
 				YesPopup.visible = true 	#--- avan vestluse küsimise dialoogi
 				get_tree().paused = true	#--- tasutamäng pausile
 				is_dialog_asked = true		#--- dialoogi treiger üles et ei kordaks kohe 
@@ -130,7 +130,7 @@ func _process(delta):
 
 #	print("läksime")
 	collision = move_and_collide(motion)
-	var titt_Rand = rand_range(1,1000)
+	var titt_Rand = rand_range(1,10000)
 
 	if titt_Rand >= 450 && titt_Rand <= 451:
 		$titt.play()

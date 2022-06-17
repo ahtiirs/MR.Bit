@@ -8,9 +8,21 @@ onready var Res_selected = $TabContainer/Seaded/ResolutionOptions
 
 var CPU_mode: bool =  false
 
+
+var is_paused = false setget set_is_paused
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		self.is_paused = !is_paused
+	
+func set_is_paused(value):
+	is_paused = value
+	get_tree().paused = is_paused
+	self.visible = is_paused
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Resolution.add_item("Muuda resolutsiooni")
+#	Resolution.add_item("Muuda resolutsiooni")
 	Resolution.set_item_disabled(0, true)
 	add_resolutions()
 	
@@ -68,3 +80,6 @@ func _on_MasterVolume4_value_changed(value):
 func _on_Button_pressed():
 	get_tree().paused = false
 	self.visible = false
+	
+func _on_Button_quit_pressed():
+	get_tree().quit()
